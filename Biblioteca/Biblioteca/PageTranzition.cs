@@ -9,11 +9,6 @@ namespace Biblioteca
 {
     public partial class aplicatie : Form
     {
-        private void button2_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ai puso!");
-        }
-
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControler.SelectedTab = loginPage;

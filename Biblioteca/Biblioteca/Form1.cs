@@ -31,6 +31,12 @@ namespace Biblioteca
                 {
                     item.Visible = false;
                 }
+                else
+                {
+                    foreach (ToolStripMenuItem subItem in item.DropDown.Items)
+                        if (subItem.Name == "logoutToolStripMenuItem")
+                            subItem.Visible = false;
+                }
             }
 
         }
@@ -48,9 +54,23 @@ namespace Biblioteca
 
             autentificare.Parameters.Add("@UsernameParam", MySqlDbType.VarChar, 45);
             privilegiu.Parameters.Add("@idParam", MySqlDbType.Int32);
+
+            if (loginPage_usernameTextBox.Text == "" || loginPage_passwordTextBox.Text == "")
+            {
+                MessageBox.Show("Username sau Password incorecte!");
+                bibliotecaDatabaseConection.Close();
+                return;
+            }
             autentificare.Parameters["@UsernameParam"].Value = loginPage_usernameTextBox.Text;
 
             dataAdapterAutentificare.Fill(dateAutentificare);
+
+            if(dateAutentificare.Rows.Count == 0)
+            {
+                MessageBox.Show("Username incorect!");
+                bibliotecaDatabaseConection.Close();
+                return;
+            }
 
             foreach (DataRow dra in dateAutentificare.Rows)
             {
@@ -62,6 +82,7 @@ namespace Biblioteca
 
                     foreach (DataRow drp in datePrivilegiu.Rows)
                     {
+                        logoutToolStripMenuItem.Visible = true;
                         if (drp["Nume"] + "" == "admin")
                             logareAdmin();
                         else
@@ -71,10 +92,21 @@ namespace Biblioteca
                                 logareUser();
                     }
 
-                    MessageBox.Show("Atatttttt!");
+                    tabControler.SelectedTab = home;
+                }
+                else
+                {
+                    MessageBox.Show("Password incorect!");
+                    bibliotecaDatabaseConection.Close();
+                    return;
                 }
             }
             bibliotecaDatabaseConection.Close();
+        }
+
+        private void signin_inserareButton_Click(object sender, EventArgs e)
+        {
+
         }
 
        

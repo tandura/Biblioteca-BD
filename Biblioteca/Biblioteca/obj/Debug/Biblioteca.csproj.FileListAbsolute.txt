@@ -38,3 +38,10 @@ D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\bin\Debug\MySql.Data.dll
 D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
 D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
 D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\bin\Debug\MySql.Data.dll
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.aplicatie.resources
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+D:\Spatiu de lucru\Git\Biblioteca-BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.Cache

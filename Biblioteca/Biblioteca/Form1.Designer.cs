@@ -44,32 +44,32 @@
             this.loginPage_usernameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.signinPage = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.signin_inserareButton = new System.Windows.Forms.Button();
+            this.signin_ocupatieTextBox = new System.Windows.Forms.TextBox();
+            this.signin_ocupatieComboBox = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.signin_confirmPassTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.signin_telefonTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.signin_serverEmailTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.signin_corpEmailTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.signin_codPostalTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.signin_stradaTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.signin_orasTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.signin_sexMasculinRadioButton = new System.Windows.Forms.RadioButton();
+            this.signin_sexFemininRadioButton = new System.Windows.Forms.RadioButton();
+            this.signin_prenumeTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.signin_numeTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.signin_passwordTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.signin_usenameTextBox = new System.Windows.Forms.TextBox();
@@ -217,6 +217,7 @@
             this.creareGenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -368,30 +369,30 @@
             // signinPage
             // 
             this.signinPage.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.signinPage.Controls.Add(this.button2);
-            this.signinPage.Controls.Add(this.textBox14);
-            this.signinPage.Controls.Add(this.comboBox1);
+            this.signinPage.Controls.Add(this.signin_inserareButton);
+            this.signinPage.Controls.Add(this.signin_ocupatieTextBox);
+            this.signinPage.Controls.Add(this.signin_ocupatieComboBox);
             this.signinPage.Controls.Add(this.label17);
-            this.signinPage.Controls.Add(this.textBox13);
+            this.signinPage.Controls.Add(this.signin_confirmPassTextBox);
             this.signinPage.Controls.Add(this.label16);
-            this.signinPage.Controls.Add(this.textBox12);
+            this.signinPage.Controls.Add(this.signin_telefonTextBox);
             this.signinPage.Controls.Add(this.label15);
-            this.signinPage.Controls.Add(this.textBox11);
+            this.signinPage.Controls.Add(this.signin_serverEmailTextBox);
             this.signinPage.Controls.Add(this.label14);
-            this.signinPage.Controls.Add(this.textBox10);
+            this.signinPage.Controls.Add(this.signin_corpEmailTextBox);
             this.signinPage.Controls.Add(this.label13);
-            this.signinPage.Controls.Add(this.textBox9);
+            this.signinPage.Controls.Add(this.signin_codPostalTextBox);
             this.signinPage.Controls.Add(this.label12);
-            this.signinPage.Controls.Add(this.textBox8);
+            this.signinPage.Controls.Add(this.signin_stradaTextBox);
             this.signinPage.Controls.Add(this.label11);
-            this.signinPage.Controls.Add(this.textBox7);
+            this.signinPage.Controls.Add(this.signin_orasTextBox);
             this.signinPage.Controls.Add(this.label10);
             this.signinPage.Controls.Add(this.groupBox1);
-            this.signinPage.Controls.Add(this.textBox6);
+            this.signinPage.Controls.Add(this.signin_prenumeTextBox);
             this.signinPage.Controls.Add(this.label9);
-            this.signinPage.Controls.Add(this.textBox5);
+            this.signinPage.Controls.Add(this.signin_numeTextBox);
             this.signinPage.Controls.Add(this.label8);
-            this.signinPage.Controls.Add(this.textBox4);
+            this.signinPage.Controls.Add(this.signin_passwordTextBox);
             this.signinPage.Controls.Add(this.label7);
             this.signinPage.Controls.Add(this.label6);
             this.signinPage.Controls.Add(this.signin_usenameTextBox);
@@ -403,40 +404,40 @@
             this.signinPage.TabIndex = 2;
             this.signinPage.Text = "Sign in";
             // 
-            // button2
+            // signin_inserareButton
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(522, 547);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 23);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Gata!";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.signin_inserareButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_inserareButton.Location = new System.Drawing.Point(522, 547);
+            this.signin_inserareButton.Name = "signin_inserareButton";
+            this.signin_inserareButton.Size = new System.Drawing.Size(96, 23);
+            this.signin_inserareButton.TabIndex = 29;
+            this.signin_inserareButton.Text = "Gata!";
+            this.signin_inserareButton.UseVisualStyleBackColor = true;
+            this.signin_inserareButton.Click += new System.EventHandler(this.signin_inserareButton_Click);
             // 
-            // textBox14
+            // signin_ocupatieTextBox
             // 
-            this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox14.Location = new System.Drawing.Point(262, 310);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(356, 20);
-            this.textBox14.TabIndex = 28;
-            this.textBox14.Text = "Introduceti ocupatia";
+            this.signin_ocupatieTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_ocupatieTextBox.Location = new System.Drawing.Point(262, 310);
+            this.signin_ocupatieTextBox.Name = "signin_ocupatieTextBox";
+            this.signin_ocupatieTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_ocupatieTextBox.TabIndex = 28;
+            this.signin_ocupatieTextBox.Text = "Introduceti ocupatia";
             // 
-            // comboBox1
+            // signin_ocupatieComboBox
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.signin_ocupatieComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_ocupatieComboBox.FormattingEnabled = true;
+            this.signin_ocupatieComboBox.Items.AddRange(new object[] {
             "Student",
             "Elev",
             "Pensionar",
             "Salariat",
             "Altele"});
-            this.comboBox1.Location = new System.Drawing.Point(262, 274);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(356, 21);
-            this.comboBox1.TabIndex = 27;
+            this.signin_ocupatieComboBox.Location = new System.Drawing.Point(262, 274);
+            this.signin_ocupatieComboBox.Name = "signin_ocupatieComboBox";
+            this.signin_ocupatieComboBox.Size = new System.Drawing.Size(356, 21);
+            this.signin_ocupatieComboBox.TabIndex = 27;
             // 
             // label17
             // 
@@ -448,13 +449,13 @@
             this.label17.TabIndex = 26;
             this.label17.Text = "Ocupatie";
             // 
-            // textBox13
+            // signin_confirmPassTextBox
             // 
-            this.textBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox13.Location = new System.Drawing.Point(262, 166);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(356, 20);
-            this.textBox13.TabIndex = 25;
+            this.signin_confirmPassTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_confirmPassTextBox.Location = new System.Drawing.Point(262, 166);
+            this.signin_confirmPassTextBox.Name = "signin_confirmPassTextBox";
+            this.signin_confirmPassTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_confirmPassTextBox.TabIndex = 25;
             // 
             // label16
             // 
@@ -466,13 +467,13 @@
             this.label16.TabIndex = 24;
             this.label16.Text = "Confirm Password";
             // 
-            // textBox12
+            // signin_telefonTextBox
             // 
-            this.textBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox12.Location = new System.Drawing.Point(262, 492);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(356, 20);
-            this.textBox12.TabIndex = 21;
+            this.signin_telefonTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_telefonTextBox.Location = new System.Drawing.Point(262, 492);
+            this.signin_telefonTextBox.Name = "signin_telefonTextBox";
+            this.signin_telefonTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_telefonTextBox.TabIndex = 21;
             // 
             // label15
             // 
@@ -484,13 +485,13 @@
             this.label15.TabIndex = 20;
             this.label15.Text = "Telefon";
             // 
-            // textBox11
+            // signin_serverEmailTextBox
             // 
-            this.textBox11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox11.Location = new System.Drawing.Point(565, 456);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(53, 20);
-            this.textBox11.TabIndex = 19;
+            this.signin_serverEmailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_serverEmailTextBox.Location = new System.Drawing.Point(565, 456);
+            this.signin_serverEmailTextBox.Name = "signin_serverEmailTextBox";
+            this.signin_serverEmailTextBox.Size = new System.Drawing.Size(53, 20);
+            this.signin_serverEmailTextBox.TabIndex = 19;
             // 
             // label14
             // 
@@ -502,13 +503,13 @@
             this.label14.TabIndex = 18;
             this.label14.Text = "@";
             // 
-            // textBox10
+            // signin_corpEmailTextBox
             // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox10.Location = new System.Drawing.Point(262, 456);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(273, 20);
-            this.textBox10.TabIndex = 17;
+            this.signin_corpEmailTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_corpEmailTextBox.Location = new System.Drawing.Point(262, 456);
+            this.signin_corpEmailTextBox.Name = "signin_corpEmailTextBox";
+            this.signin_corpEmailTextBox.Size = new System.Drawing.Size(273, 20);
+            this.signin_corpEmailTextBox.TabIndex = 17;
             // 
             // label13
             // 
@@ -520,13 +521,13 @@
             this.label13.TabIndex = 16;
             this.label13.Text = "Email";
             // 
-            // textBox9
+            // signin_codPostalTextBox
             // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Location = new System.Drawing.Point(530, 385);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(88, 20);
-            this.textBox9.TabIndex = 15;
+            this.signin_codPostalTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_codPostalTextBox.Location = new System.Drawing.Point(530, 385);
+            this.signin_codPostalTextBox.Name = "signin_codPostalTextBox";
+            this.signin_codPostalTextBox.Size = new System.Drawing.Size(88, 20);
+            this.signin_codPostalTextBox.TabIndex = 15;
             // 
             // label12
             // 
@@ -538,13 +539,13 @@
             this.label12.TabIndex = 14;
             this.label12.Text = "Cod Postal";
             // 
-            // textBox8
+            // signin_stradaTextBox
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.Location = new System.Drawing.Point(262, 421);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(356, 20);
-            this.textBox8.TabIndex = 13;
+            this.signin_stradaTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_stradaTextBox.Location = new System.Drawing.Point(262, 421);
+            this.signin_stradaTextBox.Name = "signin_stradaTextBox";
+            this.signin_stradaTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_stradaTextBox.TabIndex = 13;
             // 
             // label11
             // 
@@ -556,13 +557,13 @@
             this.label11.TabIndex = 12;
             this.label11.Text = "Stada";
             // 
-            // textBox7
+            // signin_orasTextBox
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Location = new System.Drawing.Point(262, 385);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(167, 20);
-            this.textBox7.TabIndex = 11;
+            this.signin_orasTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_orasTextBox.Location = new System.Drawing.Point(262, 385);
+            this.signin_orasTextBox.Name = "signin_orasTextBox";
+            this.signin_orasTextBox.Size = new System.Drawing.Size(167, 20);
+            this.signin_orasTextBox.TabIndex = 11;
             // 
             // label10
             // 
@@ -577,8 +578,8 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.signin_sexMasculinRadioButton);
+            this.groupBox1.Controls.Add(this.signin_sexFemininRadioButton);
             this.groupBox1.Location = new System.Drawing.Point(348, 335);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(185, 41);
@@ -586,35 +587,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sex";
             // 
-            // radioButton2
+            // signin_sexMasculinRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(101, 18);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(67, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Masculin";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.signin_sexMasculinRadioButton.AutoSize = true;
+            this.signin_sexMasculinRadioButton.Location = new System.Drawing.Point(101, 18);
+            this.signin_sexMasculinRadioButton.Name = "signin_sexMasculinRadioButton";
+            this.signin_sexMasculinRadioButton.Size = new System.Drawing.Size(67, 17);
+            this.signin_sexMasculinRadioButton.TabIndex = 1;
+            this.signin_sexMasculinRadioButton.TabStop = true;
+            this.signin_sexMasculinRadioButton.Text = "Masculin";
+            this.signin_sexMasculinRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // signin_sexFemininRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(23, 18);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(61, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Feminin";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.signin_sexFemininRadioButton.AutoSize = true;
+            this.signin_sexFemininRadioButton.Location = new System.Drawing.Point(23, 18);
+            this.signin_sexFemininRadioButton.Name = "signin_sexFemininRadioButton";
+            this.signin_sexFemininRadioButton.Size = new System.Drawing.Size(61, 17);
+            this.signin_sexFemininRadioButton.TabIndex = 0;
+            this.signin_sexFemininRadioButton.TabStop = true;
+            this.signin_sexFemininRadioButton.Text = "Feminin";
+            this.signin_sexFemininRadioButton.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // signin_prenumeTextBox
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Location = new System.Drawing.Point(262, 238);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(356, 20);
-            this.textBox6.TabIndex = 8;
+            this.signin_prenumeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_prenumeTextBox.Location = new System.Drawing.Point(262, 238);
+            this.signin_prenumeTextBox.Name = "signin_prenumeTextBox";
+            this.signin_prenumeTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_prenumeTextBox.TabIndex = 8;
             // 
             // label9
             // 
@@ -626,13 +627,13 @@
             this.label9.TabIndex = 7;
             this.label9.Text = "Prenume";
             // 
-            // textBox5
+            // signin_numeTextBox
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Location = new System.Drawing.Point(262, 202);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(356, 20);
-            this.textBox5.TabIndex = 6;
+            this.signin_numeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_numeTextBox.Location = new System.Drawing.Point(262, 202);
+            this.signin_numeTextBox.Name = "signin_numeTextBox";
+            this.signin_numeTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_numeTextBox.TabIndex = 6;
             // 
             // label8
             // 
@@ -644,14 +645,14 @@
             this.label8.TabIndex = 5;
             this.label8.Text = "Nume";
             // 
-            // textBox4
+            // signin_passwordTextBox
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Location = new System.Drawing.Point(262, 130);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '*';
-            this.textBox4.Size = new System.Drawing.Size(356, 20);
-            this.textBox4.TabIndex = 4;
+            this.signin_passwordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_passwordTextBox.Location = new System.Drawing.Point(262, 130);
+            this.signin_passwordTextBox.Name = "signin_passwordTextBox";
+            this.signin_passwordTextBox.PasswordChar = '*';
+            this.signin_passwordTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_passwordTextBox.TabIndex = 4;
             // 
             // label7
             // 
@@ -2003,7 +2004,8 @@
             // 
             this.autentificareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.signinToolStripMenuItem,
-            this.loginToolStripMenuItem});
+            this.loginToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.autentificareToolStripMenuItem.Name = "autentificareToolStripMenuItem";
             this.autentificareToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
             this.autentificareToolStripMenuItem.Text = "Autentificare";
@@ -2011,14 +2013,14 @@
             // signinToolStripMenuItem
             // 
             this.signinToolStripMenuItem.Name = "signinToolStripMenuItem";
-            this.signinToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.signinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.signinToolStripMenuItem.Text = "Signin";
             this.signinToolStripMenuItem.Click += new System.EventHandler(this.signinToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
@@ -2122,6 +2124,12 @@
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
             // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            // 
             // aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2192,35 +2200,35 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabPage signinPage;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox signin_codPostalTextBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox signin_stradaTextBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox signin_orasTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.RadioButton signin_sexMasculinRadioButton;
+        private System.Windows.Forms.RadioButton signin_sexFemininRadioButton;
+        private System.Windows.Forms.TextBox signin_prenumeTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox signin_numeTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox signin_passwordTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox signin_usenameTextBox;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox signin_serverEmailTextBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox signin_corpEmailTextBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox signin_telefonTextBox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox signin_confirmPassTextBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox signin_ocupatieComboBox;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Button signin_inserareButton;
+        private System.Windows.Forms.TextBox signin_ocupatieTextBox;
         private System.Windows.Forms.TabPage cautareTitluPage;
         private System.Windows.Forms.Button cautareTitluPage_cautaButon;
         private System.Windows.Forms.TextBox cautareTitluPage_TitluTextbox;
@@ -2360,6 +2368,7 @@
         private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.ToolStripMenuItem vizualizareIstoricToolStripMenuItem;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
 
     }
 }
