@@ -1,0 +1,37 @@
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.Cache
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\Spatiu de lucru\C#\Proiecte BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.aplicatie.resources
+G:\Laboratoare\BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
+G:\Laboratoare\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
+G:\Laboratoare\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
+G:\Laboratoare\BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+G:\Laboratoare\BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+G:\Laboratoare\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+G:\Laboratoare\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.aplicatie.resources
+G:\Laboratoare\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+G:\Laboratoare\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.Cache
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\obj\Debug\Biblioteca.aplicatie.resources
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+C:\Users\Carina\Desktop\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.Cache
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe.config
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.exe
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.pdb
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.exe
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\bin\Debug\Biblioteca.pdb
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csprojResolveAssemblyReference.cache
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.aplicatie.resources
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.Properties.Resources.resources
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\obj\Debug\Biblioteca.csproj.GenerateResource.Cache
+D:\Spatiu de lucru\BD\Biblioteca\Biblioteca\bin\Debug\MySql.Data.dll
