@@ -72,7 +72,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.signin_usenameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cautareTitluPage = new System.Windows.Forms.TabPage();
             this.cautareTitluPage_cautaButon = new System.Windows.Forms.Button();
@@ -394,7 +394,7 @@
             this.signinPage.Controls.Add(this.textBox4);
             this.signinPage.Controls.Add(this.label7);
             this.signinPage.Controls.Add(this.label6);
-            this.signinPage.Controls.Add(this.textBox3);
+            this.signinPage.Controls.Add(this.signin_usenameTextBox);
             this.signinPage.Controls.Add(this.label5);
             this.signinPage.Location = new System.Drawing.Point(4, 22);
             this.signinPage.Name = "signinPage";
@@ -674,13 +674,13 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Formular de inscriere";
             // 
-            // textBox3
+            // signin_usenameTextBox
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Location = new System.Drawing.Point(262, 94);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(356, 20);
-            this.textBox3.TabIndex = 1;
+            this.signin_usenameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.signin_usenameTextBox.Location = new System.Drawing.Point(262, 94);
+            this.signin_usenameTextBox.Name = "signin_usenameTextBox";
+            this.signin_usenameTextBox.Size = new System.Drawing.Size(356, 20);
+            this.signin_usenameTextBox.TabIndex = 1;
             // 
             // label5
             // 
@@ -2208,7 +2208,7 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox signin_usenameTextBox;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox10;
