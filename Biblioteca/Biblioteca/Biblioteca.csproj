@@ -71,6 +71,9 @@
     <Compile Include="RatingBook.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Validations.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VariabileGlobale.cs">
       <SubType>Form</SubType>
     </Compile>
