@@ -310,7 +310,136 @@ namespace Biblioteca
 
         private void creareGenPage_creareButton_Click(object sender, EventArgs e)
         {
+            MySqlCommand numarGen = new MySqlCommand("select count(*) as numarGenuri from Gen where Nume = @nume;",bibliotecaDatabaseConection);
+            MySqlCommand insertGen = new MySqlCommand("insert into Gen(Nume) value (@nume);",bibliotecaDatabaseConection);
+            MySqlDataAdapter numarGenuriAdapter = new MySqlDataAdapter(numarGen);
+            DataTable numarGenuriDataTable = new DataTable();
 
-        }                
+            if(creareGenPage_numeTextBox.Text == "")
+            {
+                creareGenPage_numeErrorLabel.Text = "Introduceti un nume pentru gen!";
+                creareGenPage_numeErrorLabel.Visible = true;
+                return;
+            }
+
+            numarGen.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            insertGen.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            numarGen.Parameters["@nume"].Value = creareGenPage_numeTextBox.Text;
+
+            bibliotecaDatabaseConection.Open();
+            numarGenuriAdapter.Fill(numarGenuriDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            if(numarGenuriDataTable.Rows.Count > 0)
+            {
+                if(Int32.Parse(numarGenuriDataTable.Rows[0].ItemArray[0].ToString()) > 0)
+                {
+                    creareGenPage_numeErrorLabel.Text = "Genul deja exista!";
+                    creareGenPage_numeErrorLabel.Visible = true;
+                    return;
+                }
+                else
+                {
+                    insertGen.Parameters["@nume"].Value = creareGenPage_numeTextBox.Text;
+                    bibliotecaDatabaseConection.Open();
+                    insertGen.ExecuteNonQuery();
+                    bibliotecaDatabaseConection.Close();
+
+                    creareGenPage_numeErrorLabel.Visible = false;
+
+                    MessageBox.Show("Genul " + creareGenPage_numeTextBox.Text + " a fost creat!");
+                }
+            }
+        }
+
+        private void creareColectiePage_creareButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand numarColectie = new MySqlCommand("select count(*) as numarColectii from colectii where Nume = @nume;", bibliotecaDatabaseConection);
+            MySqlCommand insertColectie = new MySqlCommand("insert into colectii(Nume) value (@nume);", bibliotecaDatabaseConection);
+            MySqlDataAdapter numarColectiiAdapter = new MySqlDataAdapter(numarColectie);
+            DataTable numarColectiiDataTable = new DataTable();
+
+            if (creareColectiePage_numeTextBox.Text == "")
+            {
+                creareColectiePage_numeErrorLabel.Text = "Introduceti un nume pentru colectie!";
+                creareColectiePage_numeErrorLabel.Visible = true;
+                return;
+            }
+
+            numarColectie.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            insertColectie.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            numarColectie.Parameters["@nume"].Value = creareColectiePage_numeTextBox.Text;
+
+            bibliotecaDatabaseConection.Open();
+            numarColectiiAdapter.Fill(numarColectiiDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            if (numarColectiiDataTable.Rows.Count > 0)
+            {
+                if (Int32.Parse(numarColectiiDataTable.Rows[0].ItemArray[0].ToString()) > 0)
+                {
+                    creareColectiePage_numeErrorLabel.Text = "Colectia deja exista!";
+                    creareColectiePage_numeErrorLabel.Visible = true;
+                    return;
+                }
+                else
+                {
+                    insertColectie.Parameters["@nume"].Value = creareColectiePage_numeTextBox.Text;
+                    bibliotecaDatabaseConection.Open();
+                    insertColectie.ExecuteNonQuery();
+                    bibliotecaDatabaseConection.Close();
+
+                    creareColectiePage_numeErrorLabel.Visible = false;
+
+                    MessageBox.Show("Colectia " + creareColectiePage_numeTextBox.Text + " a fost creata!");
+                }
+            }
+        }
+
+        private void inserareAutorPage_inserareButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand numarAutori = new MySqlCommand("select count(*) as numarColectii from autor where Nume = @nume;", bibliotecaDatabaseConection);
+            MySqlCommand insertAutor = new MySqlCommand("insert into autor(Nume) value (@nume);", bibliotecaDatabaseConection);
+            MySqlDataAdapter numarAutoriAdapter = new MySqlDataAdapter(numarAutori);
+            DataTable numarAutoriDataTable = new DataTable();
+
+            if (inserareAutorPage_numeTextBox.Text == "")
+            {
+                inserareAutorPage_numeErrorLabel.Text = "Introduceti un nume pentru autor!";
+                inserareAutorPage_numeErrorLabel.Visible = true;
+                return;
+            }
+
+            numarAutori.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            insertAutor.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            numarAutori.Parameters["@nume"].Value = inserareAutorPage_numeTextBox.Text;
+
+            bibliotecaDatabaseConection.Open();
+            numarAutoriAdapter.Fill(numarAutoriDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            if (numarAutoriDataTable.Rows.Count > 0)
+            {
+                if (Int32.Parse(numarAutoriDataTable.Rows[0].ItemArray[0].ToString()) > 0)
+                {
+                    inserareAutorPage_numeErrorLabel.Text = "Autorul deja exista!";
+                    inserareAutorPage_numeErrorLabel.Visible = true;
+                    return;
+                }
+                else
+                {
+                    insertAutor.Parameters["@nume"].Value = inserareAutorPage_numeTextBox.Text;
+                    bibliotecaDatabaseConection.Open();
+                    insertAutor.ExecuteNonQuery();
+                    bibliotecaDatabaseConection.Close();
+
+                    inserareAutorPage_numeErrorLabel.Visible = false;
+
+                    MessageBox.Show("Autorul " + inserareAutorPage_numeTextBox.Text + " a fost inserat!");
+                }
+            }
+        }
+
+                  
     }
 }

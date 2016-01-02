@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
             this.tabControler = new System.Windows.Forms.TabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -157,7 +157,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.textBox36 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.textBox37 = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
@@ -165,12 +164,12 @@
             this.label49 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.creareColectiePage = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.creareColectiePage_numeErrorLabel = new System.Windows.Forms.Label();
+            this.creareColectiePage_creareButton = new System.Windows.Forms.Button();
+            this.creareColectiePage_numeTextBox = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
             this.creareGenPage = new System.Windows.Forms.TabPage();
+            this.creareGenPage_numeErrorLabel = new System.Windows.Forms.Label();
             this.creareGenPage_creareButton = new System.Windows.Forms.Button();
             this.creareGenPage_numeTextBox = new System.Windows.Forms.TextBox();
             this.label53 = new System.Windows.Forms.Label();
@@ -205,6 +204,11 @@
             this.label63 = new System.Windows.Forms.Label();
             this.treeView3 = new System.Windows.Forms.TreeView();
             this.treeView2 = new System.Windows.Forms.TreeView();
+            this.inserareAutorPage = new System.Windows.Forms.TabPage();
+            this.inserareAutorPage_numeErrorLabel = new System.Windows.Forms.Label();
+            this.inserareAutorPage_inserareButton = new System.Windows.Forms.Button();
+            this.inserareAutorPage_numeTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.autentificareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -219,11 +223,14 @@
             this.acordaFunctieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.introducereCartiiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificareCarteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inserareAutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creareGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creareGenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.creareGenPage_numeErrorLabel = new System.Windows.Forms.Label();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.checkedListBox3 = new System.Windows.Forms.CheckedListBox();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -243,6 +250,7 @@
             this.creareGenPage.SuspendLayout();
             this.modificareCartePage.SuspendLayout();
             this.imprumutPage.SuspendLayout();
+            this.inserareAutorPage.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -265,6 +273,7 @@
             this.tabControler.Controls.Add(this.creareGenPage);
             this.tabControler.Controls.Add(this.modificareCartePage);
             this.tabControler.Controls.Add(this.imprumutPage);
+            this.tabControler.Controls.Add(this.inserareAutorPage);
             this.tabControler.Location = new System.Drawing.Point(-7, 0);
             this.tabControler.Name = "tabControler";
             this.tabControler.SelectedIndex = 0;
@@ -1414,6 +1423,9 @@
             // inserareCartePage
             // 
             this.inserareCartePage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.inserareCartePage.Controls.Add(this.checkedListBox3);
+            this.inserareCartePage.Controls.Add(this.checkedListBox2);
+            this.inserareCartePage.Controls.Add(this.label18);
             this.inserareCartePage.Controls.Add(this.checkedListBox1);
             this.inserareCartePage.Controls.Add(this.dateTimePicker2);
             this.inserareCartePage.Controls.Add(this.comboBox6);
@@ -1428,7 +1440,6 @@
             this.inserareCartePage.Controls.Add(this.label44);
             this.inserareCartePage.Controls.Add(this.label45);
             this.inserareCartePage.Controls.Add(this.label46);
-            this.inserareCartePage.Controls.Add(this.textBox36);
             this.inserareCartePage.Controls.Add(this.label47);
             this.inserareCartePage.Controls.Add(this.textBox37);
             this.inserareCartePage.Controls.Add(this.label48);
@@ -1450,14 +1461,14 @@
             "gen2",
             "gen3",
             "altul :)"});
-            this.checkedListBox1.Location = new System.Drawing.Point(359, 158);
+            this.checkedListBox1.Location = new System.Drawing.Point(359, 218);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(356, 94);
             this.checkedListBox1.TabIndex = 84;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(168, 265);
+            this.dateTimePicker2.Location = new System.Drawing.Point(112, 239);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker2.TabIndex = 83;
@@ -1465,7 +1476,7 @@
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(359, 131);
+            this.comboBox6.Location = new System.Drawing.Point(359, 186);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(356, 21);
             this.comboBox6.TabIndex = 82;
@@ -1473,7 +1484,7 @@
             // button9
             // 
             this.button9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button9.Location = new System.Drawing.Point(566, 571);
+            this.button9.Location = new System.Drawing.Point(565, 605);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 81;
@@ -1494,16 +1505,16 @@
             this.textBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox30.Location = new System.Drawing.Point(28, 311);
+            this.textBox30.Location = new System.Drawing.Point(32, 437);
             this.textBox30.Multiline = true;
             this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(1157, 189);
+            this.textBox30.Size = new System.Drawing.Size(1157, 162);
             this.textBox30.TabIndex = 79;
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(29, 286);
+            this.label41.Location = new System.Drawing.Point(29, 421);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(49, 13);
             this.label41.TabIndex = 78;
@@ -1512,7 +1523,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(94, 265);
+            this.label42.Location = new System.Drawing.Point(38, 239);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(69, 13);
             this.label42.TabIndex = 76;
@@ -1520,14 +1531,14 @@
             // 
             // textBox32
             // 
-            this.textBox32.Location = new System.Drawing.Point(594, 265);
+            this.textBox32.Location = new System.Drawing.Point(162, 275);
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(86, 20);
             this.textBox32.TabIndex = 75;
             // 
             // textBox33
             // 
-            this.textBox33.Location = new System.Drawing.Point(403, 265);
+            this.textBox33.Location = new System.Drawing.Point(101, 311);
             this.textBox33.Name = "textBox33";
             this.textBox33.Size = new System.Drawing.Size(36, 20);
             this.textBox33.TabIndex = 74;
@@ -1535,7 +1546,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(340, 265);
+            this.label43.Location = new System.Drawing.Point(38, 311);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(57, 13);
             this.label43.TabIndex = 71;
@@ -1544,7 +1555,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(272, 174);
+            this.label44.Location = new System.Drawing.Point(272, 218);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(38, 13);
             this.label44.TabIndex = 70;
@@ -1553,7 +1564,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(272, 134);
+            this.label45.Location = new System.Drawing.Point(272, 189);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(45, 13);
             this.label45.TabIndex = 69;
@@ -1562,23 +1573,16 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(466, 268);
+            this.label46.Location = new System.Drawing.Point(38, 278);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(113, 13);
             this.label46.TabIndex = 68;
             this.label46.Text = "Numar minim de pagini";
             // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(359, 91);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(356, 20);
-            this.textBox36.TabIndex = 67;
-            // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(272, 94);
+            this.label47.Location = new System.Drawing.Point(272, 81);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(32, 13);
             this.label47.TabIndex = 66;
@@ -1586,7 +1590,7 @@
             // 
             // textBox37
             // 
-            this.textBox37.Location = new System.Drawing.Point(359, 56);
+            this.textBox37.Location = new System.Drawing.Point(359, 50);
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(356, 20);
             this.textBox37.TabIndex = 65;
@@ -1594,7 +1598,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(272, 59);
+            this.label48.Location = new System.Drawing.Point(272, 53);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(32, 13);
             this.label48.TabIndex = 64;
@@ -1626,10 +1630,9 @@
             // creareColectiePage
             // 
             this.creareColectiePage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.creareColectiePage.Controls.Add(this.button10);
-            this.creareColectiePage.Controls.Add(this.checkedListBox2);
-            this.creareColectiePage.Controls.Add(this.label51);
-            this.creareColectiePage.Controls.Add(this.textBox31);
+            this.creareColectiePage.Controls.Add(this.creareColectiePage_numeErrorLabel);
+            this.creareColectiePage.Controls.Add(this.creareColectiePage_creareButton);
+            this.creareColectiePage.Controls.Add(this.creareColectiePage_numeTextBox);
             this.creareColectiePage.Controls.Add(this.label50);
             this.creareColectiePage.Location = new System.Drawing.Point(4, 22);
             this.creareColectiePage.Name = "creareColectiePage";
@@ -1638,56 +1641,42 @@
             this.creareColectiePage.TabIndex = 10;
             this.creareColectiePage.Text = "Creare colectie";
             // 
-            // button10
+            // creareColectiePage_numeErrorLabel
             // 
-            this.button10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button10.Location = new System.Drawing.Point(547, 557);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(150, 23);
-            this.button10.TabIndex = 8;
-            this.button10.Text = "Creare colectie!";
-            this.button10.UseVisualStyleBackColor = true;
+            this.creareColectiePage_numeErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.creareColectiePage_numeErrorLabel.AutoSize = true;
+            this.creareColectiePage_numeErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.creareColectiePage_numeErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.creareColectiePage_numeErrorLabel.Location = new System.Drawing.Point(844, 288);
+            this.creareColectiePage_numeErrorLabel.Name = "creareColectiePage_numeErrorLabel";
+            this.creareColectiePage_numeErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.creareColectiePage_numeErrorLabel.TabIndex = 9;
+            this.creareColectiePage_numeErrorLabel.Text = "label18";
             // 
-            // checkedListBox2
+            // creareColectiePage_creareButton
             // 
-            this.checkedListBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Items.AddRange(new object[] {
-            "titlu Carte1",
-            "titlu Carte2",
-            "titlu Carte3",
-            "titlu Carte4",
-            "titlu Carte5",
-            "titlu Carte6",
-            "titlu Carte7"});
-            this.checkedListBox2.Location = new System.Drawing.Point(387, 107);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(444, 409);
-            this.checkedListBox2.TabIndex = 7;
+            this.creareColectiePage_creareButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.creareColectiePage_creareButton.Location = new System.Drawing.Point(515, 308);
+            this.creareColectiePage_creareButton.Name = "creareColectiePage_creareButton";
+            this.creareColectiePage_creareButton.Size = new System.Drawing.Size(150, 23);
+            this.creareColectiePage_creareButton.TabIndex = 8;
+            this.creareColectiePage_creareButton.Text = "Creare colectie!";
+            this.creareColectiePage_creareButton.UseVisualStyleBackColor = true;
+            this.creareColectiePage_creareButton.Click += new System.EventHandler(this.creareColectiePage_creareButton_Click);
             // 
-            // label51
+            // creareColectiePage_numeTextBox
             // 
-            this.label51.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(387, 78);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(180, 13);
-            this.label51.TabIndex = 6;
-            this.label51.Text = "Selectati cartile care apartin colectiei";
-            // 
-            // textBox31
-            // 
-            this.textBox31.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox31.Location = new System.Drawing.Point(475, 40);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(356, 20);
-            this.textBox31.TabIndex = 5;
+            this.creareColectiePage_numeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.creareColectiePage_numeTextBox.Location = new System.Drawing.Point(481, 282);
+            this.creareColectiePage_numeTextBox.Name = "creareColectiePage_numeTextBox";
+            this.creareColectiePage_numeTextBox.Size = new System.Drawing.Size(356, 20);
+            this.creareColectiePage_numeTextBox.TabIndex = 5;
             // 
             // label50
             // 
-            this.label50.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label50.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(384, 43);
+            this.label50.Location = new System.Drawing.Point(390, 285);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(85, 13);
             this.label50.TabIndex = 4;
@@ -1707,10 +1696,22 @@
             this.creareGenPage.TabIndex = 11;
             this.creareGenPage.Text = "Creare Gen";
             // 
+            // creareGenPage_numeErrorLabel
+            // 
+            this.creareGenPage_numeErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.creareGenPage_numeErrorLabel.AutoSize = true;
+            this.creareGenPage_numeErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.creareGenPage_numeErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.creareGenPage_numeErrorLabel.Location = new System.Drawing.Point(844, 286);
+            this.creareGenPage_numeErrorLabel.Name = "creareGenPage_numeErrorLabel";
+            this.creareGenPage_numeErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.creareGenPage_numeErrorLabel.TabIndex = 14;
+            this.creareGenPage_numeErrorLabel.Text = "label18";
+            // 
             // creareGenPage_creareButton
             // 
             this.creareGenPage_creareButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.creareGenPage_creareButton.Location = new System.Drawing.Point(534, 322);
+            this.creareGenPage_creareButton.Location = new System.Drawing.Point(534, 308);
             this.creareGenPage_creareButton.Name = "creareGenPage_creareButton";
             this.creareGenPage_creareButton.Size = new System.Drawing.Size(150, 23);
             this.creareGenPage_creareButton.TabIndex = 13;
@@ -1721,7 +1722,7 @@
             // creareGenPage_numeTextBox
             // 
             this.creareGenPage_numeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.creareGenPage_numeTextBox.Location = new System.Drawing.Point(481, 296);
+            this.creareGenPage_numeTextBox.Location = new System.Drawing.Point(481, 282);
             this.creareGenPage_numeTextBox.Name = "creareGenPage_numeTextBox";
             this.creareGenPage_numeTextBox.Size = new System.Drawing.Size(356, 20);
             this.creareGenPage_numeTextBox.TabIndex = 10;
@@ -1730,7 +1731,7 @@
             // 
             this.label53.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(390, 300);
+            this.label53.Location = new System.Drawing.Point(390, 286);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(80, 13);
             this.label53.TabIndex = 9;
@@ -1773,14 +1774,14 @@
             this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(853, 16);
             this.treeView1.Name = "treeView1";
-            treeNode4.Name = "Node1";
-            treeNode4.Text = "Node1";
-            treeNode5.Name = "Node2";
-            treeNode5.Text = "Node2";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Node0";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Node1";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(224, 138);
             this.treeView1.TabIndex = 106;
             // 
@@ -2061,6 +2062,61 @@
             this.treeView2.Size = new System.Drawing.Size(494, 480);
             this.treeView2.TabIndex = 0;
             // 
+            // inserareAutorPage
+            // 
+            this.inserareAutorPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.inserareAutorPage.Controls.Add(this.inserareAutorPage_numeErrorLabel);
+            this.inserareAutorPage.Controls.Add(this.inserareAutorPage_inserareButton);
+            this.inserareAutorPage.Controls.Add(this.inserareAutorPage_numeTextBox);
+            this.inserareAutorPage.Controls.Add(this.label20);
+            this.inserareAutorPage.Location = new System.Drawing.Point(4, 22);
+            this.inserareAutorPage.Name = "inserareAutorPage";
+            this.inserareAutorPage.Padding = new System.Windows.Forms.Padding(3);
+            this.inserareAutorPage.Size = new System.Drawing.Size(1227, 640);
+            this.inserareAutorPage.TabIndex = 14;
+            this.inserareAutorPage.Text = "Inserare Autor";
+            // 
+            // inserareAutorPage_numeErrorLabel
+            // 
+            this.inserareAutorPage_numeErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareAutorPage_numeErrorLabel.AutoSize = true;
+            this.inserareAutorPage_numeErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareAutorPage_numeErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareAutorPage_numeErrorLabel.Location = new System.Drawing.Point(816, 300);
+            this.inserareAutorPage_numeErrorLabel.Name = "inserareAutorPage_numeErrorLabel";
+            this.inserareAutorPage_numeErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareAutorPage_numeErrorLabel.TabIndex = 18;
+            this.inserareAutorPage_numeErrorLabel.Text = "label18";
+            // 
+            // inserareAutorPage_inserareButton
+            // 
+            this.inserareAutorPage_inserareButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareAutorPage_inserareButton.Location = new System.Drawing.Point(511, 322);
+            this.inserareAutorPage_inserareButton.Name = "inserareAutorPage_inserareButton";
+            this.inserareAutorPage_inserareButton.Size = new System.Drawing.Size(150, 23);
+            this.inserareAutorPage_inserareButton.TabIndex = 17;
+            this.inserareAutorPage_inserareButton.Text = "Inserare autor!";
+            this.inserareAutorPage_inserareButton.UseVisualStyleBackColor = true;
+            this.inserareAutorPage_inserareButton.Click += new System.EventHandler(this.inserareAutorPage_inserareButton_Click);
+            // 
+            // inserareAutorPage_numeTextBox
+            // 
+            this.inserareAutorPage_numeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareAutorPage_numeTextBox.Location = new System.Drawing.Point(453, 296);
+            this.inserareAutorPage_numeTextBox.Name = "inserareAutorPage_numeTextBox";
+            this.inserareAutorPage_numeTextBox.Size = new System.Drawing.Size(356, 20);
+            this.inserareAutorPage_numeTextBox.TabIndex = 16;
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(362, 300);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(86, 13);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "Numele autorului";
+            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -2151,6 +2207,7 @@
             this.acordaFunctieToolStripMenuItem,
             this.introducereCartiiToolStripMenuItem,
             this.modificareCarteToolStripMenuItem,
+            this.inserareAutorToolStripMenuItem,
             this.creareGenToolStripMenuItem,
             this.creareGenToolStripMenuItem1});
             this.administrareToolStripMenuItem.Name = "administrareToolStripMenuItem";
@@ -2177,6 +2234,13 @@
             this.modificareCarteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.modificareCarteToolStripMenuItem.Text = "Modificare carte";
             this.modificareCarteToolStripMenuItem.Click += new System.EventHandler(this.modificareCarteToolStripMenuItem_Click);
+            // 
+            // inserareAutorToolStripMenuItem
+            // 
+            this.inserareAutorToolStripMenuItem.Name = "inserareAutorToolStripMenuItem";
+            this.inserareAutorToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.inserareAutorToolStripMenuItem.Text = "Inserare autor";
+            this.inserareAutorToolStripMenuItem.Click += new System.EventHandler(this.inserareAutorToolStripMenuItem_Click);
             // 
             // creareGenToolStripMenuItem
             // 
@@ -2206,17 +2270,40 @@
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
             // 
-            // creareGenPage_numeErrorLabel
+            // checkedListBox2
             // 
-            this.creareGenPage_numeErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.creareGenPage_numeErrorLabel.AutoSize = true;
-            this.creareGenPage_numeErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.creareGenPage_numeErrorLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.creareGenPage_numeErrorLabel.Location = new System.Drawing.Point(844, 300);
-            this.creareGenPage_numeErrorLabel.Name = "creareGenPage_numeErrorLabel";
-            this.creareGenPage_numeErrorLabel.Size = new System.Drawing.Size(48, 13);
-            this.creareGenPage_numeErrorLabel.TabIndex = 14;
-            this.creareGenPage_numeErrorLabel.Text = "label18";
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Items.AddRange(new object[] {
+            "gen1",
+            "gen2",
+            "gen3",
+            "altul :)"});
+            this.checkedListBox2.Location = new System.Drawing.Point(359, 323);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(356, 94);
+            this.checkedListBox2.TabIndex = 86;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(272, 323);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(36, 13);
+            this.label18.TabIndex = 85;
+            this.label18.Text = "Edituri";
+            // 
+            // checkedListBox3
+            // 
+            this.checkedListBox3.FormattingEnabled = true;
+            this.checkedListBox3.Items.AddRange(new object[] {
+            "gen1",
+            "gen2",
+            "gen3",
+            "altul :)"});
+            this.checkedListBox3.Location = new System.Drawing.Point(359, 81);
+            this.checkedListBox3.Name = "checkedListBox3";
+            this.checkedListBox3.Size = new System.Drawing.Size(356, 94);
+            this.checkedListBox3.TabIndex = 87;
             // 
             // aplicatie
             // 
@@ -2263,6 +2350,8 @@
             this.modificareCartePage.PerformLayout();
             this.imprumutPage.ResumeLayout(false);
             this.imprumutPage.PerformLayout();
+            this.inserareAutorPage.ResumeLayout(false);
+            this.inserareAutorPage.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -2388,7 +2477,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textBox36;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TextBox textBox37;
         private System.Windows.Forms.Label label48;
@@ -2396,10 +2484,8 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabPage creareColectiePage;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.CheckedListBox checkedListBox2;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox textBox31;
+        private System.Windows.Forms.Button creareColectiePage_creareButton;
+        private System.Windows.Forms.TextBox creareColectiePage_numeTextBox;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.TabPage creareGenPage;
         private System.Windows.Forms.Button creareGenPage_creareButton;
@@ -2463,6 +2549,16 @@
         private System.Windows.Forms.Label signin_usernameErrorLabel;
         private System.Windows.Forms.Label signin_codPostalErrorLabel;
         private System.Windows.Forms.Label creareGenPage_numeErrorLabel;
+        private System.Windows.Forms.Label creareColectiePage_numeErrorLabel;
+        private System.Windows.Forms.TabPage inserareAutorPage;
+        private System.Windows.Forms.Label inserareAutorPage_numeErrorLabel;
+        private System.Windows.Forms.Button inserareAutorPage_inserareButton;
+        private System.Windows.Forms.TextBox inserareAutorPage_numeTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ToolStripMenuItem inserareAutorToolStripMenuItem;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.CheckedListBox checkedListBox3;
 
     }
 }

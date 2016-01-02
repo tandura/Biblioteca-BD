@@ -111,8 +111,17 @@ namespace Biblioteca
             tabControler.SelectedTab = inserareCartePage;
         }
 
+        private void inserareAutorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            inserareAutorPage_numeTextBox.Text = "";
+            inserareAutorPage_numeErrorLabel.Visible = false;
+            tabControler.SelectedTab = inserareAutorPage;
+        }     
+
         private void creareColectieToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            creareColectiePage_numeTextBox.Text = "";
+            creareColectiePage_numeErrorLabel.Visible = false;
             tabControler.SelectedTab = creareColectiePage;
         }
 
