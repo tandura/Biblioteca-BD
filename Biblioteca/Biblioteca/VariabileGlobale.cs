@@ -14,5 +14,6 @@ namespace Biblioteca
         protected string conectionString = "server=localhost;port=3100;database=biblioteca;username=root;password=root";
         protected MySqlConnection bibliotecaDatabaseConection;
         protected int userId = -1;
+        protected String caleImagine;
     }
 }

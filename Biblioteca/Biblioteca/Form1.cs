@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Biblioteca
 {
@@ -108,6 +109,7 @@ namespace Biblioteca
         private void signin_inserareButton_Click(object sender, EventArgs e)
         {
             String username, password, nume, prenume, ocupatie, sex, oras, codPostal, strada, email, telefon, mesajOutput;
+            EmailChecker emailChecher = new EmailChecker();
             MySqlCommand addUserFunctionCall = new MySqlCommand("adauga_utilizator");
             addUserFunctionCall.CommandType = System.Data.CommandType.StoredProcedure;
             addUserFunctionCall.Connection = bibliotecaDatabaseConection;
@@ -211,7 +213,8 @@ namespace Biblioteca
             {
                 if (signin_serverEmailTextBox.Text != "")
                 {
-                    MessageBox.Show("Email invalid!");
+                    signin_emailErrorLabel.Text = "Email invalid!";
+                    signin_emailErrorLabel.Visible = true;
                     return;
                 }
                 else
@@ -220,11 +223,19 @@ namespace Biblioteca
             else
                 if (signin_serverEmailTextBox.Text == "")
                 {
-                    MessageBox.Show("Email invalid!");
+                    signin_emailErrorLabel.Text = "Email invalid!";
+                    signin_emailErrorLabel.Visible = true;
                     return;
                 }
                 else
-                    email = signin_corpEmailTextBox.Text + "@" + signin_serverEmailTextBox.Text;
+                    if (emailChecher.IsValidEmail(signin_corpEmailTextBox.Text + "@" + signin_serverEmailTextBox.Text))
+                        email = signin_corpEmailTextBox.Text + "@" + signin_serverEmailTextBox.Text;
+                    else
+                    {
+                        signin_emailErrorLabel.Text = "Email invalid!";
+                        signin_emailErrorLabel.Visible = true;
+                        return;
+                    }
 
             if (signin_numeTextBox.Text == "")
                 nume = null;
@@ -324,6 +335,7 @@ namespace Biblioteca
 
             numarGen.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
             insertGen.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
             numarGen.Parameters["@nume"].Value = creareGenPage_numeTextBox.Text;
 
             bibliotecaDatabaseConection.Open();
@@ -440,6 +452,127 @@ namespace Biblioteca
             }
         }
 
-                  
+        private void creareEdituraPage_creareButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand numarEditura = new MySqlCommand("select count(*) as numarEditura from editura where Nume = @nume;", bibliotecaDatabaseConection);
+            MySqlCommand insertEditura = new MySqlCommand("insert into editura(Nume) value (@nume);", bibliotecaDatabaseConection);
+            MySqlDataAdapter numarEdituraAdapter = new MySqlDataAdapter(numarEditura);
+            DataTable numarEdituraDataTable = new DataTable();
+
+            if (creareEdituraPage_numeTextBox.Text == "")
+            {
+                creareEdituraPage_numeErrorLabel.Text = "Introduceti un nume pentru editura!";
+                creareEdituraPage_numeErrorLabel.Visible = true;
+                return;
+            }
+
+            numarEditura.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            insertEditura.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+            numarEditura.Parameters["@nume"].Value = creareEdituraPage_numeTextBox.Text;
+
+            bibliotecaDatabaseConection.Open();
+            numarEdituraAdapter.Fill(numarEdituraDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            if (numarEdituraDataTable.Rows.Count > 0)
+            {
+                if (Int32.Parse(numarEdituraDataTable.Rows[0].ItemArray[0].ToString()) > 0)
+                {
+                    creareEdituraPage_numeErrorLabel.Text = "Editura deja exista!";
+                    creareEdituraPage_numeErrorLabel.Visible = true;
+                    return;
+                }
+                else
+                {
+                    insertEditura.Parameters["@nume"].Value = creareEdituraPage_numeTextBox.Text;
+                    bibliotecaDatabaseConection.Open();
+                    insertEditura.ExecuteNonQuery();
+                    bibliotecaDatabaseConection.Close();
+
+                    creareEdituraPage_numeErrorLabel.Visible = false;
+
+                    MessageBox.Show("Editura " + creareEdituraPage_numeTextBox.Text + " a fost creata!");
+                }
+            }
+        }
+
+        private void inserareCartePage_inserarePozaButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog incarcaPozaDialog = new OpenFileDialog();
+            incarcaPozaDialog.Filter = "Choose Image(*.jpg; *.png; *.gif;)|*.jpg; *.png; *.gif;";
+            if(incarcaPozaDialog.ShowDialog() == DialogResult.OK)
+            {
+                inserareCartePage_imaginePanou.BackgroundImage = ResizeImage.ImageResize(Image.FromFile(incarcaPozaDialog.FileName), inserareCartePage_imaginePanou.Width, inserareCartePage_imaginePanou.Height);
+                caleImagine = incarcaPozaDialog.FileName;
+            }
+        }
+
+        private void inserareCartePage_inserareButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand inserareCommand = new MySqlCommand("insert into carte(Titlu,ISBN,Rezumat,DataAparitie,ImagineCoperta,NrPagini,idColectie,NotaCarte,NrCarti) values(@titlu,@isbn,@rezumat,@data,@imagine,@nrPagini,@idColectie,@nota,@nrCarti)", bibliotecaDatabaseConection);
+            MySqlCommand colectieCommand = new MySqlCommand("select idColectii from colectii where Nume = @numeColectie;", bibliotecaDatabaseConection);
+            MySqlDataAdapter colectieDataAdaptor = new MySqlDataAdapter(colectieCommand);
+            DataTable colectieDataTable = new DataTable();
+            bool colectie;
+            byte[] ImageData;
+            FileStream fs;
+            BinaryReader br;
+
+            if(inserareCartePage_imaginePanou.BackgroundImage != null)
+            {
+                fs = new FileStream(caleImagine, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                ImageData = br.ReadBytes((int)fs.Length);
+                br.Close();
+                fs.Close();
+            }
+            else
+                ImageData = null;
+
+            if (inserareCartePage_colectieComboBox.SelectedIndex == 0)
+                colectie = false;
+            else
+            {
+                colectieCommand.Parameters.Add("@numeColectie", MySqlDbType.VarChar, 45);
+                colectieCommand.Parameters["@numeColectie"].Value = inserareCartePage_colectieComboBox.SelectedItem;
+
+                bibliotecaDatabaseConection.Open();
+                colectieDataAdaptor.Fill(colectieDataTable);
+                bibliotecaDatabaseConection.Close();
+                colectie = true;
+            }
+
+            inserareCommand.Parameters.Add("@titlu",MySqlDbType.VarChar,45);
+            inserareCommand.Parameters.Add("@isbn",MySqlDbType.VarChar,14);
+            inserareCommand.Parameters.Add("@rezumat",MySqlDbType.MediumText);
+            inserareCommand.Parameters.Add("@data",MySqlDbType.Date);
+            inserareCommand.Parameters.Add("@imagine",MySqlDbType.MediumBlob);
+            inserareCommand.Parameters.Add("@nrPagini",MySqlDbType.Int32);
+            inserareCommand.Parameters.Add("@nota",MySqlDbType.Int16);
+            inserareCommand.Parameters.Add("@nrCarti",MySqlDbType.Int32);
+            inserareCommand.Parameters.Add("@idColectie",MySqlDbType.Int32);
+            
+            //de facut protectie antiprost
+
+            inserareCommand.Parameters["@titlu"].Value = inserareCartePage_titluTextBox.Text;
+            inserareCommand.Parameters["@isbn"].Value = inserareCartePage_isbnTextBox.Text;
+            inserareCommand.Parameters["@rezumat"].Value = inserareCartePage_rezumatTextBox.Text;
+            inserareCommand.Parameters["@data"].Value = inserareCartePage_dataAparitiei.Value.Date;
+            inserareCommand.Parameters["@imagine"].Value = ImageData;
+            inserareCommand.Parameters["@nrPagini"].Value = Int32.Parse(inserareCartePage_numarPaginiTextBox.Text);
+            inserareCommand.Parameters["@nota"].Value = Int16.Parse(inserareCartePage_notaCarteTextBox.Text);
+            inserareCommand.Parameters["@nrCarti"].Value = Int32.Parse(inserareCartePage_numarExemplareTextBox.Text);
+            if(!colectie)
+                inserareCommand.Parameters["@idColectie"].Value = null;
+            else
+                inserareCommand.Parameters["@idColectie"].Value = colectieDataTable.Rows[0].ItemArray[0];
+
+            bibliotecaDatabaseConection.Open();
+            inserareCommand.ExecuteNonQuery();
+            bibliotecaDatabaseConection.Close();
+
+        }
+
+     
     }
 }

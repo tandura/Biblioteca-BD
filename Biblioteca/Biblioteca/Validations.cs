@@ -177,5 +177,58 @@ namespace Biblioteca
                             signin_stradaErrorLabel.Visible = true;
                         }
         }
+
+        private void signin_serverEmailTextBox_Leave(object sender, EventArgs e)
+        {
+            if (signin_serverEmailTextBox.Text == "")
+            {
+                if (signin_corpEmailTextBox.Text != "")
+                {
+                    signin_emailErrorLabel.Text = "Email invalid!";
+                    signin_emailErrorLabel.Visible = true;
+                }
+                else
+                    signin_emailErrorLabel.Visible = false;
+            }
+            else
+            {
+                if (signin_corpEmailTextBox.Text != "")
+                {
+                    EmailChecker emailChecker = new EmailChecker();
+                    if (emailChecker.IsValidEmail(signin_corpEmailTextBox.Text.Trim() + "@" + signin_serverEmailTextBox.Text.Trim()))
+                    {
+                        signin_emailErrorLabel.Visible = false;
+                    }
+                    else
+                    {
+                        signin_emailErrorLabel.Text = "Email invalid!";
+                        signin_emailErrorLabel.Visible = true;
+                    }
+                }
+                else
+                {
+                    signin_emailErrorLabel.Text = "Email invalid!";
+                    signin_emailErrorLabel.Visible = true;
+                }
+            }
+        }
+
+        private void signin_corpEmailTextBox_Leave(object sender, EventArgs e)
+        {
+            if (signin_corpEmailTextBox.Text != "" && signin_serverEmailTextBox.Text != "")
+            {
+                EmailChecker emailChecker = new EmailChecker();
+                if (emailChecker.IsValidEmail(signin_corpEmailTextBox.Text.Trim() + "@" + signin_serverEmailTextBox.Text.Trim()))
+                    signin_emailErrorLabel.Visible = false;
+                else
+                {
+                    signin_emailErrorLabel.Text = "Email invalid!";
+                    signin_emailErrorLabel.Visible = true;
+                }
+            }
+            else
+                if (signin_corpEmailTextBox.Text == "" && signin_serverEmailTextBox.Text == "")
+                    signin_emailErrorLabel.Visible = false;
+        }
     }
 }
