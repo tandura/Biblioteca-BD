@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Biblioteca
 {
@@ -15,5 +16,8 @@ namespace Biblioteca
         protected MySqlConnection bibliotecaDatabaseConection;
         protected int userId = -1;
         protected String caleImagine;
+
+        protected DataTable rezultatDataTable = null;
+        protected int indexRexultat = -1;
     }
 }

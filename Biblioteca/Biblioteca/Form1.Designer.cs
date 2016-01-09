@@ -86,8 +86,9 @@
             this.cautareTitluPage_TitluTextbox = new System.Windows.Forms.TextBox();
             this.cautareTitluPage_titluLabel = new System.Windows.Forms.Label();
             this.cautareAutorPage = new System.Windows.Forms.TabPage();
-            this.cautareAutorPage_cautaButon = new System.Windows.Forms.Button();
-            this.cautareAutorPage_titluTextBox = new System.Windows.Forms.TextBox();
+            this.cautareAutorPage_numeErrorLabel = new System.Windows.Forms.Label();
+            this.cautareAutorPage_cautaButton = new System.Windows.Forms.Button();
+            this.cautareAutorPage_numeTextBox = new System.Windows.Forms.TextBox();
             this.cautareAutorPage_autorLabel = new System.Windows.Forms.Label();
             this.cautareColectiePage = new System.Windows.Forms.TabPage();
             this.cautareColectiePage_colectieComboBox = new System.Windows.Forms.ComboBox();
@@ -114,33 +115,37 @@
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.rezultateleCautariiPage = new System.Windows.Forms.TabPage();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_edituraListBox = new System.Windows.Forms.ListBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.rezultateleCautariiPage_genuriListBox = new System.Windows.Forms.ListBox();
+            this.rezultateleCautariiPage_autoriListBox = new System.Windows.Forms.ListBox();
+            this.rezultateleCautariiPage_marcareButton = new System.Windows.Forms.Button();
+            this.rezultateleCautariiPage_urmatorButton = new System.Windows.Forms.Button();
+            this.rezultateleCautariiPage_anteriorButton = new System.Windows.Forms.Button();
+            this.rezultateleCautariiPage_rezumatTextBox = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_dataTextBox = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_nrPaginiTextBox = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_notaTextBox = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_colectieTextBox = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_isbnTextBox = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.rezultateleCautariiPage_titluTextBox = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.rezultateleCautariiPage_imaginePanou = new System.Windows.Forms.Panel();
             this.acordareFunctiePage = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.acordareFunctiePage_functieErrorLabel = new System.Windows.Forms.Label();
+            this.acordareFunctiePage_usernameErrorLabel = new System.Windows.Forms.Label();
+            this.acordareFunctiePage_acordaButton = new System.Windows.Forms.Button();
+            this.acordareFunctiePage_functieComboBox = new System.Windows.Forms.ComboBox();
             this.label40 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.acordareFunctiePage_usernameTextBox = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.inserareCartePage = new System.Windows.Forms.TabPage();
             this.inserareCartePage_edituraErrorLabel = new System.Windows.Forms.Label();
@@ -240,7 +245,6 @@
             this.administrareToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acordaFunctieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.introducereCartiiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificareCarteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inserareAutorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creareEdituraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creareGenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -871,8 +875,9 @@
             // cautareAutorPage
             // 
             this.cautareAutorPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.cautareAutorPage.Controls.Add(this.cautareAutorPage_cautaButon);
-            this.cautareAutorPage.Controls.Add(this.cautareAutorPage_titluTextBox);
+            this.cautareAutorPage.Controls.Add(this.cautareAutorPage_numeErrorLabel);
+            this.cautareAutorPage.Controls.Add(this.cautareAutorPage_cautaButton);
+            this.cautareAutorPage.Controls.Add(this.cautareAutorPage_numeTextBox);
             this.cautareAutorPage.Controls.Add(this.cautareAutorPage_autorLabel);
             this.cautareAutorPage.Location = new System.Drawing.Point(4, 22);
             this.cautareAutorPage.Name = "cautareAutorPage";
@@ -881,32 +886,44 @@
             this.cautareAutorPage.TabIndex = 4;
             this.cautareAutorPage.Text = "Cautare dupa autor";
             // 
-            // cautareAutorPage_cautaButon
+            // cautareAutorPage_numeErrorLabel
             // 
-            this.cautareAutorPage_cautaButon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAutorPage_cautaButon.Location = new System.Drawing.Point(576, 342);
-            this.cautareAutorPage_cautaButon.Name = "cautareAutorPage_cautaButon";
-            this.cautareAutorPage_cautaButon.Size = new System.Drawing.Size(75, 23);
-            this.cautareAutorPage_cautaButon.TabIndex = 29;
-            this.cautareAutorPage_cautaButon.Text = "Cauta!";
-            this.cautareAutorPage_cautaButon.UseVisualStyleBackColor = true;
-            this.cautareAutorPage_cautaButon.Click += new System.EventHandler(this.cautareAutorPage_cautaButon_Click);
+            this.cautareAutorPage_numeErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAutorPage_numeErrorLabel.AutoSize = true;
+            this.cautareAutorPage_numeErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareAutorPage_numeErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareAutorPage_numeErrorLabel.Location = new System.Drawing.Point(797, 307);
+            this.cautareAutorPage_numeErrorLabel.Name = "cautareAutorPage_numeErrorLabel";
+            this.cautareAutorPage_numeErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareAutorPage_numeErrorLabel.TabIndex = 30;
+            this.cautareAutorPage_numeErrorLabel.Text = "label18";
             // 
-            // cautareAutorPage_titluTextBox
+            // cautareAutorPage_cautaButton
             // 
-            this.cautareAutorPage_titluTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAutorPage_titluTextBox.Location = new System.Drawing.Point(435, 276);
-            this.cautareAutorPage_titluTextBox.Name = "cautareAutorPage_titluTextBox";
-            this.cautareAutorPage_titluTextBox.Size = new System.Drawing.Size(356, 20);
-            this.cautareAutorPage_titluTextBox.TabIndex = 28;
-            this.cautareAutorPage_titluTextBox.Text = "Introduceti autorul";
+            this.cautareAutorPage_cautaButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAutorPage_cautaButton.Location = new System.Drawing.Point(576, 370);
+            this.cautareAutorPage_cautaButton.Name = "cautareAutorPage_cautaButton";
+            this.cautareAutorPage_cautaButton.Size = new System.Drawing.Size(75, 23);
+            this.cautareAutorPage_cautaButton.TabIndex = 29;
+            this.cautareAutorPage_cautaButton.Text = "Cauta!";
+            this.cautareAutorPage_cautaButton.UseVisualStyleBackColor = true;
+            this.cautareAutorPage_cautaButton.Click += new System.EventHandler(this.cautareAutorPage_cautaButon_Click);
+            // 
+            // cautareAutorPage_numeTextBox
+            // 
+            this.cautareAutorPage_numeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAutorPage_numeTextBox.Location = new System.Drawing.Point(435, 304);
+            this.cautareAutorPage_numeTextBox.Name = "cautareAutorPage_numeTextBox";
+            this.cautareAutorPage_numeTextBox.Size = new System.Drawing.Size(356, 20);
+            this.cautareAutorPage_numeTextBox.TabIndex = 28;
+            this.cautareAutorPage_numeTextBox.Text = "Introduceti autorul";
             // 
             // cautareAutorPage_autorLabel
             // 
             this.cautareAutorPage_autorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cautareAutorPage_autorLabel.AutoSize = true;
             this.cautareAutorPage_autorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cautareAutorPage_autorLabel.Location = new System.Drawing.Point(583, 219);
+            this.cautareAutorPage_autorLabel.Location = new System.Drawing.Point(583, 247);
             this.cautareAutorPage_autorLabel.Name = "cautareAutorPage_autorLabel";
             this.cautareAutorPage_autorLabel.Size = new System.Drawing.Size(59, 25);
             this.cautareAutorPage_autorLabel.TabIndex = 27;
@@ -1163,28 +1180,30 @@
             // rezultateleCautariiPage
             // 
             this.rezultateleCautariiPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.rezultateleCautariiPage.Controls.Add(this.button17);
-            this.rezultateleCautariiPage.Controls.Add(this.button15);
-            this.rezultateleCautariiPage.Controls.Add(this.button14);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox28);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_edituraListBox);
+            this.rezultateleCautariiPage.Controls.Add(this.label52);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_genuriListBox);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_autoriListBox);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_marcareButton);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_urmatorButton);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_anteriorButton);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_rezumatTextBox);
             this.rezultateleCautariiPage.Controls.Add(this.label34);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox27);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_dataTextBox);
             this.rezultateleCautariiPage.Controls.Add(this.label30);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox26);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox25);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox21);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox16);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_nrPaginiTextBox);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_notaTextBox);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_colectieTextBox);
             this.rezultateleCautariiPage.Controls.Add(this.label31);
             this.rezultateleCautariiPage.Controls.Add(this.label32);
             this.rezultateleCautariiPage.Controls.Add(this.label33);
             this.rezultateleCautariiPage.Controls.Add(this.label35);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox22);
             this.rezultateleCautariiPage.Controls.Add(this.label36);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox23);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_isbnTextBox);
             this.rezultateleCautariiPage.Controls.Add(this.label37);
-            this.rezultateleCautariiPage.Controls.Add(this.textBox24);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_titluTextBox);
             this.rezultateleCautariiPage.Controls.Add(this.label38);
-            this.rezultateleCautariiPage.Controls.Add(this.panel1);
+            this.rezultateleCautariiPage.Controls.Add(this.rezultateleCautariiPage_imaginePanou);
             this.rezultateleCautariiPage.Location = new System.Drawing.Point(4, 22);
             this.rezultateleCautariiPage.Name = "rezultateleCautariiPage";
             this.rezultateleCautariiPage.Padding = new System.Windows.Forms.Padding(3);
@@ -1192,105 +1211,139 @@
             this.rezultateleCautariiPage.TabIndex = 7;
             this.rezultateleCautariiPage.Text = "Rez cautarii";
             // 
-            // button17
+            // rezultateleCautariiPage_edituraListBox
             // 
-            this.button17.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button17.Location = new System.Drawing.Point(524, 582);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(208, 23);
-            this.button17.TabIndex = 63;
-            this.button17.Text = "Marcare: Posibila carte de imprumutat";
-            this.button17.UseVisualStyleBackColor = true;
+            this.rezultateleCautariiPage_edituraListBox.FormattingEnabled = true;
+            this.rezultateleCautariiPage_edituraListBox.Location = new System.Drawing.Point(391, 250);
+            this.rezultateleCautariiPage_edituraListBox.Name = "rezultateleCautariiPage_edituraListBox";
+            this.rezultateleCautariiPage_edituraListBox.Size = new System.Drawing.Size(356, 69);
+            this.rezultateleCautariiPage_edituraListBox.TabIndex = 67;
             // 
-            // button15
+            // label52
             // 
-            this.button15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button15.Location = new System.Drawing.Point(1003, 581);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(106, 23);
-            this.button15.TabIndex = 62;
-            this.button15.Text = "Cartea urmatoare";
-            this.button15.UseVisualStyleBackColor = true;
+            this.label52.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(275, 250);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(102, 13);
+            this.label52.TabIndex = 66;
+            this.label52.Text = "Publicata la Editurile";
             // 
-            // button14
+            // rezultateleCautariiPage_genuriListBox
             // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button14.Location = new System.Drawing.Point(130, 582);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(105, 23);
-            this.button14.TabIndex = 61;
-            this.button14.Text = "Cartea anterioara";
-            this.button14.UseVisualStyleBackColor = true;
+            this.rezultateleCautariiPage_genuriListBox.FormattingEnabled = true;
+            this.rezultateleCautariiPage_genuriListBox.Location = new System.Drawing.Point(391, 175);
+            this.rezultateleCautariiPage_genuriListBox.Name = "rezultateleCautariiPage_genuriListBox";
+            this.rezultateleCautariiPage_genuriListBox.Size = new System.Drawing.Size(356, 69);
+            this.rezultateleCautariiPage_genuriListBox.TabIndex = 65;
             // 
-            // textBox28
+            // rezultateleCautariiPage_autoriListBox
             // 
-            this.textBox28.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rezultateleCautariiPage_autoriListBox.FormattingEnabled = true;
+            this.rezultateleCautariiPage_autoriListBox.Location = new System.Drawing.Point(391, 74);
+            this.rezultateleCautariiPage_autoriListBox.Name = "rezultateleCautariiPage_autoriListBox";
+            this.rezultateleCautariiPage_autoriListBox.Size = new System.Drawing.Size(356, 69);
+            this.rezultateleCautariiPage_autoriListBox.TabIndex = 64;
+            // 
+            // rezultateleCautariiPage_marcareButton
+            // 
+            this.rezultateleCautariiPage_marcareButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.rezultateleCautariiPage_marcareButton.Location = new System.Drawing.Point(524, 582);
+            this.rezultateleCautariiPage_marcareButton.Name = "rezultateleCautariiPage_marcareButton";
+            this.rezultateleCautariiPage_marcareButton.Size = new System.Drawing.Size(208, 23);
+            this.rezultateleCautariiPage_marcareButton.TabIndex = 63;
+            this.rezultateleCautariiPage_marcareButton.Text = "Marcare: Posibila carte de imprumutat";
+            this.rezultateleCautariiPage_marcareButton.UseVisualStyleBackColor = true;
+            // 
+            // rezultateleCautariiPage_urmatorButton
+            // 
+            this.rezultateleCautariiPage_urmatorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rezultateleCautariiPage_urmatorButton.Location = new System.Drawing.Point(1003, 581);
+            this.rezultateleCautariiPage_urmatorButton.Name = "rezultateleCautariiPage_urmatorButton";
+            this.rezultateleCautariiPage_urmatorButton.Size = new System.Drawing.Size(106, 23);
+            this.rezultateleCautariiPage_urmatorButton.TabIndex = 62;
+            this.rezultateleCautariiPage_urmatorButton.Text = "Cartea urmatoare";
+            this.rezultateleCautariiPage_urmatorButton.UseVisualStyleBackColor = true;
+            this.rezultateleCautariiPage_urmatorButton.Click += new System.EventHandler(this.rezultateleCautariiPage_urmatorButton_Click);
+            // 
+            // rezultateleCautariiPage_anteriorButton
+            // 
+            this.rezultateleCautariiPage_anteriorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rezultateleCautariiPage_anteriorButton.Location = new System.Drawing.Point(130, 582);
+            this.rezultateleCautariiPage_anteriorButton.Name = "rezultateleCautariiPage_anteriorButton";
+            this.rezultateleCautariiPage_anteriorButton.Size = new System.Drawing.Size(105, 23);
+            this.rezultateleCautariiPage_anteriorButton.TabIndex = 61;
+            this.rezultateleCautariiPage_anteriorButton.Text = "Cartea anterioara";
+            this.rezultateleCautariiPage_anteriorButton.UseVisualStyleBackColor = true;
+            this.rezultateleCautariiPage_anteriorButton.Click += new System.EventHandler(this.rezultateleCautariiPage_anteriorButton_Click);
+            // 
+            // rezultateleCautariiPage_rezumatTextBox
+            // 
+            this.rezultateleCautariiPage_rezumatTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox28.Location = new System.Drawing.Point(31, 323);
-            this.textBox28.Multiline = true;
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(1157, 239);
-            this.textBox28.TabIndex = 60;
+            this.rezultateleCautariiPage_rezumatTextBox.Location = new System.Drawing.Point(31, 325);
+            this.rezultateleCautariiPage_rezumatTextBox.Multiline = true;
+            this.rezultateleCautariiPage_rezumatTextBox.Name = "rezultateleCautariiPage_rezumatTextBox";
+            this.rezultateleCautariiPage_rezumatTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_rezumatTextBox.Size = new System.Drawing.Size(1157, 237);
+            this.rezultateleCautariiPage_rezumatTextBox.TabIndex = 60;
             // 
             // label34
             // 
             this.label34.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(28, 287);
+            this.label34.Location = new System.Drawing.Point(28, 306);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(49, 13);
             this.label34.TabIndex = 59;
             this.label34.Text = "Rezumat";
             // 
-            // textBox27
+            // rezultateleCautariiPage_dataTextBox
             // 
-            this.textBox27.Location = new System.Drawing.Point(362, 282);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(187, 20);
-            this.textBox27.TabIndex = 58;
+            this.rezultateleCautariiPage_dataTextBox.Location = new System.Drawing.Point(126, 281);
+            this.rezultateleCautariiPage_dataTextBox.Name = "rezultateleCautariiPage_dataTextBox";
+            this.rezultateleCautariiPage_dataTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_dataTextBox.Size = new System.Drawing.Size(187, 20);
+            this.rezultateleCautariiPage_dataTextBox.TabIndex = 58;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(275, 282);
+            this.label30.Location = new System.Drawing.Point(41, 284);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(69, 13);
             this.label30.TabIndex = 57;
             this.label30.Text = "Data aparitiei";
             // 
-            // textBox26
+            // rezultateleCautariiPage_nrPaginiTextBox
             // 
-            this.textBox26.Location = new System.Drawing.Point(553, 233);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(86, 20);
-            this.textBox26.TabIndex = 56;
+            this.rezultateleCautariiPage_nrPaginiTextBox.Location = new System.Drawing.Point(130, 255);
+            this.rezultateleCautariiPage_nrPaginiTextBox.Name = "rezultateleCautariiPage_nrPaginiTextBox";
+            this.rezultateleCautariiPage_nrPaginiTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_nrPaginiTextBox.Size = new System.Drawing.Size(86, 20);
+            this.rezultateleCautariiPage_nrPaginiTextBox.TabIndex = 56;
             // 
-            // textBox25
+            // rezultateleCautariiPage_notaTextBox
             // 
-            this.textBox25.Location = new System.Drawing.Point(362, 233);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(36, 20);
-            this.textBox25.TabIndex = 55;
+            this.rezultateleCautariiPage_notaTextBox.Location = new System.Drawing.Point(104, 226);
+            this.rezultateleCautariiPage_notaTextBox.Name = "rezultateleCautariiPage_notaTextBox";
+            this.rezultateleCautariiPage_notaTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_notaTextBox.Size = new System.Drawing.Size(36, 20);
+            this.rezultateleCautariiPage_notaTextBox.TabIndex = 55;
             // 
-            // textBox21
+            // rezultateleCautariiPage_colectieTextBox
             // 
-            this.textBox21.Location = new System.Drawing.Point(362, 179);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(356, 20);
-            this.textBox21.TabIndex = 54;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(362, 143);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(356, 20);
-            this.textBox16.TabIndex = 53;
+            this.rezultateleCautariiPage_colectieTextBox.Location = new System.Drawing.Point(391, 149);
+            this.rezultateleCautariiPage_colectieTextBox.Name = "rezultateleCautariiPage_colectieTextBox";
+            this.rezultateleCautariiPage_colectieTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_colectieTextBox.Size = new System.Drawing.Size(356, 20);
+            this.rezultateleCautariiPage_colectieTextBox.TabIndex = 53;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(275, 233);
+            this.label31.Location = new System.Drawing.Point(41, 229);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(57, 13);
             this.label31.TabIndex = 52;
@@ -1299,7 +1352,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(275, 186);
+            this.label32.Location = new System.Drawing.Point(275, 175);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(38, 13);
             this.label32.TabIndex = 51;
@@ -1308,7 +1361,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(275, 146);
+            this.label33.Location = new System.Drawing.Point(275, 149);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(45, 13);
             this.label33.TabIndex = 49;
@@ -1317,74 +1370,71 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(425, 236);
+            this.label35.Location = new System.Drawing.Point(41, 258);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(113, 13);
+            this.label35.Size = new System.Drawing.Size(84, 13);
             this.label35.TabIndex = 44;
-            this.label35.Text = "Numar minim de pagini";
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(362, 103);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(356, 20);
-            this.textBox22.TabIndex = 42;
+            this.label35.Text = "Numar de pagini";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(275, 106);
+            this.label36.Location = new System.Drawing.Point(275, 74);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(32, 13);
             this.label36.TabIndex = 41;
             this.label36.Text = "Autor";
             // 
-            // textBox23
+            // rezultateleCautariiPage_isbnTextBox
             // 
-            this.textBox23.Location = new System.Drawing.Point(362, 68);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(356, 20);
-            this.textBox23.TabIndex = 40;
+            this.rezultateleCautariiPage_isbnTextBox.Location = new System.Drawing.Point(391, 48);
+            this.rezultateleCautariiPage_isbnTextBox.Name = "rezultateleCautariiPage_isbnTextBox";
+            this.rezultateleCautariiPage_isbnTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_isbnTextBox.Size = new System.Drawing.Size(356, 20);
+            this.rezultateleCautariiPage_isbnTextBox.TabIndex = 40;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(275, 71);
+            this.label37.Location = new System.Drawing.Point(275, 51);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(32, 13);
             this.label37.TabIndex = 39;
             this.label37.Text = "ISBN";
             // 
-            // textBox24
+            // rezultateleCautariiPage_titluTextBox
             // 
-            this.textBox24.Location = new System.Drawing.Point(362, 31);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(356, 20);
-            this.textBox24.TabIndex = 38;
+            this.rezultateleCautariiPage_titluTextBox.Location = new System.Drawing.Point(391, 22);
+            this.rezultateleCautariiPage_titluTextBox.Name = "rezultateleCautariiPage_titluTextBox";
+            this.rezultateleCautariiPage_titluTextBox.ReadOnly = true;
+            this.rezultateleCautariiPage_titluTextBox.Size = new System.Drawing.Size(356, 20);
+            this.rezultateleCautariiPage_titluTextBox.TabIndex = 38;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(275, 34);
+            this.label38.Location = new System.Drawing.Point(275, 25);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(27, 13);
             this.label38.TabIndex = 37;
             this.label38.Text = "Titlu";
             // 
-            // panel1
+            // rezultateleCautariiPage_imaginePanou
             // 
-            this.panel1.Location = new System.Drawing.Point(44, 31);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 173);
-            this.panel1.TabIndex = 30;
+            this.rezultateleCautariiPage_imaginePanou.Location = new System.Drawing.Point(44, 31);
+            this.rezultateleCautariiPage_imaginePanou.Name = "rezultateleCautariiPage_imaginePanou";
+            this.rezultateleCautariiPage_imaginePanou.Size = new System.Drawing.Size(134, 173);
+            this.rezultateleCautariiPage_imaginePanou.TabIndex = 30;
             // 
             // acordareFunctiePage
             // 
             this.acordareFunctiePage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.acordareFunctiePage.Controls.Add(this.button7);
-            this.acordareFunctiePage.Controls.Add(this.comboBox5);
+            this.acordareFunctiePage.Controls.Add(this.acordareFunctiePage_functieErrorLabel);
+            this.acordareFunctiePage.Controls.Add(this.acordareFunctiePage_usernameErrorLabel);
+            this.acordareFunctiePage.Controls.Add(this.acordareFunctiePage_acordaButton);
+            this.acordareFunctiePage.Controls.Add(this.acordareFunctiePage_functieComboBox);
             this.acordareFunctiePage.Controls.Add(this.label40);
-            this.acordareFunctiePage.Controls.Add(this.textBox29);
+            this.acordareFunctiePage.Controls.Add(this.acordareFunctiePage_usernameTextBox);
             this.acordareFunctiePage.Controls.Add(this.label39);
             this.acordareFunctiePage.Location = new System.Drawing.Point(4, 22);
             this.acordareFunctiePage.Name = "acordareFunctiePage";
@@ -1393,48 +1443,73 @@
             this.acordareFunctiePage.TabIndex = 8;
             this.acordareFunctiePage.Text = "Acordare Functie";
             // 
-            // button7
+            // acordareFunctiePage_functieErrorLabel
             // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.Location = new System.Drawing.Point(566, 350);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(111, 23);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Acorda Functia!";
-            this.button7.UseVisualStyleBackColor = true;
+            this.acordareFunctiePage_functieErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.acordareFunctiePage_functieErrorLabel.AutoSize = true;
+            this.acordareFunctiePage_functieErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.acordareFunctiePage_functieErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.acordareFunctiePage_functieErrorLabel.Location = new System.Drawing.Point(885, 311);
+            this.acordareFunctiePage_functieErrorLabel.Name = "acordareFunctiePage_functieErrorLabel";
+            this.acordareFunctiePage_functieErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.acordareFunctiePage_functieErrorLabel.TabIndex = 11;
+            this.acordareFunctiePage_functieErrorLabel.Text = "label18";
             // 
-            // comboBox5
+            // acordareFunctiePage_usernameErrorLabel
             // 
-            this.comboBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(505, 300);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(356, 21);
-            this.comboBox5.TabIndex = 5;
+            this.acordareFunctiePage_usernameErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.acordareFunctiePage_usernameErrorLabel.AutoSize = true;
+            this.acordareFunctiePage_usernameErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.acordareFunctiePage_usernameErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.acordareFunctiePage_usernameErrorLabel.Location = new System.Drawing.Point(885, 262);
+            this.acordareFunctiePage_usernameErrorLabel.Name = "acordareFunctiePage_usernameErrorLabel";
+            this.acordareFunctiePage_usernameErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.acordareFunctiePage_usernameErrorLabel.TabIndex = 10;
+            this.acordareFunctiePage_usernameErrorLabel.Text = "label18";
+            // 
+            // acordareFunctiePage_acordaButton
+            // 
+            this.acordareFunctiePage_acordaButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.acordareFunctiePage_acordaButton.Location = new System.Drawing.Point(584, 358);
+            this.acordareFunctiePage_acordaButton.Name = "acordareFunctiePage_acordaButton";
+            this.acordareFunctiePage_acordaButton.Size = new System.Drawing.Size(111, 23);
+            this.acordareFunctiePage_acordaButton.TabIndex = 6;
+            this.acordareFunctiePage_acordaButton.Text = "Acorda Functia!";
+            this.acordareFunctiePage_acordaButton.UseVisualStyleBackColor = true;
+            this.acordareFunctiePage_acordaButton.Click += new System.EventHandler(this.acordareFunctiePage_acordaButton_Click);
+            // 
+            // acordareFunctiePage_functieComboBox
+            // 
+            this.acordareFunctiePage_functieComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.acordareFunctiePage_functieComboBox.FormattingEnabled = true;
+            this.acordareFunctiePage_functieComboBox.Location = new System.Drawing.Point(523, 308);
+            this.acordareFunctiePage_functieComboBox.Name = "acordareFunctiePage_functieComboBox";
+            this.acordareFunctiePage_functieComboBox.Size = new System.Drawing.Size(356, 21);
+            this.acordareFunctiePage_functieComboBox.TabIndex = 5;
             // 
             // label40
             // 
             this.label40.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(457, 303);
+            this.label40.Location = new System.Drawing.Point(475, 311);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(42, 13);
             this.label40.TabIndex = 4;
             this.label40.Text = "Functia";
             // 
-            // textBox29
+            // acordareFunctiePage_usernameTextBox
             // 
-            this.textBox29.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox29.Location = new System.Drawing.Point(505, 251);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(356, 20);
-            this.textBox29.TabIndex = 3;
+            this.acordareFunctiePage_usernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.acordareFunctiePage_usernameTextBox.Location = new System.Drawing.Point(523, 259);
+            this.acordareFunctiePage_usernameTextBox.Name = "acordareFunctiePage_usernameTextBox";
+            this.acordareFunctiePage_usernameTextBox.Size = new System.Drawing.Size(356, 20);
+            this.acordareFunctiePage_usernameTextBox.TabIndex = 3;
             // 
             // label39
             // 
             this.label39.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(275, 254);
+            this.label39.Location = new System.Drawing.Point(293, 262);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(224, 13);
             this.label39.TabIndex = 2;
@@ -2446,7 +2521,6 @@
             this.administrareToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acordaFunctieToolStripMenuItem,
             this.introducereCartiiToolStripMenuItem,
-            this.modificareCarteToolStripMenuItem,
             this.inserareAutorToolStripMenuItem,
             this.creareEdituraToolStripMenuItem,
             this.creareGenToolStripMenuItem1,
@@ -2468,13 +2542,6 @@
             this.introducereCartiiToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.introducereCartiiToolStripMenuItem.Text = "Introducere carte";
             this.introducereCartiiToolStripMenuItem.Click += new System.EventHandler(this.introducereCartiiToolStripMenuItem_Click);
-            // 
-            // modificareCarteToolStripMenuItem
-            // 
-            this.modificareCarteToolStripMenuItem.Name = "modificareCarteToolStripMenuItem";
-            this.modificareCarteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.modificareCarteToolStripMenuItem.Text = "Modificare carte";
-            this.modificareCarteToolStripMenuItem.Click += new System.EventHandler(this.modificareCarteToolStripMenuItem_Click);
             // 
             // inserareAutorToolStripMenuItem
             // 
@@ -2624,8 +2691,8 @@
         private System.Windows.Forms.TextBox cautareTitluPage_TitluTextbox;
         private System.Windows.Forms.Label cautareTitluPage_titluLabel;
         private System.Windows.Forms.TabPage cautareAutorPage;
-        private System.Windows.Forms.Button cautareAutorPage_cautaButon;
-        private System.Windows.Forms.TextBox cautareAutorPage_titluTextBox;
+        private System.Windows.Forms.Button cautareAutorPage_cautaButton;
+        private System.Windows.Forms.TextBox cautareAutorPage_numeTextBox;
         private System.Windows.Forms.Label cautareAutorPage_autorLabel;
         private System.Windows.Forms.TabPage cautareColectiePage;
         private System.Windows.Forms.ComboBox cautareColectiePage_colectieComboBox;
@@ -2633,7 +2700,7 @@
         private System.Windows.Forms.Label cautareColectiePage_colectieLabel;
         private System.Windows.Forms.TabPage cautareAvansataPage;
         private System.Windows.Forms.TabPage rezultateleCautariiPage;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel rezultateleCautariiPage_imaginePanou;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.Label label24;
@@ -2653,29 +2720,27 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_rezumatTextBox;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox27;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_dataTextBox;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_nrPaginiTextBox;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_notaTextBox;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_colectieTextBox;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_isbnTextBox;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox rezultateleCautariiPage_titluTextBox;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TabPage acordareFunctiePage;
-        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.TextBox acordareFunctiePage_usernameTextBox;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button acordareFunctiePage_acordaButton;
+        private System.Windows.Forms.ComboBox acordareFunctiePage_functieComboBox;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TabPage inserareCartePage;
         private System.Windows.Forms.CheckedListBox inserareCartePage_genuriCheckList;
@@ -2732,12 +2797,11 @@
         private System.Windows.Forms.ToolStripMenuItem dupaAutorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dupaColectieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem avansataToolStripMenuItem;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button rezultateleCautariiPage_urmatorButton;
+        private System.Windows.Forms.Button rezultateleCautariiPage_anteriorButton;
         private System.Windows.Forms.ToolStripMenuItem administrareToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acordaFunctieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem introducereCartiiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificareCarteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imprumutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creareGenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem creareGenToolStripMenuItem1;
@@ -2751,7 +2815,7 @@
         private System.Windows.Forms.TreeView treeView3;
         private System.Windows.Forms.TreeView treeView2;
         private System.Windows.Forms.ToolStripMenuItem vizualizareIstoricToolStripMenuItem;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button rezultateleCautariiPage_marcareButton;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.MaskedTextBox signin_telefonTextBox;
         private System.Windows.Forms.MaskedTextBox signin_codPostalTextBox;
@@ -2790,6 +2854,13 @@
         private System.Windows.Forms.Label inserareCartePage_exemplareErrorLabel;
         private System.Windows.Forms.Label inserareCartePage_notaErrorLabel;
         private System.Windows.Forms.Label inserareCartePage_nrPaginiErrorLabel;
+        private System.Windows.Forms.Label acordareFunctiePage_functieErrorLabel;
+        private System.Windows.Forms.Label acordareFunctiePage_usernameErrorLabel;
+        private System.Windows.Forms.Label cautareAutorPage_numeErrorLabel;
+        private System.Windows.Forms.ListBox rezultateleCautariiPage_edituraListBox;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ListBox rezultateleCautariiPage_genuriListBox;
+        private System.Windows.Forms.ListBox rezultateleCautariiPage_autoriListBox;
 
     }
 }

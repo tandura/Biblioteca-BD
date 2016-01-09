@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Drawing;
+using System.IO;
 
 
 namespace Biblioteca
@@ -91,6 +92,41 @@ namespace Biblioteca
 
         private void cautareAutorPage_cautaButon_Click(object sender, EventArgs e)
         {
+            MySqlCommand cautareCommand = new MySqlCommand("select * from carte where idCarte in (select Carte_idCarte from carteautor where Autor_idAutor in (SELECT idAutor FROM autor WHERE Nume REGEXP @numeAutor));", bibliotecaDatabaseConection);
+            MySqlDataAdapter cautareDataAdapter = new MySqlDataAdapter(cautareCommand);
+
+            cautareCommand.Parameters.Add("@numeAutor", MySqlDbType.VarChar, 45);
+
+            if (cautareAutorPage_numeTextBox.Text == "Introduceti autorul" || cautareAutorPage_numeTextBox.Text == "")
+            {
+                cautareAutorPage_numeErrorLabel.Text = "Introduceti autorul";
+                cautareAutorPage_numeErrorLabel.Visible = true;
+                return;
+            }
+            else
+                cautareAutorPage_numeErrorLabel.Visible = false;
+
+            cautareCommand.Parameters["@numeAutor"].Value = cautareAutorPage_numeTextBox.Text;
+            rezultatDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            cautareDataAdapter.Fill(rezultatDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            indexRexultat = 0;
+
+            if (rezultatDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Nici o carte gasita!");
+                return;
+            }
+                
+            incarcaCatea(indexRexultat);
+
+            if (rezultatDataTable.Rows.Count == 1)
+                rezultateleCautariiPage_urmatorButton.Visible = false;
+            rezultateleCautariiPage_anteriorButton.Visible = false;
+
             tabControler.SelectedTab = rezultateleCautariiPage;
         }
 
@@ -106,6 +142,23 @@ namespace Biblioteca
 
         private void acordaFunctieToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MySqlCommand privilegiiCommand = new MySqlCommand("select Nume from privilegii;",bibliotecaDatabaseConection);
+            MySqlDataAdapter privilegiiDataAdapter = new MySqlDataAdapter(privilegiiCommand);
+            DataTable privilegiiDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            privilegiiDataAdapter.Fill(privilegiiDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            acordareFunctiePage_functieComboBox.Items.Clear();
+            acordareFunctiePage_functieComboBox.Items.Add("Selectati functia");
+            foreach (DataRow row in privilegiiDataTable.Rows)
+                acordareFunctiePage_functieComboBox.Items.Add(row["Nume"].ToString());
+            acordareFunctiePage_functieComboBox.SelectedIndex = 0;
+
+            acordareFunctiePage_functieErrorLabel.Visible = false;
+            acordareFunctiePage_usernameErrorLabel.Visible = false;
+
             tabControler.SelectedTab = acordareFunctiePage;
         }
 
@@ -211,6 +264,84 @@ namespace Biblioteca
         private void vizualizareIstoricToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControler.SelectedTab = rezultateleCautariiPage;
+        }
+
+        protected void incarcaCatea(int poz)
+        {
+            if(poz<rezultatDataTable.Rows.Count)
+            {
+                MySqlCommand autoriCommand = new MySqlCommand("select Nume from autor where idAutor in (select Autor_idAutor from carteautor where Carte_idCarte = @idCarte)",bibliotecaDatabaseConection);
+                MySqlCommand genCommand = new MySqlCommand("select Nume from gen where idGen in (select Gen_idGen from cartegen where Carte_idCarte = @idCarte)", bibliotecaDatabaseConection);
+                MySqlCommand edituriCommand = new MySqlCommand("select Nume from editura where idEditura in (select Editura_idEditura from carteeditura where Carte_idCarte = @idCarte)", bibliotecaDatabaseConection);
+                MySqlDataAdapter autoriDataAdapter = new MySqlDataAdapter(autoriCommand);
+                MySqlDataAdapter genDataAdapter = new MySqlDataAdapter(genCommand);
+                MySqlDataAdapter edituraDataAdapter = new MySqlDataAdapter(edituriCommand);
+                DataTable informatiiDataTable;
+
+                autoriCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+                genCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+                edituriCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+
+                autoriCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
+                genCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
+                edituriCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
+
+                rezultateleCautariiPage_titluTextBox.Text = rezultatDataTable.Rows[poz]["Titlu"].ToString();
+                rezultateleCautariiPage_isbnTextBox.Text = rezultatDataTable.Rows[poz]["ISBN"].ToString();
+                rezultateleCautariiPage_rezumatTextBox.Text = rezultatDataTable.Rows[poz]["Rezumat"].ToString();
+                rezultateleCautariiPage_dataTextBox.Text = rezultatDataTable.Rows[poz]["DataAparitie"].ToString();
+                rezultateleCautariiPage_nrPaginiTextBox.Text = rezultatDataTable.Rows[poz]["NrPagini"].ToString();
+                rezultateleCautariiPage_notaTextBox.Text = rezultatDataTable.Rows[poz]["NotaCarte"].ToString();
+                if (rezultatDataTable.Rows[poz]["ImagineCoperta"].ToString() != "")
+                {
+                    byte[] imageData = (byte[])rezultatDataTable.Rows[poz]["ImagineCoperta"];
+                    MemoryStream stream = new MemoryStream(imageData);
+                    rezultateleCautariiPage_imaginePanou.BackgroundImage = ResizeImage.ImageResize(Image.FromStream(stream), rezultateleCautariiPage_imaginePanou.Width, rezultateleCautariiPage_imaginePanou.Height);
+                }
+                else
+                    rezultateleCautariiPage_imaginePanou.BackgroundImage = null;
+                if (rezultatDataTable.Rows[poz]["idColectie"].ToString() != "")
+                {
+                    MySqlCommand colectieCommand = new MySqlCommand("select nume from Colectii where idColectii = @idColectie", bibliotecaDatabaseConection);
+                    MySqlDataAdapter colectieDataAdapter = new MySqlDataAdapter(colectieCommand);
+                    DataTable colectieDataTable = new DataTable();
+
+                    colectieCommand.Parameters.Add("@idColectie", MySqlDbType.Int32);
+                    colectieCommand.Parameters["@idColectie"].Value = rezultatDataTable.Rows[poz]["idColectie"];
+
+                    bibliotecaDatabaseConection.Open();
+                    colectieDataAdapter.Fill(colectieDataTable);
+                    bibliotecaDatabaseConection.Close();
+
+                    rezultateleCautariiPage_colectieTextBox.Text = colectieDataTable.Rows[0]["nume"].ToString();
+                }
+                else
+                    rezultateleCautariiPage_colectieTextBox.Text = "";
+
+                informatiiDataTable = new DataTable();
+                bibliotecaDatabaseConection.Open();
+                autoriDataAdapter.Fill(informatiiDataTable);
+                bibliotecaDatabaseConection.Close();
+                rezultateleCautariiPage_autoriListBox.Items.Clear();
+                foreach (DataRow row in informatiiDataTable.Rows)
+                    rezultateleCautariiPage_autoriListBox.Items.Add(row["Nume"].ToString());
+
+                informatiiDataTable = new DataTable();
+                bibliotecaDatabaseConection.Open();
+                genDataAdapter.Fill(informatiiDataTable);
+                bibliotecaDatabaseConection.Close();
+                rezultateleCautariiPage_genuriListBox.Items.Clear();
+                foreach (DataRow row in informatiiDataTable.Rows)
+                    rezultateleCautariiPage_genuriListBox.Items.Add(row["Nume"].ToString());
+
+                informatiiDataTable = new DataTable();
+                bibliotecaDatabaseConection.Open();
+                edituraDataAdapter.Fill(informatiiDataTable);
+                bibliotecaDatabaseConection.Close();
+                rezultateleCautariiPage_edituraListBox.Items.Clear();
+                foreach (DataRow row in informatiiDataTable.Rows)
+                    rezultateleCautariiPage_edituraListBox.Items.Add(row["Nume"].ToString());
+            }
         }
     }
 }

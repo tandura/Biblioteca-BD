@@ -750,6 +750,69 @@ namespace Biblioteca
 
         }
 
+        private void acordareFunctiePage_acordaButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand acordaCommand = new MySqlCommand("update utilizator set idPrivilegiu = @idPriv WHERE Username=@username;", bibliotecaDatabaseConection);
+            MySqlCommand privilegiuCommand = new MySqlCommand("select idPrivilegii from privilegii where Nume = @nume;", bibliotecaDatabaseConection);
+            MySqlDataAdapter privilegiuDataAdapter = new MySqlDataAdapter(privilegiuCommand);
+            DataTable privilegiuDataTable = new DataTable();
+
+            privilegiuCommand.Parameters.Add("@nume",MySqlDbType.VarChar,45);
+
+            acordaCommand.Parameters.Add("@username",MySqlDbType.VarChar,45);
+            acordaCommand.Parameters.Add("@idPriv", MySqlDbType.Int32);
+
+            if (acordareFunctiePage_usernameTextBox.Text == "")
+            {
+                acordareFunctiePage_usernameErrorLabel.Text = "Introduceti un username!";
+                acordareFunctiePage_usernameErrorLabel.Visible = true;
+                return;
+            }
+            else
+                acordareFunctiePage_usernameErrorLabel.Visible = false;
+
+            if (acordareFunctiePage_functieComboBox.SelectedIndex == 0)
+            {
+                acordareFunctiePage_functieErrorLabel.Text = "Selectati Functia!";
+                acordareFunctiePage_functieErrorLabel.Visible = true;
+                return;
+            }
+            else
+                acordareFunctiePage_functieErrorLabel.Visible = false;
+
+            privilegiuCommand.Parameters["@nume"].Value = acordareFunctiePage_functieComboBox.SelectedItem;
+
+            bibliotecaDatabaseConection.Open();
+            privilegiuDataAdapter.Fill(privilegiuDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            acordaCommand.Parameters["@username"].Value = acordareFunctiePage_usernameTextBox.Text;
+            acordaCommand.Parameters["@idPriv"].Value = privilegiuDataTable.Rows[0].ItemArray[0];
+
+            bibliotecaDatabaseConection.Open();
+            acordaCommand.ExecuteNonQuery();
+            bibliotecaDatabaseConection.Close();
+
+            MessageBox.Show("Utilizatorul " + acordareFunctiePage_usernameTextBox.Text + " a primit functia de " + acordareFunctiePage_functieComboBox.SelectedItem + ".");
+        }
+
+        private void rezultateleCautariiPage_anteriorButton_Click(object sender, EventArgs e)
+        {
+            incarcaCatea(--indexRexultat);
+            if (indexRexultat == 0)
+                rezultateleCautariiPage_anteriorButton.Visible = false;
+            if (indexRexultat < rezultatDataTable.Rows.Count - 1)
+                rezultateleCautariiPage_urmatorButton.Visible = true;
+        }
+
+        private void rezultateleCautariiPage_urmatorButton_Click(object sender, EventArgs e)
+        {
+            incarcaCatea(++indexRexultat);
+            if (indexRexultat == rezultatDataTable.Rows.Count - 1)
+                rezultateleCautariiPage_urmatorButton.Visible = false;
+            if (indexRexultat > 0)
+                rezultateleCautariiPage_anteriorButton.Visible = true;
+        }
      
     }
 }
