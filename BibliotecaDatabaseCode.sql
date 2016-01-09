@@ -51,8 +51,6 @@ ROW_FORMAT = DEFAULT;
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Autor` (
   `idAutor` INT NOT NULL AUTO_INCREMENT,
   `Nume` VARCHAR(45) NOT NULL,
-  `Prenume` VARCHAR(45) NOT NULL,
-  `Origine` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idAutor`),
   UNIQUE INDEX `idAutor_UNIQUE` (`idAutor` ASC))
 ENGINE = InnoDB;
@@ -86,7 +84,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Editura` (
   `idEditura` INT NOT NULL AUTO_INCREMENT,
   `Nume` VARCHAR(45) NOT NULL,
-  `NrCarti` INT NULL,
+  `NrCarti` INT NULL DEFAULT 0,
   PRIMARY KEY (`idEditura`),
   UNIQUE INDEX `idEditura_UNIQUE` (`idEditura` ASC))
 ENGINE = InnoDB;
