@@ -26,7 +26,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `biblioteca`.`Carte` (
   `idCarte` INT NOT NULL AUTO_INCREMENT,
   `Titlu` VARCHAR(45) NOT NULL,
-  `ISBN` CHAR(14) NOT NULL,
+  `ISBN` varchar(45) NOT NULL,
   `Rezumat` MEDIUMTEXT NULL,
   `DataAparitie` DATE NOT NULL,
   `ImagineCoperta` MEDIUMBLOB NULL,

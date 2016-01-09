@@ -510,10 +510,24 @@ namespace Biblioteca
         private void inserareCartePage_inserareButton_Click(object sender, EventArgs e)
         {
             MySqlCommand inserareCommand = new MySqlCommand("insert into carte(Titlu,ISBN,Rezumat,DataAparitie,ImagineCoperta,NrPagini,idColectie,NotaCarte,NrCarti) values(@titlu,@isbn,@rezumat,@data,@imagine,@nrPagini,@idColectie,@nota,@nrCarti)", bibliotecaDatabaseConection);
+            MySqlCommand carteAutorCommand = new MySqlCommand("insert into carteautor(Carte_idCarte,Autor_idAutor) values (@idCarte,@idAutor);",bibliotecaDatabaseConection);
+            MySqlCommand carteEdituraCommand = new MySqlCommand("insert into carteeditura(Carte_idCarte,Editura_idEditura) values (@idCarte,@idEdit);",bibliotecaDatabaseConection);
+            MySqlCommand carteGenCommand = new MySqlCommand("insert into cartegen(Carte_idCarte,Gen_idGen) values (@idCarte,@idGen);",bibliotecaDatabaseConection);
             MySqlCommand colectieCommand = new MySqlCommand("select idColectii from colectii where Nume = @numeColectie;", bibliotecaDatabaseConection);
+            MySqlCommand autoriCommand = new MySqlCommand("SELECT idAutor FROM autor WHERE Nume=@nume;", bibliotecaDatabaseConection);
+            MySqlCommand genCommand = new MySqlCommand("SELECT idGen FROM gen WHERE Nume=@nume;", bibliotecaDatabaseConection);
+            MySqlCommand edituraCommand = new MySqlCommand("SELECT idEditura FROM editura WHERE Nume=@nume;", bibliotecaDatabaseConection);
             MySqlDataAdapter colectieDataAdaptor = new MySqlDataAdapter(colectieCommand);
+            MySqlDataAdapter autorDataAdaptor = new MySqlDataAdapter(autoriCommand);
+            MySqlDataAdapter genDataAdapter = new MySqlDataAdapter(genCommand);
+            MySqlDataAdapter edituriDataAdapter = new MySqlDataAdapter(edituraCommand);
             DataTable colectieDataTable = new DataTable();
+            DataTable autorDataTable = null;
+            DataTable genDataTable = null;
+            DataTable edituraDataTable = null;
             bool colectie;
+            int numarPagini;
+            long idCarte;
             byte[] ImageData;
             FileStream fs;
             BinaryReader br;
@@ -529,6 +543,84 @@ namespace Biblioteca
             else
                 ImageData = null;
 
+            if(inserareCartePage_titluTextBox.Text == "")
+            {
+                inserareCartePage_titluErrorLabel.Text = "Introduceti un titlu!";
+                inserareCartePage_titluErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_titluErrorLabel.Visible = false;
+
+            if (IsbnValidation.TryValidate(inserareCartePage_isbnTextBox.Text) == false)
+            {
+                inserareCartePage_isbnErrorLabel.Text = "Isbn-ul nu este valid";
+                inserareCartePage_isbnErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_isbnErrorLabel.Visible = false;
+
+            if (inserareCartePage_autoriCheckList.CheckedItems.Count == 0)
+            {
+                inserareCartePage_autorErrorLabel.Text = "Selectati cel putin un autor!";
+                inserareCartePage_autorErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_autorErrorLabel.Visible = false;
+
+            if(inserareCartePage_edituriCheckList.CheckedItems.Count == 0)
+            {
+                inserareCartePage_edituraErrorLabel.Text = "Selectati cel putin o editura!";
+                inserareCartePage_edituraErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_edituraErrorLabel.Visible = false;
+
+            if (inserareCartePage_genuriCheckList.CheckedItems.Count == 0)
+            {
+                inserareCartePage_genErrorLabel.Text = "Selectati cel putin un gen!";
+                inserareCartePage_genErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_genErrorLabel.Visible = false;
+
+            if (inserareCartePage_notaCarteTextBox.Text == "")
+            {
+                inserareCartePage_notaErrorLabel.Text = "Introduceti nota!";
+                inserareCartePage_notaErrorLabel.Visible = true;
+                return;
+            }
+            else
+                if (Int32.Parse(inserareCartePage_notaCarteTextBox.Text) > 5)
+                {
+                    inserareCartePage_notaErrorLabel.Text = "Nota trebuie sa fie <= 5!";
+                    inserareCartePage_notaErrorLabel.Visible = true;
+                    return;
+                }
+                else
+                    inserareCartePage_notaErrorLabel.Visible = false;
+
+            if (inserareCartePage_numarExemplareTextBox.Text == "")
+            {
+                inserareCartePage_exemplareErrorLabel.Text = "Necesar!";
+                inserareCartePage_exemplareErrorLabel.Visible = true;
+            }
+            else
+                inserareCartePage_exemplareErrorLabel.Visible = false;
+
+            if (inserareCartePage_numarPaginiTextBox.Text == "" || !Int32.TryParse(inserareCartePage_numarPaginiTextBox.Text, out numarPagini))
+            {
+                inserareCartePage_nrPaginiErrorLabel.Text = "Necesar!";
+                inserareCartePage_nrPaginiErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_nrPaginiErrorLabel.Visible = false;
+
             if (inserareCartePage_colectieComboBox.SelectedIndex == 0)
                 colectie = false;
             else
@@ -543,7 +635,7 @@ namespace Biblioteca
             }
 
             inserareCommand.Parameters.Add("@titlu",MySqlDbType.VarChar,45);
-            inserareCommand.Parameters.Add("@isbn",MySqlDbType.VarChar,14);
+            inserareCommand.Parameters.Add("@isbn",MySqlDbType.VarChar,45);
             inserareCommand.Parameters.Add("@rezumat",MySqlDbType.MediumText);
             inserareCommand.Parameters.Add("@data",MySqlDbType.Date);
             inserareCommand.Parameters.Add("@imagine",MySqlDbType.MediumBlob);
@@ -551,8 +643,21 @@ namespace Biblioteca
             inserareCommand.Parameters.Add("@nota",MySqlDbType.Int16);
             inserareCommand.Parameters.Add("@nrCarti",MySqlDbType.Int32);
             inserareCommand.Parameters.Add("@idColectie",MySqlDbType.Int32);
-            
-            //de facut protectie antiprost
+
+            autoriCommand.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+            genCommand.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+            edituraCommand.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+            carteAutorCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            carteAutorCommand.Parameters.Add("@idAutor", MySqlDbType.Int32);
+
+            carteGenCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            carteGenCommand.Parameters.Add("@idGen", MySqlDbType.Int32);
+
+            carteEdituraCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            carteEdituraCommand.Parameters.Add("@idEdit", MySqlDbType.Int32);
 
             inserareCommand.Parameters["@titlu"].Value = inserareCartePage_titluTextBox.Text;
             inserareCommand.Parameters["@isbn"].Value = inserareCartePage_isbnTextBox.Text;
@@ -569,7 +674,79 @@ namespace Biblioteca
 
             bibliotecaDatabaseConection.Open();
             inserareCommand.ExecuteNonQuery();
+            idCarte = inserareCommand.LastInsertedId;
             bibliotecaDatabaseConection.Close();
+
+            for(int i=0;i<inserareCartePage_autoriCheckList.Items.Count;i++)
+            {
+                if(inserareCartePage_autoriCheckList.GetItemChecked(i))
+                {
+                    autorDataTable = new DataTable();
+
+                    autoriCommand.Parameters["@nume"].Value = inserareCartePage_autoriCheckList.Items[i].ToString();
+
+                    bibliotecaDatabaseConection.Open();
+                    autorDataAdaptor.Fill(autorDataTable);
+                    bibliotecaDatabaseConection.Close();
+
+                    if(autorDataTable.Rows.Count==1)
+                    {
+                        carteAutorCommand.Parameters["@idCarte"].Value = idCarte;
+                        carteAutorCommand.Parameters["@idAutor"].Value = autorDataTable.Rows[0].ItemArray[0];
+
+                        bibliotecaDatabaseConection.Open();
+                        carteAutorCommand.ExecuteNonQuery();
+                        bibliotecaDatabaseConection.Close();
+                    }
+                }
+            }
+
+            for (int i = 0; i < inserareCartePage_genuriCheckList.Items.Count; i++)
+                if(inserareCartePage_genuriCheckList.GetItemChecked(i))
+                {
+                    genDataTable = new DataTable();
+
+                    genCommand.Parameters["@nume"].Value = inserareCartePage_genuriCheckList.Items[i].ToString();
+
+                    bibliotecaDatabaseConection.Open();
+                    genDataAdapter.Fill(genDataTable);
+                    bibliotecaDatabaseConection.Close();
+
+                    if(genDataTable.Rows.Count == 1)
+                    {
+                        carteGenCommand.Parameters["@idCarte"].Value = idCarte;
+                        carteGenCommand.Parameters["@idGen"].Value = genDataTable.Rows[0].ItemArray[0];
+
+                        bibliotecaDatabaseConection.Open();
+                        carteGenCommand.ExecuteNonQuery();
+                        bibliotecaDatabaseConection.Close();
+                    }
+                }
+
+            for (int i = 0; i < inserareCartePage_edituriCheckList.Items.Count; i++)
+                if(inserareCartePage_edituriCheckList.GetItemChecked(i))
+                {
+                    edituraDataTable = new DataTable();
+
+                    edituraCommand.Parameters["@nume"].Value = inserareCartePage_edituriCheckList.Items[i].ToString();
+
+                    bibliotecaDatabaseConection.Open();
+                    edituriDataAdapter.Fill(edituraDataTable);
+                    bibliotecaDatabaseConection.Close();
+
+                    if(edituraDataTable.Rows.Count == 1)
+                    {
+                        carteEdituraCommand.Parameters["@idCarte"].Value = idCarte;
+                        carteEdituraCommand.Parameters["@idEdit"].Value = edituraDataTable.Rows[0].ItemArray[0];
+
+                        bibliotecaDatabaseConection.Open();
+                        carteEdituraCommand.ExecuteNonQuery();
+                        bibliotecaDatabaseConection.Close();
+                    }
+                }
+
+
+                MessageBox.Show("Cartea " + inserareCartePage_titluTextBox.Text + " a fost adaugata!");
 
         }
 

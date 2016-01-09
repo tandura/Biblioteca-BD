@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
             this.tabControler = new System.Windows.Forms.TabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -143,6 +143,14 @@
             this.textBox29 = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.inserareCartePage = new System.Windows.Forms.TabPage();
+            this.inserareCartePage_edituraErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_genErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_autorErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_isbnErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_titluErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_exemplareErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_notaErrorLabel = new System.Windows.Forms.Label();
+            this.inserareCartePage_nrPaginiErrorLabel = new System.Windows.Forms.Label();
             this.inserareCartePage_numarExemplareTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.inserareCartePage_notaCarteTextBox = new System.Windows.Forms.MaskedTextBox();
@@ -1435,6 +1443,14 @@
             // inserareCartePage
             // 
             this.inserareCartePage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_edituraErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_genErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_autorErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_isbnErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_titluErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_exemplareErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_notaErrorLabel);
+            this.inserareCartePage.Controls.Add(this.inserareCartePage_nrPaginiErrorLabel);
             this.inserareCartePage.Controls.Add(this.inserareCartePage_numarExemplareTextBox);
             this.inserareCartePage.Controls.Add(this.label21);
             this.inserareCartePage.Controls.Add(this.inserareCartePage_notaCarteTextBox);
@@ -1467,10 +1483,106 @@
             this.inserareCartePage.TabIndex = 9;
             this.inserareCartePage.Text = "Inserare Carte";
             // 
+            // inserareCartePage_edituraErrorLabel
+            // 
+            this.inserareCartePage_edituraErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_edituraErrorLabel.AutoSize = true;
+            this.inserareCartePage_edituraErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_edituraErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_edituraErrorLabel.Location = new System.Drawing.Point(725, 333);
+            this.inserareCartePage_edituraErrorLabel.Name = "inserareCartePage_edituraErrorLabel";
+            this.inserareCartePage_edituraErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_edituraErrorLabel.TabIndex = 100;
+            this.inserareCartePage_edituraErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_genErrorLabel
+            // 
+            this.inserareCartePage_genErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_genErrorLabel.AutoSize = true;
+            this.inserareCartePage_genErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_genErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_genErrorLabel.Location = new System.Drawing.Point(725, 228);
+            this.inserareCartePage_genErrorLabel.Name = "inserareCartePage_genErrorLabel";
+            this.inserareCartePage_genErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_genErrorLabel.TabIndex = 99;
+            this.inserareCartePage_genErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_autorErrorLabel
+            // 
+            this.inserareCartePage_autorErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_autorErrorLabel.AutoSize = true;
+            this.inserareCartePage_autorErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_autorErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_autorErrorLabel.Location = new System.Drawing.Point(725, 91);
+            this.inserareCartePage_autorErrorLabel.Name = "inserareCartePage_autorErrorLabel";
+            this.inserareCartePage_autorErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_autorErrorLabel.TabIndex = 97;
+            this.inserareCartePage_autorErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_isbnErrorLabel
+            // 
+            this.inserareCartePage_isbnErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_isbnErrorLabel.AutoSize = true;
+            this.inserareCartePage_isbnErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_isbnErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_isbnErrorLabel.Location = new System.Drawing.Point(725, 63);
+            this.inserareCartePage_isbnErrorLabel.Name = "inserareCartePage_isbnErrorLabel";
+            this.inserareCartePage_isbnErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_isbnErrorLabel.TabIndex = 96;
+            this.inserareCartePage_isbnErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_titluErrorLabel
+            // 
+            this.inserareCartePage_titluErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_titluErrorLabel.AutoSize = true;
+            this.inserareCartePage_titluErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_titluErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_titluErrorLabel.Location = new System.Drawing.Point(725, 32);
+            this.inserareCartePage_titluErrorLabel.Name = "inserareCartePage_titluErrorLabel";
+            this.inserareCartePage_titluErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_titluErrorLabel.TabIndex = 95;
+            this.inserareCartePage_titluErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_exemplareErrorLabel
+            // 
+            this.inserareCartePage_exemplareErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_exemplareErrorLabel.AutoSize = true;
+            this.inserareCartePage_exemplareErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_exemplareErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_exemplareErrorLabel.Location = new System.Drawing.Point(258, 355);
+            this.inserareCartePage_exemplareErrorLabel.Name = "inserareCartePage_exemplareErrorLabel";
+            this.inserareCartePage_exemplareErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_exemplareErrorLabel.TabIndex = 94;
+            this.inserareCartePage_exemplareErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_notaErrorLabel
+            // 
+            this.inserareCartePage_notaErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_notaErrorLabel.AutoSize = true;
+            this.inserareCartePage_notaErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_notaErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_notaErrorLabel.Location = new System.Drawing.Point(161, 306);
+            this.inserareCartePage_notaErrorLabel.Name = "inserareCartePage_notaErrorLabel";
+            this.inserareCartePage_notaErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_notaErrorLabel.TabIndex = 93;
+            this.inserareCartePage_notaErrorLabel.Text = "label18";
+            // 
+            // inserareCartePage_nrPaginiErrorLabel
+            // 
+            this.inserareCartePage_nrPaginiErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.inserareCartePage_nrPaginiErrorLabel.AutoSize = true;
+            this.inserareCartePage_nrPaginiErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.inserareCartePage_nrPaginiErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.inserareCartePage_nrPaginiErrorLabel.Location = new System.Drawing.Point(224, 278);
+            this.inserareCartePage_nrPaginiErrorLabel.Name = "inserareCartePage_nrPaginiErrorLabel";
+            this.inserareCartePage_nrPaginiErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.inserareCartePage_nrPaginiErrorLabel.TabIndex = 92;
+            this.inserareCartePage_nrPaginiErrorLabel.Text = "label18";
+            // 
             // inserareCartePage_numarExemplareTextBox
             // 
             this.inserareCartePage_numarExemplareTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inserareCartePage_numarExemplareTextBox.Location = new System.Drawing.Point(156, 344);
+            this.inserareCartePage_numarExemplareTextBox.Location = new System.Drawing.Point(156, 352);
             this.inserareCartePage_numarExemplareTextBox.Mask = "000";
             this.inserareCartePage_numarExemplareTextBox.Name = "inserareCartePage_numarExemplareTextBox";
             this.inserareCartePage_numarExemplareTextBox.Size = new System.Drawing.Size(96, 20);
@@ -1479,7 +1591,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(45, 352);
+            this.label21.Location = new System.Drawing.Point(45, 360);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(104, 13);
             this.label21.TabIndex = 89;
@@ -1487,7 +1599,7 @@
             // 
             // inserareCartePage_notaCarteTextBox
             // 
-            this.inserareCartePage_notaCarteTextBox.Location = new System.Drawing.Point(106, 313);
+            this.inserareCartePage_notaCarteTextBox.Location = new System.Drawing.Point(106, 303);
             this.inserareCartePage_notaCarteTextBox.Mask = "0";
             this.inserareCartePage_notaCarteTextBox.Name = "inserareCartePage_notaCarteTextBox";
             this.inserareCartePage_notaCarteTextBox.Size = new System.Drawing.Size(49, 20);
@@ -1601,7 +1713,7 @@
             // inserareCartePage_numarPaginiTextBox
             // 
             this.inserareCartePage_numarPaginiTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.inserareCartePage_numarPaginiTextBox.Location = new System.Drawing.Point(166, 285);
+            this.inserareCartePage_numarPaginiTextBox.Location = new System.Drawing.Point(132, 275);
             this.inserareCartePage_numarPaginiTextBox.Name = "inserareCartePage_numarPaginiTextBox";
             this.inserareCartePage_numarPaginiTextBox.Size = new System.Drawing.Size(86, 20);
             this.inserareCartePage_numarPaginiTextBox.TabIndex = 75;
@@ -1610,7 +1722,7 @@
             // 
             this.label43.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(42, 321);
+            this.label43.Location = new System.Drawing.Point(42, 311);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(57, 13);
             this.label43.TabIndex = 71;
@@ -1640,7 +1752,7 @@
             // 
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(42, 288);
+            this.label46.Location = new System.Drawing.Point(42, 278);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(84, 13);
             this.label46.TabIndex = 68;
@@ -1847,14 +1959,14 @@
             this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(853, 16);
             this.treeView1.Name = "treeView1";
-            treeNode4.Name = "Node1";
-            treeNode4.Text = "Node1";
-            treeNode5.Name = "Node2";
-            treeNode5.Text = "Node2";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Node0";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Node1";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(224, 138);
             this.treeView1.TabIndex = 106;
             // 
@@ -2670,6 +2782,14 @@
         private System.Windows.Forms.MaskedTextBox inserareCartePage_notaCarteTextBox;
         private System.Windows.Forms.MaskedTextBox inserareCartePage_numarExemplareTextBox;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label inserareCartePage_edituraErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_genErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_autorErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_isbnErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_titluErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_exemplareErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_notaErrorLabel;
+        private System.Windows.Forms.Label inserareCartePage_nrPaginiErrorLabel;
 
     }
 }

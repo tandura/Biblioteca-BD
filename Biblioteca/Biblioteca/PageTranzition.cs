@@ -157,6 +157,16 @@ namespace Biblioteca
             inserareCartePage_numarExemplareTextBox.Text = "";
             inserareCartePage_imaginePanou.BackgroundImage = null;
 
+            inserareCartePage_autorErrorLabel.Visible = false;
+            inserareCartePage_edituraErrorLabel.Visible = false;
+            inserareCartePage_exemplareErrorLabel.Visible = false;
+            inserareCartePage_genErrorLabel.Visible = false;
+            inserareCartePage_isbnErrorLabel.Visible = false;
+            inserareCartePage_notaErrorLabel.Visible = false;
+            inserareCartePage_nrPaginiErrorLabel.Visible = false;
+            inserareCartePage_titluErrorLabel.Visible = false;
+            
+
             tabControler.SelectedTab = inserareCartePage;
         }
 
