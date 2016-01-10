@@ -37,6 +37,8 @@ namespace Biblioteca
             foreach (ToolStripMenuItem item in menuStrip.Items)
                 if (item.Name != "administrareToolStripMenuItem")
                     item.Visible = true;
+                else
+                    item.Visible = false;
         }
 
     }

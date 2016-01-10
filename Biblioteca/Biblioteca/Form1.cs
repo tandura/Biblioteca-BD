@@ -298,10 +298,29 @@ namespace Biblioteca
                 }
                 else
                     MessageBox.Show("Eroare neasteptata!\n" + mesajOutput);
+
+            logareUser();
+        }
+
+        private void aplicatie_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MySqlCommand curatareWishlist = new MySqlCommand("delete from wishlist where idUtilizator = @idUtilizator;", bibliotecaDatabaseConection);
+
+            curatareWishlist.Parameters.Add("@idUtilizator", MySqlDbType.Int32);
+            curatareWishlist.Parameters["@idUtilizator"].Value = userId;
+
+            bibliotecaDatabaseConection.Open();
+            curatareWishlist.ExecuteNonQuery();
+            bibliotecaDatabaseConection.Close();
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MySqlCommand curatareWishlist = new MySqlCommand("delete from wishlist where idUtilizator = @idUtilizator;", bibliotecaDatabaseConection);
+
+            curatareWishlist.Parameters.Add("@idUtilizator", MySqlDbType.Int32);
+            curatareWishlist.Parameters["@idUtilizator"].Value = userId;
+
             foreach (ToolStripMenuItem item in menuStrip.Items)
             {
                 if ("autentificareToolStripMenuItem" != item.Name)
@@ -315,6 +334,11 @@ namespace Biblioteca
                             subItem.Visible = false;
                 }
             }
+
+            bibliotecaDatabaseConection.Open();
+            curatareWishlist.ExecuteNonQuery();
+            bibliotecaDatabaseConection.Close();
+
             userId = -1;
             tabControler.SelectedTab = home;
         }
@@ -812,6 +836,24 @@ namespace Biblioteca
                 rezultateleCautariiPage_urmatorButton.Visible = false;
             if (indexRexultat > 0)
                 rezultateleCautariiPage_anteriorButton.Visible = true;
+        }
+
+        private void rezultateleCautariiPage_marcareButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand inserareCommand = new MySqlCommand("insert into wishlist(idUtilizator,idCarte) values(@idUtilizator,@idCarte);", bibliotecaDatabaseConection);
+
+            inserareCommand.Parameters.Add("@idUtilizator",MySqlDbType.Int32);
+            inserareCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+
+            inserareCommand.Parameters["@idUtilizator"].Value = userId;
+            inserareCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[indexRexultat]["idCarte"];
+
+            bibliotecaDatabaseConection.Open();
+            inserareCommand.ExecuteNonQuery();
+            bibliotecaDatabaseConection.Close();
+
+            rezultateleCautariiPage_marcareButton.Text = "Cartea este marcata!";
+            rezultateleCautariiPage_marcareButton.Enabled = false;
         }
      
     }

@@ -82,6 +82,7 @@
             this.signin_usenameTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cautareTitluPage = new System.Windows.Forms.TabPage();
+            this.cautareTitluPage_titluErrorLabel = new System.Windows.Forms.Label();
             this.cautareTitluPage_cautaButon = new System.Windows.Forms.Button();
             this.cautareTitluPage_TitluTextbox = new System.Windows.Forms.TextBox();
             this.cautareTitluPage_titluLabel = new System.Windows.Forms.Label();
@@ -251,6 +252,7 @@
             this.creareGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cautareColectiePage_caolectiiErrorLabel = new System.Windows.Forms.Label();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -831,6 +833,7 @@
             // cautareTitluPage
             // 
             this.cautareTitluPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.cautareTitluPage.Controls.Add(this.cautareTitluPage_titluErrorLabel);
             this.cautareTitluPage.Controls.Add(this.cautareTitluPage_cautaButon);
             this.cautareTitluPage.Controls.Add(this.cautareTitluPage_TitluTextbox);
             this.cautareTitluPage.Controls.Add(this.cautareTitluPage_titluLabel);
@@ -841,10 +844,22 @@
             this.cautareTitluPage.TabIndex = 3;
             this.cautareTitluPage.Text = "Cautare dupa titlu";
             // 
+            // cautareTitluPage_titluErrorLabel
+            // 
+            this.cautareTitluPage_titluErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareTitluPage_titluErrorLabel.AutoSize = true;
+            this.cautareTitluPage_titluErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareTitluPage_titluErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareTitluPage_titluErrorLabel.Location = new System.Drawing.Point(797, 314);
+            this.cautareTitluPage_titluErrorLabel.Name = "cautareTitluPage_titluErrorLabel";
+            this.cautareTitluPage_titluErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareTitluPage_titluErrorLabel.TabIndex = 31;
+            this.cautareTitluPage_titluErrorLabel.Text = "label18";
+            // 
             // cautareTitluPage_cautaButon
             // 
             this.cautareTitluPage_cautaButon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareTitluPage_cautaButon.Location = new System.Drawing.Point(576, 342);
+            this.cautareTitluPage_cautaButon.Location = new System.Drawing.Point(576, 370);
             this.cautareTitluPage_cautaButon.Name = "cautareTitluPage_cautaButon";
             this.cautareTitluPage_cautaButon.Size = new System.Drawing.Size(75, 23);
             this.cautareTitluPage_cautaButon.TabIndex = 26;
@@ -855,7 +870,7 @@
             // cautareTitluPage_TitluTextbox
             // 
             this.cautareTitluPage_TitluTextbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareTitluPage_TitluTextbox.Location = new System.Drawing.Point(435, 276);
+            this.cautareTitluPage_TitluTextbox.Location = new System.Drawing.Point(435, 311);
             this.cautareTitluPage_TitluTextbox.Name = "cautareTitluPage_TitluTextbox";
             this.cautareTitluPage_TitluTextbox.Size = new System.Drawing.Size(356, 20);
             this.cautareTitluPage_TitluTextbox.TabIndex = 25;
@@ -866,7 +881,7 @@
             this.cautareTitluPage_titluLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cautareTitluPage_titluLabel.AutoSize = true;
             this.cautareTitluPage_titluLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cautareTitluPage_titluLabel.Location = new System.Drawing.Point(588, 219);
+            this.cautareTitluPage_titluLabel.Location = new System.Drawing.Point(589, 247);
             this.cautareTitluPage_titluLabel.Name = "cautareTitluPage_titluLabel";
             this.cautareTitluPage_titluLabel.Size = new System.Drawing.Size(49, 25);
             this.cautareTitluPage_titluLabel.TabIndex = 24;
@@ -932,6 +947,7 @@
             // cautareColectiePage
             // 
             this.cautareColectiePage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.cautareColectiePage.Controls.Add(this.cautareColectiePage_caolectiiErrorLabel);
             this.cautareColectiePage.Controls.Add(this.cautareColectiePage_colectieComboBox);
             this.cautareColectiePage.Controls.Add(this.cautareColectiePage_cautaButon);
             this.cautareColectiePage.Controls.Add(this.cautareColectiePage_colectieLabel);
@@ -946,7 +962,7 @@
             // 
             this.cautareColectiePage_colectieComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cautareColectiePage_colectieComboBox.FormattingEnabled = true;
-            this.cautareColectiePage_colectieComboBox.Location = new System.Drawing.Point(435, 276);
+            this.cautareColectiePage_colectieComboBox.Location = new System.Drawing.Point(435, 311);
             this.cautareColectiePage_colectieComboBox.Name = "cautareColectiePage_colectieComboBox";
             this.cautareColectiePage_colectieComboBox.Size = new System.Drawing.Size(356, 21);
             this.cautareColectiePage_colectieComboBox.TabIndex = 30;
@@ -954,7 +970,7 @@
             // cautareColectiePage_cautaButon
             // 
             this.cautareColectiePage_cautaButon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareColectiePage_cautaButon.Location = new System.Drawing.Point(576, 342);
+            this.cautareColectiePage_cautaButon.Location = new System.Drawing.Point(576, 370);
             this.cautareColectiePage_cautaButon.Name = "cautareColectiePage_cautaButon";
             this.cautareColectiePage_cautaButon.Size = new System.Drawing.Size(75, 23);
             this.cautareColectiePage_cautaButon.TabIndex = 29;
@@ -967,7 +983,7 @@
             this.cautareColectiePage_colectieLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cautareColectiePage_colectieLabel.AutoSize = true;
             this.cautareColectiePage_colectieLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cautareColectiePage_colectieLabel.Location = new System.Drawing.Point(572, 220);
+            this.cautareColectiePage_colectieLabel.Location = new System.Drawing.Point(572, 248);
             this.cautareColectiePage_colectieLabel.Name = "cautareColectiePage_colectieLabel";
             this.cautareColectiePage_colectieLabel.Size = new System.Drawing.Size(83, 25);
             this.cautareColectiePage_colectieLabel.TabIndex = 27;
@@ -1254,6 +1270,7 @@
             this.rezultateleCautariiPage_marcareButton.TabIndex = 63;
             this.rezultateleCautariiPage_marcareButton.Text = "Marcare: Posibila carte de imprumutat";
             this.rezultateleCautariiPage_marcareButton.UseVisualStyleBackColor = true;
+            this.rezultateleCautariiPage_marcareButton.Click += new System.EventHandler(this.rezultateleCautariiPage_marcareButton_Click);
             // 
             // rezultateleCautariiPage_urmatorButton
             // 
@@ -2585,6 +2602,18 @@
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
             // 
+            // cautareColectiePage_caolectiiErrorLabel
+            // 
+            this.cautareColectiePage_caolectiiErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareColectiePage_caolectiiErrorLabel.AutoSize = true;
+            this.cautareColectiePage_caolectiiErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareColectiePage_caolectiiErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareColectiePage_caolectiiErrorLabel.Location = new System.Drawing.Point(797, 314);
+            this.cautareColectiePage_caolectiiErrorLabel.Name = "cautareColectiePage_caolectiiErrorLabel";
+            this.cautareColectiePage_caolectiiErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareColectiePage_caolectiiErrorLabel.TabIndex = 32;
+            this.cautareColectiePage_caolectiiErrorLabel.Text = "label18";
+            // 
             // aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2596,6 +2625,7 @@
             this.MinimumSize = new System.Drawing.Size(1235, 700);
             this.Name = "aplicatie";
             this.Text = "Biblioteca";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.aplicatie_FormClosing);
             this.tabControler.ResumeLayout(false);
             this.home.ResumeLayout(false);
             this.home.PerformLayout();
@@ -2861,6 +2891,8 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.ListBox rezultateleCautariiPage_genuriListBox;
         private System.Windows.Forms.ListBox rezultateleCautariiPage_autoriListBox;
+        private System.Windows.Forms.Label cautareTitluPage_titluErrorLabel;
+        private System.Windows.Forms.Label cautareColectiePage_caolectiiErrorLabel;
 
     }
 }

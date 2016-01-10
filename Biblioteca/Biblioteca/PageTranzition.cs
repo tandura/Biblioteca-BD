@@ -67,16 +67,36 @@ namespace Biblioteca
 
         private void dupaTitluToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cautareTitluPage_TitluTextbox.Text = "Introduceti titlul";
+            cautareTitluPage_titluErrorLabel.Visible = false;
             tabControler.SelectedTab = cautareTitluPage;
         }
 
         private void dupaAutorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            cautareAutorPage_numeTextBox.Text = "Introduceti autorul";
+            cautareAutorPage_numeErrorLabel.Visible = false;
             tabControler.SelectedTab = cautareAutorPage;
         }
 
         private void dupaColectieToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MySqlCommand colectiiCommand = new MySqlCommand("select Nume from colectii order by Nume asc;",bibliotecaDatabaseConection);
+            MySqlDataAdapter colectiiDataAdaptor = new MySqlDataAdapter(colectiiCommand);
+            DataTable colectiiDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            colectiiDataAdaptor.Fill(colectiiDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            cautareColectiePage_colectieComboBox.Items.Clear();
+            cautareColectiePage_colectieComboBox.Items.Add("Selectati colectia");
+            foreach (DataRow row in colectiiDataTable.Rows)
+                cautareColectiePage_colectieComboBox.Items.Add(row["Nume"].ToString());
+            cautareColectiePage_colectieComboBox.SelectedIndex = 0;
+
+            cautareColectiePage_caolectiiErrorLabel.Visible = false;
+
             tabControler.SelectedTab = cautareColectiePage;
         }
 
@@ -87,6 +107,42 @@ namespace Biblioteca
 
         private void cautareTitluPage_cautaButon_Click(object sender, EventArgs e)
         {
+            MySqlCommand cautareCommand = new MySqlCommand("select * from carte where idCarte in (SELECT idCarte FROM carte WHERE Titlu REGEXP @titlu);", bibliotecaDatabaseConection);
+            MySqlDataAdapter cautareDataAdapter = new MySqlDataAdapter(cautareCommand);
+
+            cautareCommand.Parameters.Add("@titlu", MySqlDbType.VarChar, 45);
+
+
+            if (cautareTitluPage_TitluTextbox.Text == "Introduceti titlul" || cautareTitluPage_TitluTextbox.Text == "")
+            {
+                cautareTitluPage_titluErrorLabel.Text = "Introduceti titlul";
+                cautareTitluPage_titluErrorLabel.Visible = true;
+                return;
+            }
+            else
+                cautareTitluPage_titluErrorLabel.Visible = false;
+
+            cautareCommand.Parameters["@titlu"].Value = cautareTitluPage_TitluTextbox.Text;
+            rezultatDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            cautareDataAdapter.Fill(rezultatDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            indexRexultat = 0;
+
+            if (rezultatDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Nici o carte gasita!");
+                return;
+            }
+
+            incarcaCatea(indexRexultat);
+
+            if (rezultatDataTable.Rows.Count == 1)
+                rezultateleCautariiPage_urmatorButton.Visible = false;
+            rezultateleCautariiPage_anteriorButton.Visible = false;
+
             tabControler.SelectedTab = rezultateleCautariiPage;
         }
 
@@ -132,6 +188,42 @@ namespace Biblioteca
 
         private void cautareColectiePage_cautaButon_Click(object sender, EventArgs e)
         {
+            MySqlCommand cautareCommand = new MySqlCommand("select * from carte where idCarte in (SELECT idCarte FROM carte WHERE idColectie in (select idColectii from colectii where Nume = @nume));", bibliotecaDatabaseConection);
+            MySqlDataAdapter cautareDataAdapter = new MySqlDataAdapter(cautareCommand);
+
+            cautareCommand.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+
+            if (cautareColectiePage_colectieComboBox.SelectedIndex == 0)
+            {
+                cautareColectiePage_caolectiiErrorLabel.Text = "Selectati colectia!";
+                cautareColectiePage_caolectiiErrorLabel.Visible = true;
+                return;
+            }
+            else
+                cautareColectiePage_caolectiiErrorLabel.Visible = false;
+
+            cautareCommand.Parameters["@nume"].Value = cautareColectiePage_colectieComboBox.SelectedItem;
+            rezultatDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            cautareDataAdapter.Fill(rezultatDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            indexRexultat = 0;
+
+            if (rezultatDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Nici o carte gasita!");
+                return;
+            }
+
+            incarcaCatea(indexRexultat);
+
+            if (rezultatDataTable.Rows.Count == 1)
+                rezultateleCautariiPage_urmatorButton.Visible = false;
+            rezultateleCautariiPage_anteriorButton.Visible = false;
+
             tabControler.SelectedTab = rezultateleCautariiPage;
         }
 
@@ -273,9 +365,11 @@ namespace Biblioteca
                 MySqlCommand autoriCommand = new MySqlCommand("select Nume from autor where idAutor in (select Autor_idAutor from carteautor where Carte_idCarte = @idCarte)",bibliotecaDatabaseConection);
                 MySqlCommand genCommand = new MySqlCommand("select Nume from gen where idGen in (select Gen_idGen from cartegen where Carte_idCarte = @idCarte)", bibliotecaDatabaseConection);
                 MySqlCommand edituriCommand = new MySqlCommand("select Nume from editura where idEditura in (select Editura_idEditura from carteeditura where Carte_idCarte = @idCarte)", bibliotecaDatabaseConection);
+                MySqlCommand checkWishlistCommand = new MySqlCommand("select count(*) as NumarCarti from wishlist where idUtilizator = @userId and idCarte = @idCarte;", bibliotecaDatabaseConection);
                 MySqlDataAdapter autoriDataAdapter = new MySqlDataAdapter(autoriCommand);
                 MySqlDataAdapter genDataAdapter = new MySqlDataAdapter(genCommand);
                 MySqlDataAdapter edituraDataAdapter = new MySqlDataAdapter(edituriCommand);
+                MySqlDataAdapter checkWishlistDataAdapter = new MySqlDataAdapter(checkWishlistCommand);
                 DataTable informatiiDataTable;
 
                 autoriCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
@@ -285,6 +379,12 @@ namespace Biblioteca
                 autoriCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
                 genCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
                 edituriCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
+
+                checkWishlistCommand.Parameters.Add("@userId", MySqlDbType.Int32);
+                checkWishlistCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+
+                checkWishlistCommand.Parameters["@userId"].Value = userId;
+                checkWishlistCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[poz]["idCarte"];
 
                 rezultateleCautariiPage_titluTextBox.Text = rezultatDataTable.Rows[poz]["Titlu"].ToString();
                 rezultateleCautariiPage_isbnTextBox.Text = rezultatDataTable.Rows[poz]["ISBN"].ToString();
@@ -341,6 +441,21 @@ namespace Biblioteca
                 rezultateleCautariiPage_edituraListBox.Items.Clear();
                 foreach (DataRow row in informatiiDataTable.Rows)
                     rezultateleCautariiPage_edituraListBox.Items.Add(row["Nume"].ToString());
+
+                informatiiDataTable = new DataTable();
+                bibliotecaDatabaseConection.Open();
+                checkWishlistDataAdapter.Fill(informatiiDataTable);
+                bibliotecaDatabaseConection.Close();
+                if(informatiiDataTable.Rows.Count == 1 && Int32.Parse(informatiiDataTable.Rows[0]["NumarCarti"].ToString()) != 0)
+                {
+                    rezultateleCautariiPage_marcareButton.Text = "Cartea este marcata!";
+                    rezultateleCautariiPage_marcareButton.Enabled = false;
+                }
+                else
+                {
+                    rezultateleCautariiPage_marcareButton.Text = "Marcare: Posibila carte de imprumutat";
+                    rezultateleCautariiPage_marcareButton.Enabled = true;
+                }
             }
         }
     }
