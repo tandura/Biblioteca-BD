@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Biblioteca
 {
@@ -40,6 +41,8 @@ namespace Biblioteca
                 }
             }
 
+            this.imprumutPage_wishlistTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
+            this.imprumutPage_cartiTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
         }
 
         private void loginPage_loginButon_Click(object sender, EventArgs e)
@@ -854,6 +857,95 @@ namespace Biblioteca
 
             rezultateleCautariiPage_marcareButton.Text = "Cartea este marcata!";
             rezultateleCautariiPage_marcareButton.Enabled = false;
+        }
+
+        /// <summary>
+        /// Hides the checkbox for the specified node on a TreeView control.
+        /// </summary>
+        private void HideCheckBox(TreeView tvw, TreeNode node)
+        {
+            TVITEM tvi = new TVITEM();
+            tvi.hItem = node.Handle;
+            tvi.mask = TVIF_STATE;
+            tvi.stateMask = TVIS_STATEIMAGEMASK;
+            tvi.state = 0;
+            SendMessage(tvw.Handle, TVM_SETITEM, IntPtr.Zero, ref tvi);
+        }
+
+        private void imprumutPage_wishlistTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            if (e.Node.Level >= 1) HideCheckBox(imprumutPage_wishlistTreeView,e.Node);
+            e.DrawDefault = true;
+        }
+
+        private void imprumutPage_cartiTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            if (e.Node.Level >= 1) HideCheckBox(imprumutPage_cartiTreeView, e.Node);
+            e.DrawDefault = true;
+        }
+
+        private void imprumutPage_imprumutaButton_Click(object sender, EventArgs e)
+        {
+            MySqlCommand imprumuturiCommand = new MySqlCommand("select count(*) from imprumuturi where idUtilizator = @userId;", bibliotecaDatabaseConection);
+            MySqlCommand insertCommand = new MySqlCommand("insert into imprumuturi(idUtilizator,idCarte,dataImprumut,dataRestituire) values (@idUtilizator,@idCarte,@dataImprumut,@dataRestituire);",bibliotecaDatabaseConection);
+            MySqlDataAdapter imprumuturiDataAdapter = new MySqlDataAdapter(imprumuturiCommand);
+            MySqlDataAdapter carteDataAdapter = new MySqlDataAdapter(imprumuturiCommand);
+            DataTable imprumuturiDataTable = new DataTable();
+
+            imprumuturiCommand.Parameters.Add("@userId", MySqlDbType.Int32);
+            insertCommand.Parameters.Add("@idUtilizator", MySqlDbType.Int32);
+            insertCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            insertCommand.Parameters.Add("@dataImprumut", MySqlDbType.Date);
+            insertCommand.Parameters.Add("@dataRestituire", MySqlDbType.Date);
+
+            imprumuturiCommand.Parameters["@userId"].Value = userId;
+
+            bibliotecaDatabaseConection.Open();
+            imprumuturiDataAdapter.Fill(imprumuturiDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            if(Int32.Parse(imprumuturiDataTable.Rows[0].ItemArray[0].ToString())<3)
+            {
+                int numarCarti = 0;
+                for(int i=0; i < imprumutPage_wishlistTreeView.Nodes.Count; i++)
+                    if (imprumutPage_wishlistTreeView.Nodes[i].Checked)
+                        numarCarti++;
+                for (int i = 0; i < imprumutPage_cartiTreeView.Nodes.Count; i++)
+                    if (imprumutPage_cartiTreeView.Nodes[i].Checked)
+                        numarCarti++;
+
+                if (numarCarti <= 3 - Int32.Parse(imprumuturiDataTable.Rows[0].ItemArray[0].ToString()))
+                {
+                    for (int i = 0; i < imprumutPage_wishlistTreeView.Nodes.Count; i++)
+                        if (imprumutPage_wishlistTreeView.Nodes[i].Checked)
+                        {
+                            insertCommand.Parameters["@idUtilizator"].Value = userId;
+                            insertCommand.Parameters["@idCarte"].Value = imprumutPage_wishlistTreeView.Nodes[i].Name;
+                            insertCommand.Parameters["@dataImprumut"].Value = DateTime.Now.Date;
+                            insertCommand.Parameters["@dataRestituire"].Value = DateTime.Now.Date.AddDays(21);
+
+                            bibliotecaDatabaseConection.Open();
+                            insertCommand.ExecuteNonQuery();
+                            bibliotecaDatabaseConection.Close();
+                        }
+                    for (int i = 0; i < imprumutPage_cartiTreeView.Nodes.Count; i++)
+                        if (imprumutPage_cartiTreeView.Nodes[i].Checked)
+                        {
+                            insertCommand.Parameters["@idUtilizator"].Value = userId;
+                            insertCommand.Parameters["@idCarte"].Value = imprumutPage_cartiTreeView.Nodes[i].Name;
+                            insertCommand.Parameters["@dataImprumut"].Value = DateTime.Now.Date;
+                            insertCommand.Parameters["@dataRestituire"].Value = DateTime.Now.Date.AddDays(21);
+
+                            bibliotecaDatabaseConection.Open();
+                            insertCommand.ExecuteNonQuery();
+                            bibliotecaDatabaseConection.Close();
+                        }
+                    tabControler.SelectedTab = home;
+                    MessageBox.Show("Cartile selectate au fost imprumutate!");
+                }
+                else
+                    MessageBox.Show("Mai aveti voie sa imprumutati " + (3 - Int32.Parse(imprumuturiDataTable.Rows[0].ItemArray[0].ToString())).ToString() + " carti!\nDeselectati cateva carti!");
+            }
         }
      
     }

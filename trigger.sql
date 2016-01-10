@@ -28,4 +28,11 @@ for each row
 	END $$ 
 delimiter ;
 
-#drop trigger scade_nr_carti_editura;
+delimiter //
+create trigger introduce_in_istoric after insert on imprumuturi
+for each row
+	begin
+	insert into istoricimprumuturi (idUtilizator,idCarte)
+	values (new.idUtilizator,new.idCarte);
+	end //
+delimiter ;

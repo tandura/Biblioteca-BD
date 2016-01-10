@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
             this.tabControler = new System.Windows.Forms.TabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -92,6 +92,7 @@
             this.cautareAutorPage_numeTextBox = new System.Windows.Forms.TextBox();
             this.cautareAutorPage_autorLabel = new System.Windows.Forms.Label();
             this.cautareColectiePage = new System.Windows.Forms.TabPage();
+            this.cautareColectiePage_caolectiiErrorLabel = new System.Windows.Forms.Label();
             this.cautareColectiePage_colectieComboBox = new System.Windows.Forms.ComboBox();
             this.cautareColectiePage_cautaButon = new System.Windows.Forms.Button();
             this.cautareColectiePage_colectieLabel = new System.Windows.Forms.Label();
@@ -216,13 +217,13 @@
             this.label62 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.imprumutPage = new System.Windows.Forms.TabPage();
-            this.button16 = new System.Windows.Forms.Button();
-            this.label66 = new System.Windows.Forms.Label();
+            this.imprumutPage_imprumutaButton = new System.Windows.Forms.Button();
+            this.imprumutPage_numarCartiLabel = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
-            this.treeView3 = new System.Windows.Forms.TreeView();
-            this.treeView2 = new System.Windows.Forms.TreeView();
+            this.imprumutPage_cartiTreeView = new System.Windows.Forms.TreeView();
+            this.imprumutPage_wishlistTreeView = new System.Windows.Forms.TreeView();
             this.inserareAutorPage = new System.Windows.Forms.TabPage();
             this.inserareAutorPage_numeErrorLabel = new System.Windows.Forms.Label();
             this.inserareAutorPage_inserareButton = new System.Windows.Forms.Button();
@@ -252,7 +253,6 @@
             this.creareGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cautareColectiePage_caolectiiErrorLabel = new System.Windows.Forms.Label();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -957,6 +957,18 @@
             this.cautareColectiePage.Size = new System.Drawing.Size(1227, 640);
             this.cautareColectiePage.TabIndex = 5;
             this.cautareColectiePage.Text = "Cautare dupa colectie";
+            // 
+            // cautareColectiePage_caolectiiErrorLabel
+            // 
+            this.cautareColectiePage_caolectiiErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareColectiePage_caolectiiErrorLabel.AutoSize = true;
+            this.cautareColectiePage_caolectiiErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareColectiePage_caolectiiErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareColectiePage_caolectiiErrorLabel.Location = new System.Drawing.Point(797, 314);
+            this.cautareColectiePage_caolectiiErrorLabel.Name = "cautareColectiePage_caolectiiErrorLabel";
+            this.cautareColectiePage_caolectiiErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareColectiePage_caolectiiErrorLabel.TabIndex = 32;
+            this.cautareColectiePage_caolectiiErrorLabel.Text = "label18";
             // 
             // cautareColectiePage_colectieComboBox
             // 
@@ -2051,14 +2063,14 @@
             this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(853, 16);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node0";
-            treeNode3.Text = "Node0";
+            treeNode7.Name = "Node1";
+            treeNode7.Text = "Node1";
+            treeNode8.Name = "Node2";
+            treeNode8.Text = "Node2";
+            treeNode9.Name = "Node0";
+            treeNode9.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode9});
             this.treeView1.Size = new System.Drawing.Size(224, 138);
             this.treeView1.TabIndex = 106;
             // 
@@ -2253,13 +2265,13 @@
             // imprumutPage
             // 
             this.imprumutPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.imprumutPage.Controls.Add(this.button16);
-            this.imprumutPage.Controls.Add(this.label66);
+            this.imprumutPage.Controls.Add(this.imprumutPage_imprumutaButton);
+            this.imprumutPage.Controls.Add(this.imprumutPage_numarCartiLabel);
             this.imprumutPage.Controls.Add(this.label65);
             this.imprumutPage.Controls.Add(this.label64);
             this.imprumutPage.Controls.Add(this.label63);
-            this.imprumutPage.Controls.Add(this.treeView3);
-            this.imprumutPage.Controls.Add(this.treeView2);
+            this.imprumutPage.Controls.Add(this.imprumutPage_cartiTreeView);
+            this.imprumutPage.Controls.Add(this.imprumutPage_wishlistTreeView);
             this.imprumutPage.Location = new System.Drawing.Point(4, 22);
             this.imprumutPage.Name = "imprumutPage";
             this.imprumutPage.Padding = new System.Windows.Forms.Padding(3);
@@ -2267,27 +2279,28 @@
             this.imprumutPage.TabIndex = 13;
             this.imprumutPage.Text = "Imprumut";
             // 
-            // button16
+            // imprumutPage_imprumutaButton
             // 
-            this.button16.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button16.Location = new System.Drawing.Point(564, 564);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 6;
-            this.button16.Text = "Imprumuta";
-            this.button16.UseVisualStyleBackColor = true;
+            this.imprumutPage_imprumutaButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.imprumutPage_imprumutaButton.Location = new System.Drawing.Point(564, 564);
+            this.imprumutPage_imprumutaButton.Name = "imprumutPage_imprumutaButton";
+            this.imprumutPage_imprumutaButton.Size = new System.Drawing.Size(75, 23);
+            this.imprumutPage_imprumutaButton.TabIndex = 6;
+            this.imprumutPage_imprumutaButton.Text = "Imprumuta";
+            this.imprumutPage_imprumutaButton.UseVisualStyleBackColor = true;
+            this.imprumutPage_imprumutaButton.Click += new System.EventHandler(this.imprumutPage_imprumutaButton_Click);
             // 
-            // label66
+            // imprumutPage_numarCartiLabel
             // 
-            this.label66.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label66.AutoSize = true;
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label66.ForeColor = System.Drawing.Color.Red;
-            this.label66.Location = new System.Drawing.Point(49, 549);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(216, 13);
-            this.label66.TabIndex = 5;
-            this.label66.Text = "Mai aveti voie sa imprumutati 3 carti!";
+            this.imprumutPage_numarCartiLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.imprumutPage_numarCartiLabel.AutoSize = true;
+            this.imprumutPage_numarCartiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.imprumutPage_numarCartiLabel.ForeColor = System.Drawing.Color.Red;
+            this.imprumutPage_numarCartiLabel.Location = new System.Drawing.Point(49, 549);
+            this.imprumutPage_numarCartiLabel.Name = "imprumutPage_numarCartiLabel";
+            this.imprumutPage_numarCartiLabel.Size = new System.Drawing.Size(216, 13);
+            this.imprumutPage_numarCartiLabel.TabIndex = 5;
+            this.imprumutPage_numarCartiLabel.Text = "Mai aveti voie sa imprumutati 3 carti!";
             // 
             // label65
             // 
@@ -2321,23 +2334,27 @@
             this.label63.TabIndex = 2;
             this.label63.Text = "WishList";
             // 
-            // treeView3
+            // imprumutPage_cartiTreeView
             // 
-            this.treeView3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.imprumutPage_cartiTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView3.Location = new System.Drawing.Point(677, 55);
-            this.treeView3.Name = "treeView3";
-            this.treeView3.Size = new System.Drawing.Size(477, 453);
-            this.treeView3.TabIndex = 1;
+            this.imprumutPage_cartiTreeView.CheckBoxes = true;
+            this.imprumutPage_cartiTreeView.Location = new System.Drawing.Point(677, 55);
+            this.imprumutPage_cartiTreeView.Name = "imprumutPage_cartiTreeView";
+            this.imprumutPage_cartiTreeView.Size = new System.Drawing.Size(477, 453);
+            this.imprumutPage_cartiTreeView.TabIndex = 1;
+            this.imprumutPage_cartiTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.imprumutPage_cartiTreeView_DrawNode);
             // 
-            // treeView2
+            // imprumutPage_wishlistTreeView
             // 
-            this.treeView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.imprumutPage_wishlistTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeView2.Location = new System.Drawing.Point(52, 55);
-            this.treeView2.Name = "treeView2";
-            this.treeView2.Size = new System.Drawing.Size(494, 453);
-            this.treeView2.TabIndex = 0;
+            this.imprumutPage_wishlistTreeView.CheckBoxes = true;
+            this.imprumutPage_wishlistTreeView.Location = new System.Drawing.Point(52, 55);
+            this.imprumutPage_wishlistTreeView.Name = "imprumutPage_wishlistTreeView";
+            this.imprumutPage_wishlistTreeView.Size = new System.Drawing.Size(494, 453);
+            this.imprumutPage_wishlistTreeView.TabIndex = 0;
+            this.imprumutPage_wishlistTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.imprumutPage_wishlistTreeView_DrawNode);
             // 
             // inserareAutorPage
             // 
@@ -2602,18 +2619,6 @@
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
             // 
-            // cautareColectiePage_caolectiiErrorLabel
-            // 
-            this.cautareColectiePage_caolectiiErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareColectiePage_caolectiiErrorLabel.AutoSize = true;
-            this.cautareColectiePage_caolectiiErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cautareColectiePage_caolectiiErrorLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.cautareColectiePage_caolectiiErrorLabel.Location = new System.Drawing.Point(797, 314);
-            this.cautareColectiePage_caolectiiErrorLabel.Name = "cautareColectiePage_caolectiiErrorLabel";
-            this.cautareColectiePage_caolectiiErrorLabel.Size = new System.Drawing.Size(48, 13);
-            this.cautareColectiePage_caolectiiErrorLabel.TabIndex = 32;
-            this.cautareColectiePage_caolectiiErrorLabel.Text = "label18";
-            // 
             // aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2837,13 +2842,13 @@
         private System.Windows.Forms.ToolStripMenuItem creareGenToolStripMenuItem1;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TabPage imprumutPage;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Button imprumutPage_imprumutaButton;
+        private System.Windows.Forms.Label imprumutPage_numarCartiLabel;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.TreeView treeView3;
-        private System.Windows.Forms.TreeView treeView2;
+        private System.Windows.Forms.TreeView imprumutPage_cartiTreeView;
+        private System.Windows.Forms.TreeView imprumutPage_wishlistTreeView;
         private System.Windows.Forms.ToolStripMenuItem vizualizareIstoricToolStripMenuItem;
         private System.Windows.Forms.Button rezultateleCautariiPage_marcareButton;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;

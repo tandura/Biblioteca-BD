@@ -350,11 +350,113 @@ namespace Biblioteca
 
         private void imprumutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MySqlCommand wishlistCommand = new MySqlCommand("select idCarte from wishlist where idUtilizator = @userId;",bibliotecaDatabaseConection);
+            MySqlCommand autoriCommand = new MySqlCommand("select Nume from autor where idAutor in (select Autor_idAutor from carteautor where Carte_idCarte = @idCarte)", bibliotecaDatabaseConection);
+            MySqlCommand numeCarteCommand = new MySqlCommand("select Titlu from carte where idCarte = @idCarte;",bibliotecaDatabaseConection);
+            MySqlCommand carteCommand = new MySqlCommand("select idCarte,Titlu from carte;", bibliotecaDatabaseConection);
+            MySqlCommand imprumuturiCommand = new MySqlCommand("select count(*) from imprumuturi where idUtilizator = @userId;", bibliotecaDatabaseConection);
+            MySqlDataAdapter imprumuturiDataAdapter = new MySqlDataAdapter(imprumuturiCommand);
+            MySqlDataAdapter autoriDataAdapter = new MySqlDataAdapter(autoriCommand);
+            MySqlDataAdapter wishlistDataAdapter = new MySqlDataAdapter(wishlistCommand);
+            MySqlDataAdapter numeCarteDataAdapter = new MySqlDataAdapter(numeCarteCommand);
+            MySqlDataAdapter carteDataAdapter = new MySqlDataAdapter(carteCommand);
+            DataTable imprumuturiDataTable = new DataTable();
+            DataTable wishlistDataTable = new DataTable();
+            DataTable autoriDataTable;
+            DataTable numeCarteDataTable;
+            DataTable carteDataTable = new DataTable();
+
+            autoriCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            numeCarteCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            wishlistCommand.Parameters.Add("@userId", MySqlDbType.Int32);
+            imprumuturiCommand.Parameters.Add("@userId", MySqlDbType.Int32);
+
+            wishlistCommand.Parameters["@userId"].Value = userId;
+            imprumuturiCommand.Parameters["@userId"].Value = userId;
+
+            bibliotecaDatabaseConection.Open();
+            wishlistDataAdapter.Fill(wishlistDataTable);
+            imprumuturiDataAdapter.Fill(imprumuturiDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            imprumutPage_numarCartiLabel.Text = "Mai aveti voie sa imprumutati " + (3 - Int32.Parse(imprumuturiDataTable.Rows[0].ItemArray[0].ToString())).ToString() + " carti!";
+
+            imprumutPage_wishlistTreeView.Nodes.Clear();
+            for (int i = 0; i < wishlistDataTable.Rows.Count; i++)
+            {
+                numeCarteDataTable = new DataTable();
+                numeCarteCommand.Parameters["@idCarte"].Value = wishlistDataTable.Rows[i]["idCarte"];
+                bibliotecaDatabaseConection.Open();
+                numeCarteDataAdapter.Fill(numeCarteDataTable);
+                bibliotecaDatabaseConection.Close();
+                imprumutPage_wishlistTreeView.Nodes.Add(numeCarteDataTable.Rows[0]["Titlu"].ToString());
+                imprumutPage_wishlistTreeView.Nodes[i].Name = wishlistDataTable.Rows[i]["idCarte"].ToString();
+
+                autoriDataTable = new DataTable();
+
+                autoriCommand.Parameters["@idCarte"].Value = wishlistDataTable.Rows[i]["idCarte"];
+
+                bibliotecaDatabaseConection.Open();
+                autoriDataAdapter.Fill(autoriDataTable);
+                bibliotecaDatabaseConection.Close();
+                imprumutPage_wishlistTreeView.Nodes[i].Nodes.Clear();
+                foreach (DataRow row in autoriDataTable.Rows)
+                    imprumutPage_wishlistTreeView.Nodes[i].Nodes.Add(row["Nume"].ToString());
+            }
+
+            bibliotecaDatabaseConection.Open();
+            carteDataAdapter.Fill(carteDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            imprumutPage_cartiTreeView.Nodes.Clear();
+            for (int i = 0; i < carteDataTable.Rows.Count; i++)
+            {
+                imprumutPage_cartiTreeView.Nodes.Add(carteDataTable.Rows[i]["Titlu"].ToString());
+                imprumutPage_cartiTreeView.Nodes[i].Name = carteDataTable.Rows[i]["idCarte"].ToString();
+
+                autoriDataTable = new DataTable();
+
+                autoriCommand.Parameters["@idCarte"].Value = carteDataTable.Rows[i]["idCarte"];
+
+                bibliotecaDatabaseConection.Open();
+                autoriDataAdapter.Fill(autoriDataTable);
+                bibliotecaDatabaseConection.Close();
+                imprumutPage_cartiTreeView.Nodes[i].Nodes.Clear();
+                foreach (DataRow row in autoriDataTable.Rows)
+                    imprumutPage_cartiTreeView.Nodes[i].Nodes.Add(row["Nume"].ToString());
+            }
+
             tabControler.SelectedTab = imprumutPage;
         }
 
         private void vizualizareIstoricToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MySqlCommand cautareCommand = new MySqlCommand("select * from carte where idCarte in (select idCarte from istoricimprumuturi where idUtilizator = @userId);", bibliotecaDatabaseConection);
+            MySqlDataAdapter cautareDataAdapter = new MySqlDataAdapter(cautareCommand);
+
+            cautareCommand.Parameters.Add("@userId", MySqlDbType.VarChar, 45);
+
+            cautareCommand.Parameters["@userId"].Value = userId;
+            rezultatDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            cautareDataAdapter.Fill(rezultatDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            indexRexultat = 0;
+
+            if (rezultatDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Nici o carte imprumutata!");
+                return;
+            }
+
+            incarcaCatea(indexRexultat);
+
+            if (rezultatDataTable.Rows.Count == 1)
+                rezultateleCautariiPage_urmatorButton.Visible = false;
+            rezultateleCautariiPage_anteriorButton.Visible = false;
+
             tabControler.SelectedTab = rezultateleCautariiPage;
         }
 
