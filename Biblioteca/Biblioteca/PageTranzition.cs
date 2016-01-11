@@ -434,15 +434,15 @@ namespace Biblioteca
                 numarTabele++;
                 if (numarTabele == 1)
                 {
-                    searchString = "select * from carte having having DataAparitie >= @dataCarte";
-                    cautareCommand.Parameters.Add("@dataCarte", MySqlDbType.VarChar, 45);
-                    cautareCommand.Parameters["@dataCarte"].Value = cautareAvansataPage_dataDateTimePicker.Value.Date.ToShortDateString();
+                    searchString = "select * from carte having DataAparitie >= @dataCarte";
+                    cautareCommand.Parameters.Add("@dataCarte", MySqlDbType.Date);
+                    cautareCommand.Parameters["@dataCarte"].Value = cautareAvansataPage_dataDateTimePicker.Value.Date;
                 }
                 else
                 {
                     searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") having DataAparitie >= @dataCarte" + numarTabele.ToString();
-                    cautareCommand.Parameters.Add("@dataCarte" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
-                    cautareCommand.Parameters["@dataCarte" + numarTabele.ToString()].Value = cautareAvansataPage_dataDateTimePicker.Value.Date.ToShortDateString();
+                    cautareCommand.Parameters.Add("@dataCarte" + numarTabele.ToString(), MySqlDbType.Date);
+                    cautareCommand.Parameters["@dataCarte" + numarTabele.ToString()].Value = cautareAvansataPage_dataDateTimePicker.Value.Date;
                 }
             }
 

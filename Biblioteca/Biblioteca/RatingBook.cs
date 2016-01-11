@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MySql.Data;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -32,7 +34,23 @@ namespace Biblioteca
 
         private void SelectieRating(object sender, EventArgs e)
         {
-            MessageBox.Show("Ratingul este: " + ((FiveStarRating)sender).SelectedStar.ToString());
+            MySqlCommand updateCommand = new MySqlCommand("update carte set NotaCarte = (NotaCarte + @notaCarte)/2 where idCarte = @idCarte;", bibliotecaDatabaseConection);
+
+            updateCommand.Parameters.Add("@idCarte", MySqlDbType.Int32);
+            updateCommand.Parameters.Add("@notaCarte", MySqlDbType.Int32);
+
+            updateCommand.Parameters["@notaCarte"].Value = ((FiveStarRating)sender).SelectedStar;
+            updateCommand.Parameters["@idCarte"].Value = rezultatDataTable.Rows[indexRexultat]["idCarte"];
+
+            bibliotecaDatabaseConection.Open();
+            updateCommand.ExecuteNonQuery();
+            bibliotecaDatabaseConection.Close();
+
+            rezultatDataTable.Rows[indexRexultat]["NotaCarte"] = (Int32.Parse(rezultatDataTable.Rows[indexRexultat]["NotaCarte"].ToString()) + ((FiveStarRating)sender).SelectedStar) / 2;
+
+            incarcaCatea(indexRexultat);
+
+            MessageBox.Show("Ratingul dumneavoastra a fost luat in considerare.");
         }
 
     }
