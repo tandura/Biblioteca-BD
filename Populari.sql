@@ -36,3 +36,8 @@ values
 insert into carteautor(Carte_idCarte,Autor_idAutor) 
 values ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('1','4');
 
+insert into cartegen(Carte_idCarte,Gen_idGen)
+values ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('1','2'),('2','1'),('3','1'),('3','4');
+
+insert into carteeditura(Carte_idCarte,Editura_idEditura)
+values ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('1','2'),('2','1'),('1','3');

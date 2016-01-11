@@ -86,3 +86,35 @@ call adauga_utilizator('yo','asa','Domnita','Dan','Prostanac','M','Turda','40123
 select @msg,@indexul;
 
 update utilizator set idPrivilegiu = 1 WHERE idUtilizator=1;
+
+drop procedure if exists adauga_editura;
+DELIMITER //
+CREATE PROCEDURE adauga_editura(_nume varchar(45))   
+    BEGIN 
+	START TRANSACTION;
+    insert into editura(Nume) value (_nume);
+    commit;
+    end//
+delimiter ;
+
+
+drop procedure if exists adauga_autor;
+DELIMITER //
+CREATE PROCEDURE adauga_autor(_nume varchar(45))   
+    BEGIN 
+	START TRANSACTION;
+    insert into autor(Nume) value (_nume);
+    commit;
+    end//
+delimiter ;
+
+drop procedure if exists adauga_colectie;
+DELIMITER //
+CREATE PROCEDURE adauga_colectie(_nume varchar(45))   
+    BEGIN 
+	START TRANSACTION;
+    insert into colectii(Nume) value (_nume);
+    commit;
+    end//
+delimiter ;
+

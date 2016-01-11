@@ -394,7 +394,7 @@ namespace Biblioteca
         private void creareColectiePage_creareButton_Click(object sender, EventArgs e)
         {
             MySqlCommand numarColectie = new MySqlCommand("select count(*) as numarColectii from colectii where Nume = @nume;", bibliotecaDatabaseConection);
-            MySqlCommand insertColectie = new MySqlCommand("insert into colectii(Nume) value (@nume);", bibliotecaDatabaseConection);
+            MySqlCommand insertColectie = new MySqlCommand("adauga_colectie", bibliotecaDatabaseConection);
             MySqlDataAdapter numarColectiiAdapter = new MySqlDataAdapter(numarColectie);
             DataTable numarColectiiDataTable = new DataTable();
 
@@ -406,7 +406,10 @@ namespace Biblioteca
             }
 
             numarColectie.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
-            insertColectie.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+            insertColectie.CommandType = System.Data.CommandType.StoredProcedure;
+            insertColectie.Parameters.Add("_nume", MySqlDbType.VarChar, 45);
+
             numarColectie.Parameters["@nume"].Value = creareColectiePage_numeTextBox.Text;
 
             bibliotecaDatabaseConection.Open();
@@ -423,7 +426,7 @@ namespace Biblioteca
                 }
                 else
                 {
-                    insertColectie.Parameters["@nume"].Value = creareColectiePage_numeTextBox.Text;
+                    insertColectie.Parameters["_nume"].Value = creareColectiePage_numeTextBox.Text;
                     bibliotecaDatabaseConection.Open();
                     insertColectie.ExecuteNonQuery();
                     bibliotecaDatabaseConection.Close();
@@ -438,7 +441,7 @@ namespace Biblioteca
         private void inserareAutorPage_inserareButton_Click(object sender, EventArgs e)
         {
             MySqlCommand numarAutori = new MySqlCommand("select count(*) as numarColectii from autor where Nume = @nume;", bibliotecaDatabaseConection);
-            MySqlCommand insertAutor = new MySqlCommand("insert into autor(Nume) value (@nume);", bibliotecaDatabaseConection);
+            MySqlCommand insertAutor = new MySqlCommand("adauga_autor", bibliotecaDatabaseConection);
             MySqlDataAdapter numarAutoriAdapter = new MySqlDataAdapter(numarAutori);
             DataTable numarAutoriDataTable = new DataTable();
 
@@ -450,7 +453,10 @@ namespace Biblioteca
             }
 
             numarAutori.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
-            insertAutor.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+            insertAutor.CommandType = System.Data.CommandType.StoredProcedure;
+            insertAutor.Parameters.Add("_nume", MySqlDbType.VarChar, 45);
+
             numarAutori.Parameters["@nume"].Value = inserareAutorPage_numeTextBox.Text;
 
             bibliotecaDatabaseConection.Open();
@@ -467,7 +473,7 @@ namespace Biblioteca
                 }
                 else
                 {
-                    insertAutor.Parameters["@nume"].Value = inserareAutorPage_numeTextBox.Text;
+                    insertAutor.Parameters["_nume"].Value = inserareAutorPage_numeTextBox.Text;
                     bibliotecaDatabaseConection.Open();
                     insertAutor.ExecuteNonQuery();
                     bibliotecaDatabaseConection.Close();
@@ -482,7 +488,7 @@ namespace Biblioteca
         private void creareEdituraPage_creareButton_Click(object sender, EventArgs e)
         {
             MySqlCommand numarEditura = new MySqlCommand("select count(*) as numarEditura from editura where Nume = @nume;", bibliotecaDatabaseConection);
-            MySqlCommand insertEditura = new MySqlCommand("insert into editura(Nume) value (@nume);", bibliotecaDatabaseConection);
+            MySqlCommand insertEditura = new MySqlCommand("adauga_editura", bibliotecaDatabaseConection);
             MySqlDataAdapter numarEdituraAdapter = new MySqlDataAdapter(numarEditura);
             DataTable numarEdituraDataTable = new DataTable();
 
@@ -494,7 +500,10 @@ namespace Biblioteca
             }
 
             numarEditura.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
-            insertEditura.Parameters.Add("@nume", MySqlDbType.VarChar, 45);
+
+            insertEditura.CommandType = System.Data.CommandType.StoredProcedure;
+            insertEditura.Parameters.Add("_nume", MySqlDbType.VarChar, 45);
+
             numarEditura.Parameters["@nume"].Value = creareEdituraPage_numeTextBox.Text;
 
             bibliotecaDatabaseConection.Open();
@@ -511,7 +520,7 @@ namespace Biblioteca
                 }
                 else
                 {
-                    insertEditura.Parameters["@nume"].Value = creareEdituraPage_numeTextBox.Text;
+                    insertEditura.Parameters["_nume"].Value = creareEdituraPage_numeTextBox.Text;
                     bibliotecaDatabaseConection.Open();
                     insertEditura.ExecuteNonQuery();
                     bibliotecaDatabaseConection.Close();

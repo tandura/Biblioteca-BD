@@ -1,5 +1,5 @@
+drop trigger if exists creste_nr_carti_editura;
 DELIMITER //
-
 create TRIGGER creste_nr_carti_editura AFTER INSERT on carteeditura 
 FOR EACH ROW 
 	BEGIN
@@ -18,7 +18,7 @@ FOR EACH ROW
 	END//
 DELIMITER ;
 
-
+drop trigger if exists scade_nr_carti_editura;
 delimiter $$
 create TRIGGER scade_nr_carti_editura before delete ON carteeditura
 for each row
@@ -28,6 +28,7 @@ for each row
 	END $$ 
 delimiter ;
 
+drop trigger if exists introduce_in_istoric;
 delimiter //
 create trigger introduce_in_istoric after insert on imprumuturi
 for each row

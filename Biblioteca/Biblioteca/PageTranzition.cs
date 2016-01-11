@@ -340,22 +340,145 @@ namespace Biblioteca
                         numarTabele++;
                         if (numarTabele == 1)
                         {
-                            searchString = "select * from carte where ISBN = @isbn";
-                            cautareCommand.Parameters.Add("@isbn", MySqlDbType.VarChar, 45);
-                            cautareCommand.Parameters["@isbn"].Value = cautareAvansataPage_isbnTextBox.Text;
+                            searchString = "select * from carte where idCarte in (select Carte_idCarte from carteautor where Autor_idAutor in (SELECT idAutor FROM autor WHERE Nume REGEXP @numeAutor))";
+                            cautareCommand.Parameters.Add("@numeAutor", MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@numeAutor"].Value = cautareAvansataPage_autorCheckListBox.Items[i].ToString();
                         }
                         else
                         {
                             searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") where idCarte in (select Carte_idCarte from carteautor where Autor_idAutor in (SELECT idAutor FROM autor WHERE Nume REGEXP @numeAutor" + numarTabele.ToString() + "))";
                             cautareCommand.Parameters.Add("@numeAutor" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
-                            cautareCommand.Parameters["@numeAutor" + numarTabele.ToString()].Value = cautareAvansataPage_isbnTextBox.Text;
+                            cautareCommand.Parameters["@numeAutor" + numarTabele.ToString()].Value = cautareAvansataPage_autorCheckListBox.Items[i].ToString();
                         }
-                        
-
                     }
             }
 
+            if(cautareAvansataPage_colectiiComboBox.SelectedIndex !=0 )
+            {
+                numarTabele++;
+                if (numarTabele == 1)
+                {
+                    searchString = "select * from carte where idCarte in (SELECT idCarte FROM carte WHERE idColectie in (select idColectii from colectii where Nume = @numeColectie))";
+                    cautareCommand.Parameters.Add("@numeColectie", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numeColectie"].Value = cautareAvansataPage_colectiiComboBox.SelectedItem;
+                }
+                else
+                {
+                    searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") where idCarte in (SELECT idCarte FROM carte WHERE idColectie in (select idColectii from colectii where Nume = @numeColectie" + numarTabele.ToString() + "))";
+                    cautareCommand.Parameters.Add("@numeColectie" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numeColectie" + numarTabele.ToString()].Value = cautareAvansataPage_colectiiComboBox.SelectedItem;
+                }
+            }
 
+            if(cautareAvansataPage_genCheckListBox.CheckedItems.Count > 0)
+            {
+                for(int i = 0; i < cautareAvansataPage_genCheckListBox.Items.Count; i++)
+                    if(cautareAvansataPage_genCheckListBox.GetItemChecked(i))
+                    {
+                        numarTabele++;
+                        if (numarTabele == 1)
+                        {
+                            searchString = "select * from carte where idCarte in (select Carte_idCarte from carteGen where Gen_idGen in (SELECT idGen FROM gen where Nume = @numeGen))";
+                            cautareCommand.Parameters.Add("@numeGen", MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@numeGen"].Value = cautareAvansataPage_genCheckListBox.Items[i].ToString();
+                        }
+                        else
+                        {
+                            searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") where idCarte in (select Carte_idCarte from carteGen where Gen_idGen in (SELECT idGen FROM gen where Nume = @numeGen" + numarTabele.ToString() + "))";
+                            cautareCommand.Parameters.Add("@numeGen" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@numeGen" + numarTabele.ToString()].Value = cautareAvansataPage_genCheckListBox.Items[i].ToString();
+                        }
+                    }
+            }
+
+            if (cautareAvansataPage_edituraCheckListBox.CheckedItems.Count > 0)
+            {
+                for (int i = 0; i < cautareAvansataPage_edituraCheckListBox.Items.Count; i++)
+                    if (cautareAvansataPage_edituraCheckListBox.GetItemChecked(i))
+                    {
+                        numarTabele++;
+                        if (numarTabele == 1)
+                        {
+                            searchString = "select * from carte where idCarte in (select Carte_idCarte from carteeditura where Editura_idEditura in (SELECT idEditura FROM editura where Nume = @numeEditura))";
+                            cautareCommand.Parameters.Add("@numeEditura", MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@numeEditura"].Value = cautareAvansataPage_edituraCheckListBox.Items[i].ToString();
+                        }
+                        else
+                        {
+                            searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") where idCarte in (select Carte_idCarte from carteeditura where Editura_idEditura in (SELECT idEditura FROM editura where Nume = @numeEditura" + numarTabele.ToString() + "))";
+                            cautareCommand.Parameters.Add("@numeEditura" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@numeEditura" + numarTabele.ToString()].Value = cautareAvansataPage_edituraCheckListBox.Items[i].ToString();
+                        }
+                    }
+            }
+
+            if(cautareAvansataPage_notaMaskTextBox.Text != "")
+            {
+                numarTabele++;
+                if (numarTabele == 1)
+                {
+                    searchString = "select * from carte having NotaCarte >= @notaCarte";
+                    cautareCommand.Parameters.Add("@notaCarte", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@notaCarte"].Value = cautareAvansataPage_notaMaskTextBox.Text;
+                }
+                else
+                {
+                    searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") having NotaCarte >= @notaCarte" + numarTabele.ToString();
+                    cautareCommand.Parameters.Add("@notaCarte" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@notaCarte" + numarTabele.ToString()].Value = cautareAvansataPage_notaMaskTextBox.Text;
+                }
+            }
+
+            if(cautareAvansataPage_dataDateTimePicker.Value != cautareAvansataPage_dataDateTimePicker.MinDate)
+            {
+                numarTabele++;
+                if (numarTabele == 1)
+                {
+                    searchString = "select * from carte having having DataAparitie >= @dataCarte";
+                    cautareCommand.Parameters.Add("@dataCarte", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@dataCarte"].Value = cautareAvansataPage_dataDateTimePicker.Value.Date.ToShortDateString();
+                }
+                else
+                {
+                    searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") having DataAparitie >= @dataCarte" + numarTabele.ToString();
+                    cautareCommand.Parameters.Add("@dataCarte" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@dataCarte" + numarTabele.ToString()].Value = cautareAvansataPage_dataDateTimePicker.Value.Date.ToShortDateString();
+                }
+            }
+
+            if(cautareAvansataPage_notaMinimaNumericUpDown.Value != -1)
+            {
+                numarTabele++;
+                if (numarTabele == 1)
+                {
+                    searchString = "select * from carte having NrPagini >= @numarPagini";
+                    cautareCommand.Parameters.Add("@numarPagini", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numarPagini"].Value = cautareAvansataPage_notaMinimaNumericUpDown.Value;
+                }
+                else
+                {
+                    searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") having NrPagini >= @numarPagini" + numarTabele.ToString();
+                    cautareCommand.Parameters.Add("@numarPagini" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numarPagini" + numarTabele.ToString()].Value = cautareAvansataPage_notaMinimaNumericUpDown.Value;
+                }
+            }
+
+            if (cautareAvansataPage_notaMaximaNumericUpDown.Value != -1)
+            {
+                numarTabele++;
+                if (numarTabele == 1)
+                {
+                    searchString = "select * from carte having NrPagini <= @numarPagini";
+                    cautareCommand.Parameters.Add("@numarPagini", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numarPagini"].Value = cautareAvansataPage_notaMaximaNumericUpDown.Value;
+                }
+                else
+                {
+                    searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") having NrPagini <= @numarPagini" + numarTabele.ToString();
+                    cautareCommand.Parameters.Add("@numarPagini" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numarPagini" + numarTabele.ToString()].Value = cautareAvansataPage_notaMaximaNumericUpDown.Value;
+                }
+            }
 
             cautareCommand.CommandText = searchString;
             cautareCommand.Connection = bibliotecaDatabaseConection;
