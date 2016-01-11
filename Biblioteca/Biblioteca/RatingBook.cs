@@ -13,8 +13,8 @@ namespace Biblioteca
         private void inserareRating()
         {
             rating = new FiveStarRating();
-            rating.Top = 280;
-            rating.Left = 583;
+            rating.Top = 227;
+            rating.Left = 150; 
             rating.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             rating.OutlineColor = Color.Black;
             rating.StarSelected += new StarSelectedEventHandler(SelectieRating);

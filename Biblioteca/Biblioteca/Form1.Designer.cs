@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
             this.tabControler = new System.Windows.Forms.TabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -97,6 +97,11 @@
             this.cautareColectiePage_cautaButon = new System.Windows.Forms.Button();
             this.cautareColectiePage_colectieLabel = new System.Windows.Forms.Label();
             this.cautareAvansataPage = new System.Windows.Forms.TabPage();
+            this.cautareAvansataPage_notaMaskTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.cautareAvansataPage_edituraCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.cautareAvansataPage_genCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.cautareAvansataPage_autorCheckListBox = new System.Windows.Forms.CheckedListBox();
             this.label19 = new System.Windows.Forms.Label();
             this.cautareAvansataPage_cautaButon = new System.Windows.Forms.Button();
             this.label29 = new System.Windows.Forms.Label();
@@ -250,11 +255,8 @@
             this.creareGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cautareAvansataPage_autorCheckListBox = new System.Windows.Forms.CheckedListBox();
-            this.cautareAvansataPage_genCheckListBox = new System.Windows.Forms.CheckedListBox();
-            this.cautareAvansataPage_edituraCheckListBox = new System.Windows.Forms.CheckedListBox();
-            this.label66 = new System.Windows.Forms.Label();
-            this.cautareAvansataPage_notaMaskTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.cautareAvansataPage_isbnErrorLabel = new System.Windows.Forms.Label();
+            this.cautareAvansataPage_notaErrorLabel = new System.Windows.Forms.Label();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -1005,6 +1007,8 @@
             // cautareAvansataPage
             // 
             this.cautareAvansataPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_notaErrorLabel);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_isbnErrorLabel);
             this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_notaMaskTextBox);
             this.cautareAvansataPage.Controls.Add(this.label66);
             this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_edituraCheckListBox);
@@ -1032,6 +1036,52 @@
             this.cautareAvansataPage.Size = new System.Drawing.Size(1227, 640);
             this.cautareAvansataPage.TabIndex = 6;
             this.cautareAvansataPage.Text = "Cautare avansata";
+            // 
+            // cautareAvansataPage_notaMaskTextBox
+            // 
+            this.cautareAvansataPage_notaMaskTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_notaMaskTextBox.Location = new System.Drawing.Point(496, 424);
+            this.cautareAvansataPage_notaMaskTextBox.Mask = "0";
+            this.cautareAvansataPage_notaMaskTextBox.Name = "cautareAvansataPage_notaMaskTextBox";
+            this.cautareAvansataPage_notaMaskTextBox.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_notaMaskTextBox.TabIndex = 43;
+            // 
+            // label66
+            // 
+            this.label66.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(389, 339);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(101, 13);
+            this.label66.TabIndex = 42;
+            this.label66.Text = "Publicata la editurile";
+            // 
+            // cautareAvansataPage_edituraCheckListBox
+            // 
+            this.cautareAvansataPage_edituraCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_edituraCheckListBox.FormattingEnabled = true;
+            this.cautareAvansataPage_edituraCheckListBox.Location = new System.Drawing.Point(496, 339);
+            this.cautareAvansataPage_edituraCheckListBox.Name = "cautareAvansataPage_edituraCheckListBox";
+            this.cautareAvansataPage_edituraCheckListBox.Size = new System.Drawing.Size(356, 79);
+            this.cautareAvansataPage_edituraCheckListBox.TabIndex = 41;
+            // 
+            // cautareAvansataPage_genCheckListBox
+            // 
+            this.cautareAvansataPage_genCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_genCheckListBox.FormattingEnabled = true;
+            this.cautareAvansataPage_genCheckListBox.Location = new System.Drawing.Point(496, 254);
+            this.cautareAvansataPage_genCheckListBox.Name = "cautareAvansataPage_genCheckListBox";
+            this.cautareAvansataPage_genCheckListBox.Size = new System.Drawing.Size(356, 79);
+            this.cautareAvansataPage_genCheckListBox.TabIndex = 40;
+            // 
+            // cautareAvansataPage_autorCheckListBox
+            // 
+            this.cautareAvansataPage_autorCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_autorCheckListBox.FormattingEnabled = true;
+            this.cautareAvansataPage_autorCheckListBox.Location = new System.Drawing.Point(496, 142);
+            this.cautareAvansataPage_autorCheckListBox.Name = "cautareAvansataPage_autorCheckListBox";
+            this.cautareAvansataPage_autorCheckListBox.Size = new System.Drawing.Size(356, 79);
+            this.cautareAvansataPage_autorCheckListBox.TabIndex = 39;
             // 
             // label19
             // 
@@ -2061,14 +2111,14 @@
             this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(853, 16);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node1";
-            treeNode1.Text = "Node1";
-            treeNode2.Name = "Node2";
-            treeNode2.Text = "Node2";
-            treeNode3.Name = "Node0";
-            treeNode3.Text = "Node0";
+            treeNode7.Name = "Node1";
+            treeNode7.Text = "Node1";
+            treeNode8.Name = "Node2";
+            treeNode8.Text = "Node2";
+            treeNode9.Name = "Node0";
+            treeNode9.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3});
+            treeNode9});
             this.treeView1.Size = new System.Drawing.Size(224, 138);
             this.treeView1.TabIndex = 106;
             // 
@@ -2617,51 +2667,29 @@
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
             // 
-            // cautareAvansataPage_autorCheckListBox
+            // cautareAvansataPage_isbnErrorLabel
             // 
-            this.cautareAvansataPage_autorCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_autorCheckListBox.FormattingEnabled = true;
-            this.cautareAvansataPage_autorCheckListBox.Location = new System.Drawing.Point(496, 142);
-            this.cautareAvansataPage_autorCheckListBox.Name = "cautareAvansataPage_autorCheckListBox";
-            this.cautareAvansataPage_autorCheckListBox.Size = new System.Drawing.Size(356, 79);
-            this.cautareAvansataPage_autorCheckListBox.TabIndex = 39;
+            this.cautareAvansataPage_isbnErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_isbnErrorLabel.AutoSize = true;
+            this.cautareAvansataPage_isbnErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareAvansataPage_isbnErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareAvansataPage_isbnErrorLabel.Location = new System.Drawing.Point(858, 119);
+            this.cautareAvansataPage_isbnErrorLabel.Name = "cautareAvansataPage_isbnErrorLabel";
+            this.cautareAvansataPage_isbnErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareAvansataPage_isbnErrorLabel.TabIndex = 44;
+            this.cautareAvansataPage_isbnErrorLabel.Text = "label18";
             // 
-            // cautareAvansataPage_genCheckListBox
+            // cautareAvansataPage_notaErrorLabel
             // 
-            this.cautareAvansataPage_genCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_genCheckListBox.FormattingEnabled = true;
-            this.cautareAvansataPage_genCheckListBox.Location = new System.Drawing.Point(496, 254);
-            this.cautareAvansataPage_genCheckListBox.Name = "cautareAvansataPage_genCheckListBox";
-            this.cautareAvansataPage_genCheckListBox.Size = new System.Drawing.Size(356, 79);
-            this.cautareAvansataPage_genCheckListBox.TabIndex = 40;
-            // 
-            // cautareAvansataPage_edituraCheckListBox
-            // 
-            this.cautareAvansataPage_edituraCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_edituraCheckListBox.FormattingEnabled = true;
-            this.cautareAvansataPage_edituraCheckListBox.Location = new System.Drawing.Point(496, 339);
-            this.cautareAvansataPage_edituraCheckListBox.Name = "cautareAvansataPage_edituraCheckListBox";
-            this.cautareAvansataPage_edituraCheckListBox.Size = new System.Drawing.Size(356, 79);
-            this.cautareAvansataPage_edituraCheckListBox.TabIndex = 41;
-            // 
-            // label66
-            // 
-            this.label66.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(389, 339);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(101, 13);
-            this.label66.TabIndex = 42;
-            this.label66.Text = "Publicata la editurile";
-            // 
-            // cautareAvansataPage_notaMaskTextBox
-            // 
-            this.cautareAvansataPage_notaMaskTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_notaMaskTextBox.Location = new System.Drawing.Point(496, 424);
-            this.cautareAvansataPage_notaMaskTextBox.Mask = "0";
-            this.cautareAvansataPage_notaMaskTextBox.Name = "cautareAvansataPage_notaMaskTextBox";
-            this.cautareAvansataPage_notaMaskTextBox.Size = new System.Drawing.Size(356, 20);
-            this.cautareAvansataPage_notaMaskTextBox.TabIndex = 43;
+            this.cautareAvansataPage_notaErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_notaErrorLabel.AutoSize = true;
+            this.cautareAvansataPage_notaErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareAvansataPage_notaErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareAvansataPage_notaErrorLabel.Location = new System.Drawing.Point(858, 427);
+            this.cautareAvansataPage_notaErrorLabel.Name = "cautareAvansataPage_notaErrorLabel";
+            this.cautareAvansataPage_notaErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareAvansataPage_notaErrorLabel.TabIndex = 45;
+            this.cautareAvansataPage_notaErrorLabel.Text = "label18";
             // 
             // aplicatie
             // 
@@ -2943,6 +2971,8 @@
         private System.Windows.Forms.CheckedListBox cautareAvansataPage_edituraCheckListBox;
         private System.Windows.Forms.CheckedListBox cautareAvansataPage_genCheckListBox;
         private System.Windows.Forms.CheckedListBox cautareAvansataPage_autorCheckListBox;
+        private System.Windows.Forms.Label cautareAvansataPage_notaErrorLabel;
+        private System.Windows.Forms.Label cautareAvansataPage_isbnErrorLabel;
 
     }
 }

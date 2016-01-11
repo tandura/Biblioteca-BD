@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `biblioteca`.`Carte` (
   `ImagineCoperta` MEDIUMBLOB NULL,
   `NrPagini` INT UNSIGNED NOT NULL,
   `idColectie` INT NULL,
-  `NotaCarte` TINYINT(1) NOT NULL,
+  `NotaCarte` TINYINT(11) NOT NULL,
   `NrCarti` INT NOT NULL,
   PRIMARY KEY (`idCarte`),
   INDEX `colectieCarte_idx` (`idColectie` ASC),

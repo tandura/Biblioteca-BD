@@ -147,6 +147,9 @@ namespace Biblioteca
             cautareAvansataPage_notaMinimaNumericUpDown.Value = -1;
             cautareAvansataPage_notaMaximaNumericUpDown.Value = -1;
 
+            cautareAvansataPage_isbnErrorLabel.Visible = false;
+            cautareAvansataPage_notaErrorLabel.Visible = false;
+
             tabControler.SelectedTab = cautareAvansataPage;
         }
 
@@ -280,6 +283,104 @@ namespace Biblioteca
 
         private void cautareAvansataPage_cautaButon_Click(object sender, EventArgs e)
         {
+            MySqlCommand cautareCommand = new MySqlCommand();
+            MySqlDataAdapter cautareDataAdapter = new MySqlDataAdapter(cautareCommand);
+            string searchString = "";
+            int numarTabele = 0;
+            int nota;
+
+            if (cautareAvansataPage_isbnTextBox.Text != "" && IsbnValidation.TryValidate(cautareAvansataPage_isbnTextBox.Text) == false)
+            {
+                cautareAvansataPage_isbnErrorLabel.Text = "Isbn-ul nu este valid";
+                cautareAvansataPage_isbnErrorLabel.Visible = true;
+                return;
+            }
+            else
+                cautareAvansataPage_isbnErrorLabel.Visible = false;
+
+            if (Int32.TryParse(cautareAvansataPage_notaMaskTextBox.Text,out nota) && nota > 5)
+            {
+                cautareAvansataPage_notaErrorLabel.Text = "Nota trebuie sa fie in intervalul [0..5]!";
+                cautareAvansataPage_notaErrorLabel.Visible = true;
+                return;
+            }
+            else
+                cautareAvansataPage_notaErrorLabel.Visible = false;
+
+            if(cautareAvansataPage_titluTextBox.Text != "")
+            {
+                numarTabele = 1;
+                searchString = "select * from carte where idCarte in (SELECT idCarte FROM carte WHERE Titlu REGEXP @titlu)";
+                cautareCommand.Parameters.Add("@titlu", MySqlDbType.VarChar, 45);
+                cautareCommand.Parameters["@titlu"].Value = cautareAvansataPage_titluTextBox.Text;
+            }
+
+            if(cautareAvansataPage_isbnTextBox.Text != "")
+            {
+                numarTabele++;
+                if(numarTabele == 1)
+                {
+                    searchString = "select * from carte where idCarte in (select Carte_idCarte from carteautor where Autor_idAutor in (SELECT idAutor FROM autor WHERE Nume REGEXP @numeAutor))";
+                    cautareCommand.Parameters.Add("@numeAutor", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@numeAutor"].Value = cautareAvansataPage_isbnTextBox.Text;
+                }
+                else
+                {
+                    searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") where ISBN = @isbn";
+                    cautareCommand.Parameters.Add("@isbn", MySqlDbType.VarChar, 45);
+                    cautareCommand.Parameters["@isbn"].Value = cautareAvansataPage_isbnTextBox.Text;
+                }
+            }
+
+            if(cautareAvansataPage_autorCheckListBox.CheckedItems.Count > 0)
+            {
+                for(int i=0; i < cautareAvansataPage_autorCheckListBox.Items.Count; i++)
+                    if(cautareAvansataPage_autorCheckListBox.GetItemChecked(i))
+                    {
+                        numarTabele++;
+                        if (numarTabele == 1)
+                        {
+                            searchString = "select * from carte where ISBN = @isbn";
+                            cautareCommand.Parameters.Add("@isbn", MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@isbn"].Value = cautareAvansataPage_isbnTextBox.Text;
+                        }
+                        else
+                        {
+                            searchString = "select * from ((" + searchString + ") as table" + numarTabele.ToString() + ") where idCarte in (select Carte_idCarte from carteautor where Autor_idAutor in (SELECT idAutor FROM autor WHERE Nume REGEXP @numeAutor" + numarTabele.ToString() + "))";
+                            cautareCommand.Parameters.Add("@numeAutor" + numarTabele.ToString(), MySqlDbType.VarChar, 45);
+                            cautareCommand.Parameters["@numeAutor" + numarTabele.ToString()].Value = cautareAvansataPage_isbnTextBox.Text;
+                        }
+                        
+
+                    }
+            }
+
+
+
+            cautareCommand.CommandText = searchString;
+            cautareCommand.Connection = bibliotecaDatabaseConection;
+            rezultatDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            cautareDataAdapter.Fill(rezultatDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            indexRexultat = 0;
+
+            if (rezultatDataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("Nici o carte gasita!");
+                return;
+            }
+
+            incarcaCatea(indexRexultat);
+
+            if (rezultatDataTable.Rows.Count == 1)
+                rezultateleCautariiPage_urmatorButton.Visible = false;
+            else
+                rezultateleCautariiPage_urmatorButton.Visible = true;
+            rezultateleCautariiPage_anteriorButton.Visible = false;
+
             tabControler.SelectedTab = rezultateleCautariiPage;
         }
 
