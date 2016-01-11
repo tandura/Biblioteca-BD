@@ -102,6 +102,51 @@ namespace Biblioteca
 
         private void avansataToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MySqlCommand autoriCommand = new MySqlCommand("select * from autor order by nume asc;", bibliotecaDatabaseConection);
+            MySqlCommand genuriCommand = new MySqlCommand("select * from gen order by nume asc;", bibliotecaDatabaseConection);
+            MySqlCommand edituriCommand = new MySqlCommand("select * from editura order by nume asc;", bibliotecaDatabaseConection);
+            MySqlCommand colectiiCommand = new MySqlCommand("select * from colectii order by nume asc;", bibliotecaDatabaseConection);
+            MySqlDataAdapter autoriDataAdaptor = new MySqlDataAdapter(autoriCommand);
+            MySqlDataAdapter genuriDataAdapter = new MySqlDataAdapter(genuriCommand);
+            MySqlDataAdapter edituriDataAdapter = new MySqlDataAdapter(edituriCommand);
+            MySqlDataAdapter colectiiDataAdapter = new MySqlDataAdapter(colectiiCommand);
+            DataTable autoriDataTable = new DataTable();
+            DataTable genuriDataTable = new DataTable();
+            DataTable edituriDataTable = new DataTable();
+            DataTable colectiiDataTable = new DataTable();
+
+            bibliotecaDatabaseConection.Open();
+            autoriDataAdaptor.Fill(autoriDataTable);
+            genuriDataAdapter.Fill(genuriDataTable);
+            edituriDataAdapter.Fill(edituriDataTable);
+            colectiiDataAdapter.Fill(colectiiDataTable);
+            bibliotecaDatabaseConection.Close();
+
+            cautareAvansataPage_autorCheckListBox.Items.Clear();
+            foreach (DataRow row in autoriDataTable.Rows)
+                cautareAvansataPage_autorCheckListBox.Items.Add(row["Nume"].ToString());
+
+            cautareAvansataPage_genCheckListBox.Items.Clear();
+            foreach (DataRow row in genuriDataTable.Rows)
+                cautareAvansataPage_genCheckListBox.Items.Add(row["Nume"].ToString());
+
+            cautareAvansataPage_edituraCheckListBox.Items.Clear();
+            foreach (DataRow row in edituriDataTable.Rows)
+                cautareAvansataPage_edituraCheckListBox.Items.Add(row["Nume"].ToString());
+
+            cautareAvansataPage_colectiiComboBox.Items.Clear();
+            cautareAvansataPage_colectiiComboBox.Items.Add("Selectati colectia");
+            foreach (DataRow row in colectiiDataTable.Rows)
+                cautareAvansataPage_colectiiComboBox.Items.Add(row["Nume"].ToString());
+            cautareAvansataPage_colectiiComboBox.SelectedIndex = 0;
+
+            cautareAvansataPage_dataDateTimePicker.Value = cautareAvansataPage_dataDateTimePicker.MinDate;
+            cautareAvansataPage_titluTextBox.Text = "";
+            cautareAvansataPage_isbnTextBox.Text = "";
+            cautareAvansataPage_notaMaskTextBox.Text = "";
+            cautareAvansataPage_notaMinimaNumericUpDown.Value = -1;
+            cautareAvansataPage_notaMaximaNumericUpDown.Value = -1;
+
             tabControler.SelectedTab = cautareAvansataPage;
         }
 
@@ -141,6 +186,8 @@ namespace Biblioteca
 
             if (rezultatDataTable.Rows.Count == 1)
                 rezultateleCautariiPage_urmatorButton.Visible = false;
+            else
+                rezultateleCautariiPage_urmatorButton.Visible = true;
             rezultateleCautariiPage_anteriorButton.Visible = false;
 
             tabControler.SelectedTab = rezultateleCautariiPage;
@@ -176,12 +223,14 @@ namespace Biblioteca
                 MessageBox.Show("Nici o carte gasita!");
                 return;
             }
-                
-            incarcaCatea(indexRexultat);
 
             if (rezultatDataTable.Rows.Count == 1)
                 rezultateleCautariiPage_urmatorButton.Visible = false;
+            else
+                rezultateleCautariiPage_urmatorButton.Visible = true;
             rezultateleCautariiPage_anteriorButton.Visible = false;
+                
+            incarcaCatea(indexRexultat);
 
             tabControler.SelectedTab = rezultateleCautariiPage;
         }
@@ -222,6 +271,8 @@ namespace Biblioteca
 
             if (rezultatDataTable.Rows.Count == 1)
                 rezultateleCautariiPage_urmatorButton.Visible = false;
+            else
+                rezultateleCautariiPage_urmatorButton.Visible = true;
             rezultateleCautariiPage_anteriorButton.Visible = false;
 
             tabControler.SelectedTab = rezultateleCautariiPage;

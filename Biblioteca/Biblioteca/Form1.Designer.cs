@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
             this.tabControler = new System.Windows.Forms.TabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -99,22 +99,19 @@
             this.cautareAvansataPage = new System.Windows.Forms.TabPage();
             this.label19 = new System.Windows.Forms.Label();
             this.cautareAvansataPage_cautaButon = new System.Windows.Forms.Button();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.cautareAvansataPage_colectiiComboBox = new System.Windows.Forms.ComboBox();
+            this.cautareAvansataPage_notaMaximaNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label26 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.cautareAvansataPage_notaMinimaNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label25 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.cautareAvansataPage_dataDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.cautareAvansataPage_isbnTextBox = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.cautareAvansataPage_titluTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.rezultateleCautariiPage = new System.Windows.Forms.TabPage();
             this.rezultateleCautariiPage_edituraListBox = new System.Windows.Forms.ListBox();
@@ -253,6 +250,11 @@
             this.creareGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cautareAvansataPage_autorCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.cautareAvansataPage_genCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.cautareAvansataPage_edituraCheckListBox = new System.Windows.Forms.CheckedListBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.cautareAvansataPage_notaMaskTextBox = new System.Windows.Forms.MaskedTextBox();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -262,9 +264,8 @@
             this.cautareAutorPage.SuspendLayout();
             this.cautareColectiePage.SuspendLayout();
             this.cautareAvansataPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cautareAvansataPage_notaMaximaNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cautareAvansataPage_notaMinimaNumericUpDown)).BeginInit();
             this.rezultateleCautariiPage.SuspendLayout();
             this.acordareFunctiePage.SuspendLayout();
             this.inserareCartePage.SuspendLayout();
@@ -1004,24 +1005,26 @@
             // cautareAvansataPage
             // 
             this.cautareAvansataPage.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_notaMaskTextBox);
+            this.cautareAvansataPage.Controls.Add(this.label66);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_edituraCheckListBox);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_genCheckListBox);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_autorCheckListBox);
             this.cautareAvansataPage.Controls.Add(this.label19);
             this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_cautaButon);
-            this.cautareAvansataPage.Controls.Add(this.numericUpDown3);
             this.cautareAvansataPage.Controls.Add(this.label29);
             this.cautareAvansataPage.Controls.Add(this.label28);
-            this.cautareAvansataPage.Controls.Add(this.comboBox4);
             this.cautareAvansataPage.Controls.Add(this.label27);
-            this.cautareAvansataPage.Controls.Add(this.comboBox3);
-            this.cautareAvansataPage.Controls.Add(this.numericUpDown2);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_colectiiComboBox);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_notaMaximaNumericUpDown);
             this.cautareAvansataPage.Controls.Add(this.label26);
-            this.cautareAvansataPage.Controls.Add(this.numericUpDown1);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_notaMinimaNumericUpDown);
             this.cautareAvansataPage.Controls.Add(this.label25);
-            this.cautareAvansataPage.Controls.Add(this.dateTimePicker1);
-            this.cautareAvansataPage.Controls.Add(this.textBox20);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_dataDateTimePicker);
             this.cautareAvansataPage.Controls.Add(this.label24);
-            this.cautareAvansataPage.Controls.Add(this.textBox19);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_isbnTextBox);
             this.cautareAvansataPage.Controls.Add(this.label23);
-            this.cautareAvansataPage.Controls.Add(this.textBox18);
+            this.cautareAvansataPage.Controls.Add(this.cautareAvansataPage_titluTextBox);
             this.cautareAvansataPage.Controls.Add(this.label22);
             this.cautareAvansataPage.Location = new System.Drawing.Point(4, 22);
             this.cautareAvansataPage.Name = "cautareAvansataPage";
@@ -1034,7 +1037,7 @@
             // 
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(380, 328);
+            this.label19.Location = new System.Drawing.Point(421, 450);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(69, 13);
             this.label19.TabIndex = 38;
@@ -1043,7 +1046,7 @@
             // cautareAvansataPage_cautaButon
             // 
             this.cautareAvansataPage_cautaButon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_cautaButon.Location = new System.Drawing.Point(576, 470);
+            this.cautareAvansataPage_cautaButon.Location = new System.Drawing.Point(628, 528);
             this.cautareAvansataPage_cautaButon.Name = "cautareAvansataPage_cautaButon";
             this.cautareAvansataPage_cautaButon.Size = new System.Drawing.Size(75, 23);
             this.cautareAvansataPage_cautaButon.TabIndex = 37;
@@ -1051,19 +1054,11 @@
             this.cautareAvansataPage_cautaButon.UseVisualStyleBackColor = true;
             this.cautareAvansataPage_cautaButon.Click += new System.EventHandler(this.cautareAvansataPage_cautaButon_Click);
             // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericUpDown3.Location = new System.Drawing.Point(467, 284);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown3.TabIndex = 36;
-            // 
             // label29
             // 
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(357, 291);
+            this.label29.Location = new System.Drawing.Point(398, 424);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(92, 13);
             this.label29.TabIndex = 35;
@@ -1073,133 +1068,136 @@
             // 
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(411, 255);
+            this.label28.Location = new System.Drawing.Point(452, 254);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(38, 13);
             this.label28.TabIndex = 34;
             this.label28.Text = "Genuri";
             // 
-            // comboBox4
-            // 
-            this.comboBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(467, 247);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(356, 21);
-            this.comboBox4.TabIndex = 33;
-            // 
             // label27
             // 
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(404, 218);
+            this.label27.Location = new System.Drawing.Point(445, 230);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(45, 13);
             this.label27.TabIndex = 32;
             this.label27.Text = "Colectie";
             // 
-            // comboBox3
+            // cautareAvansataPage_colectiiComboBox
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(467, 210);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(356, 21);
-            this.comboBox3.TabIndex = 31;
+            this.cautareAvansataPage_colectiiComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_colectiiComboBox.FormattingEnabled = true;
+            this.cautareAvansataPage_colectiiComboBox.Location = new System.Drawing.Point(496, 227);
+            this.cautareAvansataPage_colectiiComboBox.Name = "cautareAvansataPage_colectiiComboBox";
+            this.cautareAvansataPage_colectiiComboBox.Size = new System.Drawing.Size(356, 21);
+            this.cautareAvansataPage_colectiiComboBox.TabIndex = 31;
             // 
-            // numericUpDown2
+            // cautareAvansataPage_notaMaximaNumericUpDown
             // 
-            this.numericUpDown2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericUpDown2.Location = new System.Drawing.Point(467, 395);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown2.TabIndex = 12;
+            this.cautareAvansataPage_notaMaximaNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_notaMaximaNumericUpDown.Location = new System.Drawing.Point(496, 502);
+            this.cautareAvansataPage_notaMaximaNumericUpDown.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.cautareAvansataPage_notaMaximaNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.cautareAvansataPage_notaMaximaNumericUpDown.Name = "cautareAvansataPage_notaMaximaNumericUpDown";
+            this.cautareAvansataPage_notaMaximaNumericUpDown.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_notaMaximaNumericUpDown.TabIndex = 12;
             // 
             // label26
             // 
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(333, 402);
+            this.label26.Location = new System.Drawing.Point(374, 504);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(116, 13);
             this.label26.TabIndex = 11;
             this.label26.Text = "Numar maxim de pagini";
             // 
-            // numericUpDown1
+            // cautareAvansataPage_notaMinimaNumericUpDown
             // 
-            this.numericUpDown1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.numericUpDown1.Location = new System.Drawing.Point(467, 358);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown1.TabIndex = 10;
+            this.cautareAvansataPage_notaMinimaNumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_notaMinimaNumericUpDown.Location = new System.Drawing.Point(496, 476);
+            this.cautareAvansataPage_notaMinimaNumericUpDown.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.cautareAvansataPage_notaMinimaNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.cautareAvansataPage_notaMinimaNumericUpDown.Name = "cautareAvansataPage_notaMinimaNumericUpDown";
+            this.cautareAvansataPage_notaMinimaNumericUpDown.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_notaMinimaNumericUpDown.TabIndex = 10;
             // 
             // label25
             // 
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(336, 365);
+            this.label25.Location = new System.Drawing.Point(377, 478);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(113, 13);
             this.label25.TabIndex = 9;
             this.label25.Text = "Numar minim de pagini";
             // 
-            // dateTimePicker1
+            // cautareAvansataPage_dataDateTimePicker
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Location = new System.Drawing.Point(467, 321);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox20.Location = new System.Drawing.Point(467, 173);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(356, 20);
-            this.textBox20.TabIndex = 7;
+            this.cautareAvansataPage_dataDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_dataDateTimePicker.Location = new System.Drawing.Point(496, 450);
+            this.cautareAvansataPage_dataDateTimePicker.Name = "cautareAvansataPage_dataDateTimePicker";
+            this.cautareAvansataPage_dataDateTimePicker.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_dataDateTimePicker.TabIndex = 8;
             // 
             // label24
             // 
             this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(417, 180);
+            this.label24.Location = new System.Drawing.Point(458, 142);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(32, 13);
             this.label24.TabIndex = 6;
             this.label24.Text = "Autor";
             // 
-            // textBox19
+            // cautareAvansataPage_isbnTextBox
             // 
-            this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox19.Location = new System.Drawing.Point(467, 136);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(356, 20);
-            this.textBox19.TabIndex = 5;
+            this.cautareAvansataPage_isbnTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_isbnTextBox.Location = new System.Drawing.Point(496, 116);
+            this.cautareAvansataPage_isbnTextBox.Name = "cautareAvansataPage_isbnTextBox";
+            this.cautareAvansataPage_isbnTextBox.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_isbnTextBox.TabIndex = 5;
             // 
             // label23
             // 
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(417, 143);
+            this.label23.Location = new System.Drawing.Point(458, 119);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(32, 13);
             this.label23.TabIndex = 4;
             this.label23.Text = "ISBN";
             // 
-            // textBox18
+            // cautareAvansataPage_titluTextBox
             // 
-            this.textBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox18.Location = new System.Drawing.Point(467, 99);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(356, 20);
-            this.textBox18.TabIndex = 3;
+            this.cautareAvansataPage_titluTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_titluTextBox.Location = new System.Drawing.Point(496, 90);
+            this.cautareAvansataPage_titluTextBox.Name = "cautareAvansataPage_titluTextBox";
+            this.cautareAvansataPage_titluTextBox.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_titluTextBox.TabIndex = 3;
             // 
             // label22
             // 
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(422, 106);
+            this.label22.Location = new System.Drawing.Point(463, 93);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(27, 13);
             this.label22.TabIndex = 2;
@@ -2063,14 +2061,14 @@
             this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(853, 16);
             this.treeView1.Name = "treeView1";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "Node1";
-            treeNode8.Name = "Node2";
-            treeNode8.Text = "Node2";
-            treeNode9.Name = "Node0";
-            treeNode9.Text = "Node0";
+            treeNode1.Name = "Node1";
+            treeNode1.Text = "Node1";
+            treeNode2.Name = "Node2";
+            treeNode2.Text = "Node2";
+            treeNode3.Name = "Node0";
+            treeNode3.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9});
+            treeNode3});
             this.treeView1.Size = new System.Drawing.Size(224, 138);
             this.treeView1.TabIndex = 106;
             // 
@@ -2619,6 +2617,52 @@
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
             // 
+            // cautareAvansataPage_autorCheckListBox
+            // 
+            this.cautareAvansataPage_autorCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_autorCheckListBox.FormattingEnabled = true;
+            this.cautareAvansataPage_autorCheckListBox.Location = new System.Drawing.Point(496, 142);
+            this.cautareAvansataPage_autorCheckListBox.Name = "cautareAvansataPage_autorCheckListBox";
+            this.cautareAvansataPage_autorCheckListBox.Size = new System.Drawing.Size(356, 79);
+            this.cautareAvansataPage_autorCheckListBox.TabIndex = 39;
+            // 
+            // cautareAvansataPage_genCheckListBox
+            // 
+            this.cautareAvansataPage_genCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_genCheckListBox.FormattingEnabled = true;
+            this.cautareAvansataPage_genCheckListBox.Location = new System.Drawing.Point(496, 254);
+            this.cautareAvansataPage_genCheckListBox.Name = "cautareAvansataPage_genCheckListBox";
+            this.cautareAvansataPage_genCheckListBox.Size = new System.Drawing.Size(356, 79);
+            this.cautareAvansataPage_genCheckListBox.TabIndex = 40;
+            // 
+            // cautareAvansataPage_edituraCheckListBox
+            // 
+            this.cautareAvansataPage_edituraCheckListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_edituraCheckListBox.FormattingEnabled = true;
+            this.cautareAvansataPage_edituraCheckListBox.Location = new System.Drawing.Point(496, 339);
+            this.cautareAvansataPage_edituraCheckListBox.Name = "cautareAvansataPage_edituraCheckListBox";
+            this.cautareAvansataPage_edituraCheckListBox.Size = new System.Drawing.Size(356, 79);
+            this.cautareAvansataPage_edituraCheckListBox.TabIndex = 41;
+            // 
+            // label66
+            // 
+            this.label66.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(389, 339);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(101, 13);
+            this.label66.TabIndex = 42;
+            this.label66.Text = "Publicata la editurile";
+            // 
+            // cautareAvansataPage_notaMaskTextBox
+            // 
+            this.cautareAvansataPage_notaMaskTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_notaMaskTextBox.Location = new System.Drawing.Point(496, 424);
+            this.cautareAvansataPage_notaMaskTextBox.Mask = "0";
+            this.cautareAvansataPage_notaMaskTextBox.Name = "cautareAvansataPage_notaMaskTextBox";
+            this.cautareAvansataPage_notaMaskTextBox.Size = new System.Drawing.Size(356, 20);
+            this.cautareAvansataPage_notaMaskTextBox.TabIndex = 43;
+            // 
             // aplicatie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2648,9 +2692,8 @@
             this.cautareColectiePage.PerformLayout();
             this.cautareAvansataPage.ResumeLayout(false);
             this.cautareAvansataPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cautareAvansataPage_notaMaximaNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cautareAvansataPage_notaMinimaNumericUpDown)).EndInit();
             this.rezultateleCautariiPage.ResumeLayout(false);
             this.rezultateleCautariiPage.PerformLayout();
             this.acordareFunctiePage.ResumeLayout(false);
@@ -2736,23 +2779,20 @@
         private System.Windows.Forms.TabPage cautareAvansataPage;
         private System.Windows.Forms.TabPage rezultateleCautariiPage;
         private System.Windows.Forms.Panel rezultateleCautariiPage_imaginePanou;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.DateTimePicker cautareAvansataPage_dataDateTimePicker;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox cautareAvansataPage_isbnTextBox;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox cautareAvansataPage_titluTextBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button cautareAvansataPage_cautaButon;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.ComboBox cautareAvansataPage_colectiiComboBox;
+        private System.Windows.Forms.NumericUpDown cautareAvansataPage_notaMaximaNumericUpDown;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown cautareAvansataPage_notaMinimaNumericUpDown;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox rezultateleCautariiPage_rezumatTextBox;
@@ -2898,6 +2938,11 @@
         private System.Windows.Forms.ListBox rezultateleCautariiPage_autoriListBox;
         private System.Windows.Forms.Label cautareTitluPage_titluErrorLabel;
         private System.Windows.Forms.Label cautareColectiePage_caolectiiErrorLabel;
+        private System.Windows.Forms.MaskedTextBox cautareAvansataPage_notaMaskTextBox;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.CheckedListBox cautareAvansataPage_edituraCheckListBox;
+        private System.Windows.Forms.CheckedListBox cautareAvansataPage_genCheckListBox;
+        private System.Windows.Forms.CheckedListBox cautareAvansataPage_autorCheckListBox;
 
     }
 }
