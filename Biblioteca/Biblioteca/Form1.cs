@@ -956,6 +956,7 @@ namespace Biblioteca
                     MessageBox.Show("Mai aveti voie sa imprumutati " + (3 - Int32.Parse(imprumuturiDataTable.Rows[0].ItemArray[0].ToString())).ToString() + " carti!\nDeselectati cateva carti!");
             }
         }
+
      
     }
 }

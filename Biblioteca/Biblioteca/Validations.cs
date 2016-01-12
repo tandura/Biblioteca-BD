@@ -230,5 +230,132 @@ namespace Biblioteca
                 if (signin_corpEmailTextBox.Text == "" && signin_serverEmailTextBox.Text == "")
                     signin_emailErrorLabel.Visible = false;
         }
+
+        private void acordareFunctiePage_usernameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (acordareFunctiePage_usernameTextBox.Text != "")
+                acordareFunctiePage_usernameErrorLabel.Visible = false;
+            else
+            {
+                acordareFunctiePage_usernameErrorLabel.Text = "Introduceti un username!";
+                acordareFunctiePage_usernameErrorLabel.Visible = true;
+                return;
+            }
+        }
+
+        private void acordareFunctiePage_functieComboBox_Leave(object sender, EventArgs e)
+        {
+            if (acordareFunctiePage_functieComboBox.SelectedIndex == 0)
+            {
+                acordareFunctiePage_functieErrorLabel.Text = "Selectati Functia!";
+                acordareFunctiePage_functieErrorLabel.Visible = true;
+                return;
+            }
+            else
+                acordareFunctiePage_functieErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_numarPaginiTextBox_Leave(object sender, EventArgs e)
+        {
+            int numarPagini;
+            if (inserareCartePage_numarPaginiTextBox.Text == "" || !Int32.TryParse(inserareCartePage_numarPaginiTextBox.Text, out numarPagini))
+            {
+                inserareCartePage_nrPaginiErrorLabel.Text = "Necesar!";
+                inserareCartePage_nrPaginiErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_nrPaginiErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_notaCarteTextBox_Leave(object sender, EventArgs e)
+        {
+            if (inserareCartePage_notaCarteTextBox.Text == "")
+            {
+                inserareCartePage_notaErrorLabel.Text = "Introduceti nota!";
+                inserareCartePage_notaErrorLabel.Visible = true;
+                return;
+            }
+            else
+                if (Int32.Parse(inserareCartePage_notaCarteTextBox.Text) > 5)
+                {
+                    inserareCartePage_notaErrorLabel.Text = "Nota trebuie sa fie <= 5!";
+                    inserareCartePage_notaErrorLabel.Visible = true;
+                    return;
+                }
+                else
+                    inserareCartePage_notaErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_numarExemplareTextBox_Leave(object sender, EventArgs e)
+        {
+            if (inserareCartePage_numarExemplareTextBox.Text == "")
+            {
+                inserareCartePage_exemplareErrorLabel.Text = "Necesar!";
+                inserareCartePage_exemplareErrorLabel.Visible = true;
+            }
+            else
+                inserareCartePage_exemplareErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_edituriCheckList_Leave(object sender, EventArgs e)
+        {
+            if (inserareCartePage_edituriCheckList.CheckedItems.Count == 0)
+            {
+                inserareCartePage_edituraErrorLabel.Text = "Selectati cel putin o editura!";
+                inserareCartePage_edituraErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_edituraErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_autoriCheckList_Leave(object sender, EventArgs e)
+        {
+            if (inserareCartePage_autoriCheckList.CheckedItems.Count == 0)
+            {
+                inserareCartePage_autorErrorLabel.Text = "Selectati cel putin un autor!";
+                inserareCartePage_autorErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_autorErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_genuriCheckList_Leave(object sender, EventArgs e)
+        {
+            if (inserareCartePage_genuriCheckList.CheckedItems.Count == 0)
+            {
+                inserareCartePage_genErrorLabel.Text = "Selectati cel putin un gen!";
+                inserareCartePage_genErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_genErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_titluTextBox_Leave(object sender, EventArgs e)
+        {
+            if (inserareCartePage_titluTextBox.Text == "")
+            {
+                inserareCartePage_titluErrorLabel.Text = "Introduceti un titlu!";
+                inserareCartePage_titluErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_titluErrorLabel.Visible = false;
+        }
+
+        private void inserareCartePage_isbnTextBox_Leave(object sender, EventArgs e)
+        {
+            if (IsbnValidation.TryValidate(inserareCartePage_isbnTextBox.Text) == false)
+            {
+                inserareCartePage_isbnErrorLabel.Text = "Isbn-ul nu este valid";
+                inserareCartePage_isbnErrorLabel.Visible = true;
+                return;
+            }
+            else
+                inserareCartePage_isbnErrorLabel.Visible = false;
+        }
     }
 }

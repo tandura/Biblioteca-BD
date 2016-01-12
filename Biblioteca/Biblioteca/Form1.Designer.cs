@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Node1");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node2");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Node1");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Node2");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
             this.tabControler = new System.Windows.Forms.TabControl();
             this.home = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -97,6 +97,8 @@
             this.cautareColectiePage_cautaButon = new System.Windows.Forms.Button();
             this.cautareColectiePage_colectieLabel = new System.Windows.Forms.Label();
             this.cautareAvansataPage = new System.Windows.Forms.TabPage();
+            this.cautareAvansataPage_notaErrorLabel = new System.Windows.Forms.Label();
+            this.cautareAvansataPage_isbnErrorLabel = new System.Windows.Forms.Label();
             this.cautareAvansataPage_notaMaskTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label66 = new System.Windows.Forms.Label();
             this.cautareAvansataPage_edituraCheckListBox = new System.Windows.Forms.CheckedListBox();
@@ -255,8 +257,6 @@
             this.creareGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imprumutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vizualizareIstoricToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cautareAvansataPage_isbnErrorLabel = new System.Windows.Forms.Label();
-            this.cautareAvansataPage_notaErrorLabel = new System.Windows.Forms.Label();
             this.tabControler.SuspendLayout();
             this.home.SuspendLayout();
             this.loginPage.SuspendLayout();
@@ -1037,6 +1037,30 @@
             this.cautareAvansataPage.TabIndex = 6;
             this.cautareAvansataPage.Text = "Cautare avansata";
             // 
+            // cautareAvansataPage_notaErrorLabel
+            // 
+            this.cautareAvansataPage_notaErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_notaErrorLabel.AutoSize = true;
+            this.cautareAvansataPage_notaErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareAvansataPage_notaErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareAvansataPage_notaErrorLabel.Location = new System.Drawing.Point(858, 427);
+            this.cautareAvansataPage_notaErrorLabel.Name = "cautareAvansataPage_notaErrorLabel";
+            this.cautareAvansataPage_notaErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareAvansataPage_notaErrorLabel.TabIndex = 45;
+            this.cautareAvansataPage_notaErrorLabel.Text = "label18";
+            // 
+            // cautareAvansataPage_isbnErrorLabel
+            // 
+            this.cautareAvansataPage_isbnErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cautareAvansataPage_isbnErrorLabel.AutoSize = true;
+            this.cautareAvansataPage_isbnErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cautareAvansataPage_isbnErrorLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.cautareAvansataPage_isbnErrorLabel.Location = new System.Drawing.Point(858, 119);
+            this.cautareAvansataPage_isbnErrorLabel.Name = "cautareAvansataPage_isbnErrorLabel";
+            this.cautareAvansataPage_isbnErrorLabel.Size = new System.Drawing.Size(48, 13);
+            this.cautareAvansataPage_isbnErrorLabel.TabIndex = 44;
+            this.cautareAvansataPage_isbnErrorLabel.Text = "label18";
+            // 
             // cautareAvansataPage_notaMaskTextBox
             // 
             this.cautareAvansataPage_notaMaskTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1563,6 +1587,7 @@
             this.acordareFunctiePage_functieComboBox.Name = "acordareFunctiePage_functieComboBox";
             this.acordareFunctiePage_functieComboBox.Size = new System.Drawing.Size(356, 21);
             this.acordareFunctiePage_functieComboBox.TabIndex = 5;
+            this.acordareFunctiePage_functieComboBox.Leave += new System.EventHandler(this.acordareFunctiePage_functieComboBox_Leave);
             // 
             // label40
             // 
@@ -1581,6 +1606,7 @@
             this.acordareFunctiePage_usernameTextBox.Name = "acordareFunctiePage_usernameTextBox";
             this.acordareFunctiePage_usernameTextBox.Size = new System.Drawing.Size(356, 20);
             this.acordareFunctiePage_usernameTextBox.TabIndex = 3;
+            this.acordareFunctiePage_usernameTextBox.Leave += new System.EventHandler(this.acordareFunctiePage_usernameTextBox_Leave);
             // 
             // label39
             // 
@@ -1738,7 +1764,8 @@
             this.inserareCartePage_numarExemplareTextBox.Mask = "000";
             this.inserareCartePage_numarExemplareTextBox.Name = "inserareCartePage_numarExemplareTextBox";
             this.inserareCartePage_numarExemplareTextBox.Size = new System.Drawing.Size(96, 20);
-            this.inserareCartePage_numarExemplareTextBox.TabIndex = 90;
+            this.inserareCartePage_numarExemplareTextBox.TabIndex = 10;
+            this.inserareCartePage_numarExemplareTextBox.Leave += new System.EventHandler(this.inserareCartePage_numarExemplareTextBox_Leave);
             // 
             // label21
             // 
@@ -1755,7 +1782,8 @@
             this.inserareCartePage_notaCarteTextBox.Mask = "0";
             this.inserareCartePage_notaCarteTextBox.Name = "inserareCartePage_notaCarteTextBox";
             this.inserareCartePage_notaCarteTextBox.Size = new System.Drawing.Size(49, 20);
-            this.inserareCartePage_notaCarteTextBox.TabIndex = 88;
+            this.inserareCartePage_notaCarteTextBox.TabIndex = 9;
+            this.inserareCartePage_notaCarteTextBox.Leave += new System.EventHandler(this.inserareCartePage_notaCarteTextBox_Leave);
             // 
             // inserareCartePage_autoriCheckList
             // 
@@ -1764,7 +1792,8 @@
             this.inserareCartePage_autoriCheckList.Location = new System.Drawing.Point(363, 91);
             this.inserareCartePage_autoriCheckList.Name = "inserareCartePage_autoriCheckList";
             this.inserareCartePage_autoriCheckList.Size = new System.Drawing.Size(356, 94);
-            this.inserareCartePage_autoriCheckList.TabIndex = 87;
+            this.inserareCartePage_autoriCheckList.TabIndex = 2;
+            this.inserareCartePage_autoriCheckList.Leave += new System.EventHandler(this.inserareCartePage_autoriCheckList_Leave);
             // 
             // inserareCartePage_edituriCheckList
             // 
@@ -1773,7 +1802,8 @@
             this.inserareCartePage_edituriCheckList.Location = new System.Drawing.Point(363, 333);
             this.inserareCartePage_edituriCheckList.Name = "inserareCartePage_edituriCheckList";
             this.inserareCartePage_edituriCheckList.Size = new System.Drawing.Size(356, 94);
-            this.inserareCartePage_edituriCheckList.TabIndex = 86;
+            this.inserareCartePage_edituriCheckList.TabIndex = 5;
+            this.inserareCartePage_edituriCheckList.Leave += new System.EventHandler(this.inserareCartePage_edituriCheckList_Leave);
             // 
             // label18
             // 
@@ -1792,7 +1822,8 @@
             this.inserareCartePage_genuriCheckList.Location = new System.Drawing.Point(363, 228);
             this.inserareCartePage_genuriCheckList.Name = "inserareCartePage_genuriCheckList";
             this.inserareCartePage_genuriCheckList.Size = new System.Drawing.Size(356, 94);
-            this.inserareCartePage_genuriCheckList.TabIndex = 84;
+            this.inserareCartePage_genuriCheckList.TabIndex = 4;
+            this.inserareCartePage_genuriCheckList.Leave += new System.EventHandler(this.inserareCartePage_genuriCheckList_Leave);
             // 
             // inserareCartePage_dataAparitiei
             // 
@@ -1800,7 +1831,7 @@
             this.inserareCartePage_dataAparitiei.Location = new System.Drawing.Point(116, 249);
             this.inserareCartePage_dataAparitiei.Name = "inserareCartePage_dataAparitiei";
             this.inserareCartePage_dataAparitiei.Size = new System.Drawing.Size(136, 20);
-            this.inserareCartePage_dataAparitiei.TabIndex = 83;
+            this.inserareCartePage_dataAparitiei.TabIndex = 7;
             // 
             // inserareCartePage_colectieComboBox
             // 
@@ -1809,7 +1840,7 @@
             this.inserareCartePage_colectieComboBox.Location = new System.Drawing.Point(363, 196);
             this.inserareCartePage_colectieComboBox.Name = "inserareCartePage_colectieComboBox";
             this.inserareCartePage_colectieComboBox.Size = new System.Drawing.Size(356, 21);
-            this.inserareCartePage_colectieComboBox.TabIndex = 82;
+            this.inserareCartePage_colectieComboBox.TabIndex = 3;
             // 
             // inserareCartePage_inserareButton
             // 
@@ -1817,7 +1848,7 @@
             this.inserareCartePage_inserareButton.Location = new System.Drawing.Point(569, 588);
             this.inserareCartePage_inserareButton.Name = "inserareCartePage_inserareButton";
             this.inserareCartePage_inserareButton.Size = new System.Drawing.Size(75, 23);
-            this.inserareCartePage_inserareButton.TabIndex = 81;
+            this.inserareCartePage_inserareButton.TabIndex = 12;
             this.inserareCartePage_inserareButton.Text = "Inserare";
             this.inserareCartePage_inserareButton.UseVisualStyleBackColor = true;
             this.inserareCartePage_inserareButton.Click += new System.EventHandler(this.inserareCartePage_inserareButton_Click);
@@ -1828,7 +1859,7 @@
             this.inserareCartePage_inserarePozaButton.Location = new System.Drawing.Point(45, 208);
             this.inserareCartePage_inserarePozaButton.Name = "inserareCartePage_inserarePozaButton";
             this.inserareCartePage_inserarePozaButton.Size = new System.Drawing.Size(134, 23);
-            this.inserareCartePage_inserarePozaButton.TabIndex = 80;
+            this.inserareCartePage_inserarePozaButton.TabIndex = 6;
             this.inserareCartePage_inserarePozaButton.Text = "Inserare poza coperta";
             this.inserareCartePage_inserarePozaButton.UseVisualStyleBackColor = true;
             this.inserareCartePage_inserarePozaButton.Click += new System.EventHandler(this.inserareCartePage_inserarePozaButton_Click);
@@ -1840,7 +1871,7 @@
             this.inserareCartePage_rezumatTextBox.Multiline = true;
             this.inserareCartePage_rezumatTextBox.Name = "inserareCartePage_rezumatTextBox";
             this.inserareCartePage_rezumatTextBox.Size = new System.Drawing.Size(1157, 135);
-            this.inserareCartePage_rezumatTextBox.TabIndex = 79;
+            this.inserareCartePage_rezumatTextBox.TabIndex = 11;
             // 
             // label41
             // 
@@ -1866,9 +1897,11 @@
             // 
             this.inserareCartePage_numarPaginiTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.inserareCartePage_numarPaginiTextBox.Location = new System.Drawing.Point(132, 275);
+            this.inserareCartePage_numarPaginiTextBox.MaxLength = 3;
             this.inserareCartePage_numarPaginiTextBox.Name = "inserareCartePage_numarPaginiTextBox";
             this.inserareCartePage_numarPaginiTextBox.Size = new System.Drawing.Size(86, 20);
-            this.inserareCartePage_numarPaginiTextBox.TabIndex = 75;
+            this.inserareCartePage_numarPaginiTextBox.TabIndex = 8;
+            this.inserareCartePage_numarPaginiTextBox.Leave += new System.EventHandler(this.inserareCartePage_numarPaginiTextBox_Leave);
             // 
             // label43
             // 
@@ -1926,7 +1959,8 @@
             this.inserareCartePage_isbnTextBox.Location = new System.Drawing.Point(363, 60);
             this.inserareCartePage_isbnTextBox.Name = "inserareCartePage_isbnTextBox";
             this.inserareCartePage_isbnTextBox.Size = new System.Drawing.Size(356, 20);
-            this.inserareCartePage_isbnTextBox.TabIndex = 65;
+            this.inserareCartePage_isbnTextBox.TabIndex = 1;
+            this.inserareCartePage_isbnTextBox.Leave += new System.EventHandler(this.inserareCartePage_isbnTextBox_Leave);
             // 
             // label48
             // 
@@ -1944,7 +1978,8 @@
             this.inserareCartePage_titluTextBox.Location = new System.Drawing.Point(363, 29);
             this.inserareCartePage_titluTextBox.Name = "inserareCartePage_titluTextBox";
             this.inserareCartePage_titluTextBox.Size = new System.Drawing.Size(356, 20);
-            this.inserareCartePage_titluTextBox.TabIndex = 63;
+            this.inserareCartePage_titluTextBox.TabIndex = 0;
+            this.inserareCartePage_titluTextBox.Leave += new System.EventHandler(this.inserareCartePage_titluTextBox_Leave);
             // 
             // label49
             // 
@@ -2111,14 +2146,14 @@
             this.treeView1.CheckBoxes = true;
             this.treeView1.Location = new System.Drawing.Point(853, 16);
             this.treeView1.Name = "treeView1";
-            treeNode7.Name = "Node1";
-            treeNode7.Text = "Node1";
-            treeNode8.Name = "Node2";
-            treeNode8.Text = "Node2";
-            treeNode9.Name = "Node0";
-            treeNode9.Text = "Node0";
+            treeNode4.Name = "Node1";
+            treeNode4.Text = "Node1";
+            treeNode5.Name = "Node2";
+            treeNode5.Text = "Node2";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Node0";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode9});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(224, 138);
             this.treeView1.TabIndex = 106;
             // 
@@ -2573,28 +2608,28 @@
             // dupaTitluToolStripMenuItem
             // 
             this.dupaTitluToolStripMenuItem.Name = "dupaTitluToolStripMenuItem";
-            this.dupaTitluToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.dupaTitluToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dupaTitluToolStripMenuItem.Text = "Dupa titlu";
             this.dupaTitluToolStripMenuItem.Click += new System.EventHandler(this.dupaTitluToolStripMenuItem_Click);
             // 
             // dupaAutorToolStripMenuItem
             // 
             this.dupaAutorToolStripMenuItem.Name = "dupaAutorToolStripMenuItem";
-            this.dupaAutorToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.dupaAutorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dupaAutorToolStripMenuItem.Text = "Dupa autor";
             this.dupaAutorToolStripMenuItem.Click += new System.EventHandler(this.dupaAutorToolStripMenuItem_Click);
             // 
             // dupaColectieToolStripMenuItem
             // 
             this.dupaColectieToolStripMenuItem.Name = "dupaColectieToolStripMenuItem";
-            this.dupaColectieToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.dupaColectieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.dupaColectieToolStripMenuItem.Text = "Dupa colectie";
             this.dupaColectieToolStripMenuItem.Click += new System.EventHandler(this.dupaColectieToolStripMenuItem_Click);
             // 
             // avansataToolStripMenuItem
             // 
             this.avansataToolStripMenuItem.Name = "avansataToolStripMenuItem";
-            this.avansataToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.avansataToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.avansataToolStripMenuItem.Text = "Avansata";
             this.avansataToolStripMenuItem.Click += new System.EventHandler(this.avansataToolStripMenuItem_Click);
             // 
@@ -2666,30 +2701,6 @@
             this.vizualizareIstoricToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.vizualizareIstoricToolStripMenuItem.Text = "Vizualizare Istoric";
             this.vizualizareIstoricToolStripMenuItem.Click += new System.EventHandler(this.vizualizareIstoricToolStripMenuItem_Click);
-            // 
-            // cautareAvansataPage_isbnErrorLabel
-            // 
-            this.cautareAvansataPage_isbnErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_isbnErrorLabel.AutoSize = true;
-            this.cautareAvansataPage_isbnErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cautareAvansataPage_isbnErrorLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.cautareAvansataPage_isbnErrorLabel.Location = new System.Drawing.Point(858, 119);
-            this.cautareAvansataPage_isbnErrorLabel.Name = "cautareAvansataPage_isbnErrorLabel";
-            this.cautareAvansataPage_isbnErrorLabel.Size = new System.Drawing.Size(48, 13);
-            this.cautareAvansataPage_isbnErrorLabel.TabIndex = 44;
-            this.cautareAvansataPage_isbnErrorLabel.Text = "label18";
-            // 
-            // cautareAvansataPage_notaErrorLabel
-            // 
-            this.cautareAvansataPage_notaErrorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cautareAvansataPage_notaErrorLabel.AutoSize = true;
-            this.cautareAvansataPage_notaErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cautareAvansataPage_notaErrorLabel.ForeColor = System.Drawing.Color.Maroon;
-            this.cautareAvansataPage_notaErrorLabel.Location = new System.Drawing.Point(858, 427);
-            this.cautareAvansataPage_notaErrorLabel.Name = "cautareAvansataPage_notaErrorLabel";
-            this.cautareAvansataPage_notaErrorLabel.Size = new System.Drawing.Size(48, 13);
-            this.cautareAvansataPage_notaErrorLabel.TabIndex = 45;
-            this.cautareAvansataPage_notaErrorLabel.Text = "label18";
             // 
             // aplicatie
             // 
